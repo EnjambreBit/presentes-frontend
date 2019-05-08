@@ -1,0 +1,21 @@
+<div class="flex flex-column vh-100">
+  <div>
+    {{presentes-ui/header}}
+  </div>
+
+  <div class="pa2 roboto center {{if imprimir.enModoImpresion '' 'flex1 overflow-y-scroll w-100'}}">
+    <div class="mw9 center">
+      {{outlet}}
+    </div>
+  </div>
+</div>
+
+
+<div class="print-only roboto">
+
+  <!-- NOTA: precarga un ícono para que font-awesome se cargue inmediatamente. -->
+  <div style="visibility: hidden">
+    <i class="fas fa-user-plus sat-blue"></i>
+  </div>
+
+</div>

@@ -1,0 +1,31 @@
+{{#if (media 'isMobile')}}
+  <div class="flex shadow-1 bg-sat-blue white dinnext-regular">
+    {{presentes-ui/menu-mobile}}
+
+    <div class="b4lue pa1 pointer disable-select pr4" {{action (transition-to "app.index")}}>
+      {{presentes-ui/logo size=38 extraClass='v-top'}}
+    </div>
+  </div>
+{{else}}
+  <div class="flex shadow-1 bg-sat-blue white dinnext-regular">
+
+    <div class="b4lue pa1 pointer disable-select pr4" {{action (transition-to "app.index")}}>
+      {{presentes-ui/logo extraClass='v-top'}}
+
+      <div class="dib h-100 pt2 mt1">
+        Korolev
+      </div>
+
+
+    </div>
+
+    <div class="flex1">
+      {{presentes-ui/secciones}}
+    </div>
+
+    <div class="white">
+      {{#link-to "logout" activeClass="bg-light-blue navy b bb b-sat-blue" class="link white dim h-100 pa2 pt3 dib"}}Salir{{/link-to}}
+    </div>
+
+  </div>
+{{/if}}
