@@ -14,7 +14,7 @@
     "build": "ember build",
     "lint:js": "eslint .",
     "release": "ember release",
-    "start": "ember serve serve --proxy=http://localhost:8000",
+    "start": "ember serve --proxy=http://localhost:8000",
     "start_mirage": "ember serve",
     "test": "ember test"
   },
