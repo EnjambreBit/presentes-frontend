@@ -1,4 +1,9 @@
-import Route from '@ember/routing/route';
+import Route from "@ember/routing/route";
+import { inject as service } from "@ember/service";
 
 export default Route.extend({
+  session: service(),
+  afterModel() {
+    this.get("session").invalidate();
+  }
 });

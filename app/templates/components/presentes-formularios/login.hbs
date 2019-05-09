@@ -1,0 +1,35 @@
+{{yield}}
+
+<article class="vh-100 dt w-100 roboto bg-sat-blue">
+  <div class="dtc v-mid tc ph3 ph7-l pv6-l">
+    <div class="bg-white br3 pv3-l formulario">
+      {{presentes-ui/logo}}
+
+      <h1 class='tc pb3 bb-0'>Presentes</h1>
+
+      <div class="tc mw5 center">
+
+        <div>
+          <label class="f6 db mb2">Usuario</label>
+          {{input class='w-100 pa2 br2 ba b--light-silver w-100 input' value=usuario autofocus=true type="text" name="usuario" placeholder="Usuario" enter=(action 'hacerFocoSobrePassword')}}
+        </div>
+
+        <div class="pv4">
+          <label class="f6 db mb2">Contraseña</label>
+          {{input class='w-100 pa2 br2 ba b--light-silver w-100 input' value=password type="password" name="password" placeholder="Password" enter=(action 'login')}}
+        </div>
+
+        <div class="pa2 tc pt4">
+          <button class='bg-blue white hover-bg-dark-blue outline-0 ba bg-animate hover-b--dark-blue b--blue br2 pa2 w4 pointer button' {{action "ingresar"}} name='login'>Ingresar</button>
+        </div>
+
+        {{#if error}}
+          <div class="red pa2">
+            {{error}}
+          </div>
+        {{/if}}
+
+      </div>
+    </div>
+  </div>
+</article>

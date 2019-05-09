@@ -1,5 +1,5 @@
 {{#if (media 'isMobile')}}
-  <div class="flex shadow-1 bg-sat-blue white dinnext-regular">
+  <div class="flex shadow-1 bg-white gray dinnext-regular">
     {{presentes-ui/menu-mobile}}
 
     <div class="b4lue pa1 pointer disable-select pr4" {{action (transition-to "app.index")}}>
@@ -7,24 +7,19 @@
     </div>
   </div>
 {{else}}
-  <div class="flex shadow-1 bg-sat-blue white dinnext-regular">
+  <div class="flex shadow-1 bg-white gray dinnext-regular">
 
-    <div class="b4lue pa1 pointer disable-select pr4" {{action (transition-to "app.index")}}>
+    <div class="b4lue pa0 pointer disable-select pr4" {{action (transition-to "app.index")}}>
       {{presentes-ui/logo extraClass='v-top'}}
-
-      <div class="dib h-100 pt2 mt1">
-        Korolev
-      </div>
-
-
     </div>
 
     <div class="flex1">
       {{presentes-ui/secciones}}
     </div>
 
-    <div class="white">
-      {{#link-to "logout" activeClass="bg-light-blue navy b bb b-sat-blue" class="link white dim h-100 pa2 pt3 dib"}}Salir{{/link-to}}
+    <div class="gray">
+      {{#link-to "app.mi-perfil" activeClass="bg-black white b bw2 bb b-purple" class="link gray dim h-100 pa2 pt3 dib"}}Mi perfil{{/link-to}}
+      {{#link-to "logout" activeClass="bg-black white b bb bw2 b-purple" class="link gray dim h-100 pa2 pt3 dib"}}Salir{{/link-to}}
     </div>
 
   </div>

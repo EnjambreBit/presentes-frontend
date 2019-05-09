@@ -1,1 +1,28 @@
-{{yield}}
+<div class="f3 tc dim pointer pa2" {{action 'alternar'}}>
+  ☰
+</div>
+
+{{#if mostrar}}
+  <div class='fixed absolute--fill bg-black o-50 z-999 pointer' {{action 'alternar'}}>
+  </div>
+
+  {{#presentes-ui/dropdown animacion='from-left-in'}}
+    <div style="height: 100vh" class="bg-sat-blue white shadow-1 fixed left-0 top-0 bottom-0 w-17rem z-max disable-select">
+      <div class="pa2" {{action 'alternar'}}>
+        {{presentes-ui/logo extraClass='v-top'}}
+
+        <div class="dib h-100 pt2">
+          Presentes
+        </div>
+      </div>
+
+      <div {{action 'alternar'}} class="pt4">
+        {{presentes-ui/secciones mobile=true}}
+      </div>
+
+      <div class="bb b--light-gray mh3 pa2"></div>
+    </div>
+  {{/presentes-ui/dropdown}}
+
+
+{{/if}}
