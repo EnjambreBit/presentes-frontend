@@ -11,6 +11,7 @@ Router.map(function() {
     this.route("app");
     this.route("mi-perfil");
     this.route('usuarios', function() {});
+    this.route('mapa');
   });
   this.route("login");
   this.route("logout");

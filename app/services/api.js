@@ -37,7 +37,17 @@ export default Service.extend({
     return this.session.session.content.authenticated.token;
   }),
 
-  fetch(endpoint) {
+  fetch(endpoint, usar_token) {
+    let headers = {};
+
+    if (usar_token === undefined) {
+      usar_token = false;
+    }
+
+    if (usar_token) {
+      headers = { Authorization: `Token ${this.token}` };
+    }
+
     if (endpoint.endsWith("/")) {
       throw Error(`El endpoint '${endpoint} no debería terminar con /`);
     }
@@ -46,7 +56,7 @@ export default Service.extend({
       url: `${ENV.API_URL}/api/${endpoint}`,
       type: "GET",
       dataType: "json",
-      headers: { Authorization: `Token ${this.token}` }
+      headers: headers
     });
   },
 
