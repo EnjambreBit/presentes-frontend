@@ -52,5 +52,9 @@ export default Service.extend({
 
   obtenerPerfiles() {
     return this.fetch(`perfiles/obtener-nombres`);
+  },
+
+  obtenerCasos() {
+    return this.fetch(`casos/obtener-casos`);
   }
 });

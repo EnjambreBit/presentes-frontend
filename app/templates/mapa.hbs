@@ -1,18 +1,8 @@
-<LeafletMap @lat={{lat}} @lng={{lng}} @zoom={{zoom}} as |layers|>
-  {{!-- <layers.tile @url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"/> --}}
-  <layers.tile @url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png "/>
-  <layers.marker @location={{emberConfLocation}} as |marker|>
-    <marker.popup>
-      <h3>The Oregon Convention Center</h3>
-      777 NE Martin Luther King Jr Blvd<br>
-      Portland, OR 97232
-    </marker.popup>
-  </layers.marker>
-
-  <layers.marker @location={{enjambreBit}} as |marker|>
-    <marker.popup>
-      <h3>Enjambre Bit SRL</h3>
-      <a href="www.enjambrebit.com.ar" target="_blank">www.enjambrebit.com.ar</a>
-    </marker.popup>
-  </layers.marker>
-</LeafletMap>
+<div class="absolute absolute--fill">
+  {{presentes-ui/mapa
+    latitud="-39.026471"
+    longitud="-63.5953674"
+    zoom="4"
+    model=model
+  }}
+</div>

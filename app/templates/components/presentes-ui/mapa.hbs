@@ -1,0 +1,11 @@
+<LeafletMap @lat={{latitud}} @lng={{longitud}} @zoom={{zoom}} as |layers|>
+  <layers.tile @url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png "/>
+  {{#each model.data as |m|}}
+    <layers.marker @lat={{m.latitud}} @lng={{m.longitud}} as |marker|>
+      <marker.popup @onClick={{action "accionDePrueba"}}>
+        <h3>{{m.nombre}} {{m.apellido}}</h3>
+        <p>Ocurrió el {{moment-format m.fechaDelHecho 'DD/MM/YYYY'}} en {{m.localidad}}, {{m.provincia}}</p>
+      </marker.popup>
+    </layers.marker>
+  {{/each}}
+</LeafletMap>
