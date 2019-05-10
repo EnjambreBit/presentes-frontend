@@ -42,6 +42,7 @@ ejecutar_con_mirage:
 deploy:
 	rm -rf dist
 	@API_URL="https://presentes-backend.enjambrelab.space" yarn build --prod
+	@touch dist/.static
 	@echo "Compilando aplicación en modo producción"
 	@echo "Clonando repositorio para realizar el deploy."
 	@rm -rf publish
