@@ -40,8 +40,10 @@ export default Service.extend({
   fetch(endpoint, usar_token) {
     let headers = {};
 
-    if (usar_token === undefined) {
+    if (usar_token === false) {
       usar_token = false;
+    } else {
+      usar_token = true;
     }
 
     if (usar_token) {
@@ -65,6 +67,6 @@ export default Service.extend({
   },
 
   obtenerCasos() {
-    return this.fetch(`casos/obtener-casos`);
+    return this.fetch(`casos/obtener-casos`, false);
   }
 });

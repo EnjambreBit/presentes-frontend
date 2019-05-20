@@ -5,9 +5,9 @@ export default Component.extend({
   didInsertElement() {},
 
   actions: {
-    accionDePrueba() {
-      let test = "click";
-      console.log(test);
+    accionDePrueba(caso) {
+      console.log(caso);
+      alert("Mostrando caso " + caso.id);
     }
   }
 });
