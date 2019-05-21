@@ -12,6 +12,12 @@ Router.map(function() {
     this.route("mi-perfil");
     this.route('usuarios', function() {});
     this.route('mapa');
+
+    this.route('casos', function() {
+      this.route('crear');
+      this.route('detalle');
+      this.route('editar');
+    });
   });
   this.route("login");
   this.route("logout");

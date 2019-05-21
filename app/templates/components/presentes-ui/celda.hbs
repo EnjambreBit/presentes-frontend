@@ -1,0 +1,9 @@
+{{yield}}
+
+{{#if debeMostrarPopup}}
+  <div class="absolute no-pointer-events ">
+    <div class="relative shadow-3 w6 ba b--light-silver br2 pa2 bg-white">
+      {{yield}}
+    </div>
+  </div>
+{{/if}}

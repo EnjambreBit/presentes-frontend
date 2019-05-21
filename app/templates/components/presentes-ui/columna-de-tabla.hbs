@@ -1,0 +1,18 @@
+{{yield}}
+
+{{#if columna.ordenamiento}}
+  <th class="tl normal truncate pa2 pointer disable-select {{clase}} {{claseExpandir}}" {{action "cambiarOrden" columna}}>
+
+    {{#if (eq ordenamiento columna.ordenamiento)}}
+      {{fa-icon "sort-asc"}}
+    {{else if (eq ordenamiento (concat '-' columna.ordenamiento))}}
+      {{fa-icon "sort-desc"}}
+    {{else}}
+      <span class="o-20">{{fa-icon "sort"}}</span>
+    {{/if}}
+
+
+    {{columna.titulo}}</th>
+{{else}}
+  <th class="tl normal truncate pa2 {{clase}} {{claseExpandir}}">{{columna.titulo}}</th>
+{{/if}}

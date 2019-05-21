@@ -1,0 +1,95 @@
+{{yield}}
+
+<div class="dn">{{routeName}}</div>
+
+{{!-- {{#if tareaFiltros}}
+  {{presentes-ui/filtros
+      modulo=modulo
+      alCambiar=(action "alCambiarFiltrosYOrdenamiento")
+      filtrosSeleccionados=filtrosSeleccionados
+      ordenamiento=ordenamiento
+      tareaFiltros=tareaFiltros}}
+{{/if}} --}}
+
+<div class="mv2">
+
+<table class='tabla dinnext-regular collapse dt--fixed relative w-100 lh-copy ba b--moon-gray ph1'>
+  <thead>
+    <tr class="bg-light-blue">
+      {{#each columnas as |columna|}}
+        {{presentes-ui/columna-de-tabla clase=columna.clase ordenamiento=ordenamiento columna=columna cuandoCambiaOrdenamiento=(action "cuandoCambiaOrdenamiento")}}
+      {{/each}}
+    </tr>
+  </thead>
+
+  <tbody class="relative">
+
+  {{#unless tarea.lastSuccessful.value}}
+
+    {{#each (range 0 10) as |number|}}
+      <tr class="bb b--light-gray">
+        {{#each (range 0 cantidad_de_columnas)}}
+          <td class="truncate pa2"> <div class="bg-light-gray mw3 br2">&nbsp;</div> </td>
+        {{/each}}
+      </tr>
+    {{/each}}
+
+  {{else}}
+
+
+    {{#if (and tarea.lastSuccessful.value tarea.last.isRunning)}}
+      <div class="absolute bg-white-70 tc pa4 bottom-0 left-0 right-0 top42px">
+        <img src="/spinners/spinner-negro.svg" />
+      </div>
+    {{else}}
+      <div class="absolute"></div>
+    {{/if}}
+
+
+    {{#each tarea.lastSuccessful.value.filas as |fila|}}
+      <tr class="bb b--light-gray hover-bg-near-white">
+        {{#each columnas as |columna|}}
+            {{#presentes-ui/celda}}
+              {{#if columna.componente}}
+                {{#if (eq columna.componente "presentes-ui/celula-link")}}
+                  {{presentes-ui/caso-link fila=fila}}
+                {{else}}
+                  {{component columna.componente fila=fila}}
+                {{/if}}
+              {{else if columna.fecha}}
+                {{presentes-ui/fecha fila=fila atributo=columna.atributo}}
+              {{else if columna.booleano}}
+                {{presentes-ui/booleano fila=fila}}
+              {{else}}
+                {{get fila columna.atributo}}
+              {{/if}}
+            {{/presentes-ui/celda}}
+        {{/each}}
+      </tr>
+    {{else}}
+      <tr>
+        <td class="tc pa2" colspan={{cantidad_de_columnas}}>No hay registros que coincidan con la búsqueda</td>
+      </tr>
+    {{/each}}
+
+  {{/unless}}
+
+  </tbody>
+
+</table>
+</div>
+
+<div class="tc mv2">
+
+  {{#unless tarea.lastSuccessful.value}}
+    <div class="dib ba b--light-gray pointer dim pa1 w2 gray}}">&nbsp;</div>
+    <div class="dib ba b--light-gray pointer dim pa1 w2 gray}}">&nbsp;</div>
+  {{else}}
+    {{#each (range 1 (add tarea.lastSuccessful.value.meta.pagination.pages 1)) as |p|}}
+      <div role="button" class="dib ba pointer dim pa1 w2 {{if (eq pagina p) 'b--blue bb white bg-blue' 'blue'}}" {{action "definirPagina" p}}>
+        {{p}}
+      </div>
+    {{/each}}
+  {{/unless}}
+
+</div>
