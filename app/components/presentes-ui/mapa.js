@@ -7,7 +7,7 @@ export default Component.extend({
   actions: {
     accionDePrueba(caso) {
       console.log(caso);
-      alert("Mostrando caso " + caso.id);
+      // alert("Mostrando caso " + caso.id);
     }
   }
 });
