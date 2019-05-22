@@ -1,0 +1,28 @@
+
+<div class="{{if etiqueta 'pt3'}}">
+
+  {{#if etiqueta}}
+    <div class="{{if tieneError 'red' 'gray'}} dinnext-regular">
+      {{etiqueta}}
+    </div>
+  {{/if}}
+
+  <div class="{{if sinPadding '' 'pv2'}}">
+    {{yield (hash
+      value=valor
+      valor=valor
+      update=(action 'actualizar')
+    )}}
+  </div>
+
+  <div class="red f7 tr">
+    {{#if tieneError}}
+      {{#each errores as |error|}}
+        <div>
+          {{error}}
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+
+</div>

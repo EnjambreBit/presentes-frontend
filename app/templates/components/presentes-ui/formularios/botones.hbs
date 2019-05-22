@@ -1,0 +1,11 @@
+{{presentes-ui/formularios/errores model=model}}
+
+<div class="b b--red pt4 flex botones">
+  {{yield
+    (hash
+      primario=(component "presentes-ui/formularios/boton" primario=true model=model)
+      separador=(component "presentes-ui/formularios/separador")
+      secundario=(component "presentes-ui/formularios/boton" primario=false model=model)
+    )
+  }}
+</div>

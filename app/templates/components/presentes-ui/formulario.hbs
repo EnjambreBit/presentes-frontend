@@ -1,0 +1,17 @@
+<div class="pa3 measure formulario dinnext">
+  <div class='dn'>{{f.model.errors.length}}</div>
+
+  {{yield (hash
+    model=model
+    input=(component "presentes-ui/formularios/input" model=model)
+    textarea=(component "presentes-ui/formularios/textarea" model=model)
+    personalizado=(component "presentes-ui/formularios/personalizado" model=model)
+    botones=(component "presentes-ui/formularios/botones" model=model)
+    errores=(component "presentes-ui/formularios/errores" model=model tarea=tarea)
+    submit=(action "submit")
+  )}}
+
+  {{presentes-ui/errores-de-formulario tarea=tarea}}
+
+  {{presentes-ui/focalizar-input}}
+</div>

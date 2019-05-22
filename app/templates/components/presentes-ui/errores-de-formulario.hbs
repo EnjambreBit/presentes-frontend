@@ -1,0 +1,16 @@
+{{yield}}
+
+{{#if (or tarea.last.error tarea.last.isError)}}
+  <div class="red pa3">
+    {{tarea.last.error.statusText}}
+
+    {{#each tarea.last.error.errors as |error|}}
+      <li>{{error.source.pointer}}: {{error.detail}}</li>
+    {{/each}}
+
+    {{#if tarea.last.error.responseJSON.errors.error}}
+      <p>{{tarea.last.error.responseJSON.errors.error}}</p>
+    {{/if}}
+
+  </div>
+{{/if}}

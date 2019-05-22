@@ -1,0 +1,29 @@
+{{yield}}
+
+<div class="pt3">
+
+  <div class="{{if tieneError 'red' 'gray'}}">
+    {{etiqueta}}
+  </div>
+
+  <div class="pv2">
+    <textarea
+      value={{valor}}
+      rows=5
+      disabled={{deshabilitado}}
+      onchange={{action "actualizar" value="target.value"}}
+      class="w-100 dinnext pa2 br2 ba {{if deshabilitado 'o-50'}} {{if tieneError 'b--red' 'b--light-silver'}} w-100 input">
+    </textarea>
+  </div>
+
+  <div class="red f7 tr">
+    {{#if tieneError}}
+      {{#each errores as |error|}}
+        <div>
+          {{error}}
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+
+</div>

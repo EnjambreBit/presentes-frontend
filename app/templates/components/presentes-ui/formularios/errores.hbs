@@ -1,0 +1,22 @@
+{{yield}}
+
+<div class="dn">
+
+{{#if model.errors}}
+
+  <div class="pv2 red">
+
+    <div class="pv2">El formulario contiene errores:</div>
+
+    {{#each model.errors as |error|}}
+      {{#each error.validation as |detalle|}}
+        <div class="pv1 pl3">
+          <span class="b">{{error.key}}:</span> {{detalle}}
+        </div>
+      {{/each}}
+    {{/each}}
+
+  </div>
+
+{{/if}}
+</div>
