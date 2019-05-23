@@ -16,8 +16,21 @@ export default Component.extend({
       //   componente: "presentes-ui/celula-link"
       // },
       {
-        titulo: "Nombre",
-        atributo: "nombreCompleto"
+        titulo: "Víctima",
+        atributo: "nombreCompleto",
+        componente: "presentes-ui/caso-link"
+      },
+      {
+        titulo: "Categoría",
+        atributo: "categoria.nombre"
+      },
+      {
+        titulo: "Fecha del hecho",
+        atributo: "fechaDelHecho"
+      },
+      {
+        titulo: "Lugar del hecho",
+        atributo: "lugarDelHechoCompleto"
       }
     ]);
   },

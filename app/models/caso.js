@@ -6,6 +6,7 @@ export default DS.Model.extend({
   apellido: DS.attr("string"),
   lugarDeNacimiento: DS.attr("string"),
   fechaDeNacimiento: DS.attr("string"),
+  lugarDelHecho: DS.attr("string"),
   localidad: DS.attr("string"),
   provincia: DS.belongsTo("provincia"),
   latitud: DS.attr("string"),
@@ -17,5 +18,19 @@ export default DS.Model.extend({
 
   nombreCompleto: computed("nombre", "apellido", function() {
     return `${this.nombre} ${this.apellido}`;
-  })
+  }),
+  lugarDelHechoCompleto: computed(
+    "lugarDelHecho",
+    "localidad",
+    "provincia",
+    function() {
+      let lugar =
+        this.lugarDelHecho +
+        " - " +
+        this.localidad +
+        ", " +
+        this.get("provincia.nombre");
+      return lugar;
+    }
+  )
 });

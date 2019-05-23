@@ -16,7 +16,7 @@ Router.map(function() {
     this.route("casos", function() {
       this.route("crear");
       this.route("detalle", { path: "detalle/:caso_id" });
-      this.route("editar");
+      this.route("editar", { path: "editar/:caso_id" });
     });
   });
   this.route("login");

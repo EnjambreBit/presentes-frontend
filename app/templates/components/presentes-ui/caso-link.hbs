@@ -1,1 +1,8 @@
 {{yield}}
+{{#if cargando}}
+  Cargando
+{{else}}
+  {{#if fila}}
+    {{#link-to 'app.casos.detalle' fila.id}}{{fila.nombre}} {{fila.apellido}}{{/link-to}}
+  {{/if}}
+{{/if}}

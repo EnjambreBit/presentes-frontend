@@ -1,6 +1,6 @@
 {{yield}}
 <h1>
-  {{model.nombreCompleto}} - {{model.categoria.nombre}}
+  {{model.categoria.nombre}} > {{model.nombreCompleto}}
 </h1>
 
 <h2>Datos generales</h2>
@@ -9,3 +9,7 @@
   <li><b>Localidad: </b>{{model.localidad}}</li>
   <li><b>Provincia: </b>{{model.provincia.nombre}}</li>
 </ul>
+<div class="pt3">
+  {{presentes-ui/boton texto="Volver" accion=(transition-to "app.casos.index")}}
+  {{presentes-ui/boton texto="Editar" accion=(transition-to "app.casos.editar" model.id) primario=true}}
+</div>
