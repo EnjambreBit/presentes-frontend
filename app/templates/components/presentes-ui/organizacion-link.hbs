@@ -1,0 +1,8 @@
+{{yield}}
+{{#if cargando}}
+  Cargando
+{{else}}
+  {{#if fila}}
+    {{#link-to 'app.organizaciones.detalle' fila.id}}{{fila.nombre}}{{/link-to}}
+  {{/if}}
+{{/if}}

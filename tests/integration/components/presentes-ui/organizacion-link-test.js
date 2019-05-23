@@ -3,11 +3,13 @@ import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 
-module("Integration | Component | presentes-ui/caso-link", function(hooks) {
+module("Integration | Component | presentes-ui/organizacion-link", function(
+  hooks
+) {
   setupRenderingTest(hooks);
 
   test("it renders", async function(assert) {
-    await render(hbs`{{presentes-ui/caso-link}}`);
+    await render(hbs`{{presentes-ui/organizacion-link}}`);
     assert.ok(this.element);
   });
 });

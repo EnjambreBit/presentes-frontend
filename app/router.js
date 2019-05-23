@@ -18,6 +18,11 @@ Router.map(function() {
       this.route("detalle", { path: "detalle/:caso_id" });
       this.route("editar", { path: "editar/:caso_id" });
     });
+    this.route("organizaciones", function() {
+      this.route("crear");
+      this.route("detalle", { path: "detalle/:organizacion_id" });
+      this.route("editar", { path: "editar/:organizacion_id" });
+    });
   });
   this.route("login");
   this.route("logout");

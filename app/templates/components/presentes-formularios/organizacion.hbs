@@ -1,0 +1,30 @@
+{{#presentes-ui/formulario
+  tarea=submit
+  model=(changeset modelo validaciones) as |f|}}
+
+  <h2>Datos generales</h2>
+  {{f.input etiqueta="Nombre" atributo="nombre"}}
+  {{f.input etiqueta="Dirección" atributo="direccion"}}
+  {{f.input etiqueta="Teléfono" atributo="telefono"}}
+  {{f.input etiqueta="Email" atributo="email"}}
+  {{f.input etiqueta="Localidad" atributo="localidad"}}
+
+  {{#f.personalizado etiqueta="Provincia" name="provincia" as |i|}}
+    {{presentes-selector/simple-select
+      tarea=provincias
+      optionLabel="nombre"
+      valor=i.value
+      disabled=false
+      cuandoSelecciona=i.update}}
+  {{/f.personalizado}}
+
+  {{f.textarea etiqueta="Descripción de su especificidad" atributo="descripcion"}}
+
+
+  {{#f.botones as |botones|}}
+    {{botones.secundario etiqueta="Cancelar" class="fr" accion=(transition-to "app.organizaciones")}}
+    {{botones.separador}}
+    {{botones.primario etiqueta=etiqueta accion=f.submit}}
+  {{/f.botones}}
+
+{{/presentes-ui/formulario}}

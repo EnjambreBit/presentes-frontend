@@ -1,0 +1,19 @@
+{{yield}}
+<h1>
+  Organizaciones > {{model.nombre}}
+</h1>
+
+<h2>Datos generales</h2>
+<ul>
+  <li><b>Teléfono: </b>{{model.telefono}}</li>
+  <li><b>Email: </b>{{model.email}}</li>
+  <li><b>Dirección: </b>{{model.direccion}}</li>
+  <li><b>Localidad: </b>{{model.localidad}}</li>
+  <li><b>Provincia: </b>{{model.provincia.nombre}}</li>
+  <li><b>Descripción de su especificidad: </b>{{model.descripcion}}</li>
+
+</ul>
+<div class="pt3">
+  {{presentes-ui/boton texto="Volver" accion=(transition-to "app.organizaciones.index")}}
+  {{presentes-ui/boton texto="Editar" accion=(transition-to "app.organizaciones.editar" model.id) primario=true}}
+</div>

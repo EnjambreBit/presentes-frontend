@@ -4,13 +4,20 @@ import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 import { startMirage } from "presentes-frontend/initializers/ember-cli-mirage";
 
-module("Integration | Component | presentes-tablas/casos", function(hooks) {
+module("Integration | Component | presentes-detalle/organizacion", function(
+  hooks
+) {
   setupRenderingTest(hooks);
 
   test("it renders", async function(assert) {
-    let server = new startMirage();
-    await render(hbs`{{presentes-tablas/casos}}`);
-    assert.ok(this.element);
-    server.shutdown();
+    let servidor = startMirage();
+
+    this.set("model", {
+      id: 1,
+      nombre: "Prueba"
+    });
+    await render(hbs`{{presentes-detalle/organizacion model=model}}`);
+    assert.ok(this.element.textContent);
+    servidor.shutdown();
   });
 });
