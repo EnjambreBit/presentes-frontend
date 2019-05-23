@@ -1,0 +1,11 @@
+{{yield}}
+<h1>
+  {{model.nombreCompleto}} - {{model.categoria.nombre}}
+</h1>
+
+<h2>Datos generales</h2>
+<ul>
+  <li><b>Fecha del hecho: </b>{{moment-format model.fechaDelHecho 'DD/MM/YYYY'}}</li>
+  <li><b>Localidad: </b>{{model.localidad}}</li>
+  <li><b>Provincia: </b>{{model.provincia.nombre}}</li>
+</ul>

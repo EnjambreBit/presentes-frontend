@@ -5,12 +5,20 @@
   <h2>Datos generales</h2>
   {{f.input etiqueta="Nombre" atributo="nombre"}}
   {{f.input etiqueta="Apellido" atributo="apellido"}}
-  {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
+  {{f.input etiqueta="Lugar de nacimiento" atributo="lugarDeNacimiento"}}
+
+  {{#f.personalizado etiqueta="Fecha de nacimiento" name="fechaDeNacimiento" as |fi|}}
       {{presentes-ui/input-fecha
           valor=fi.value
           cuandoCambia=fi.update}}
     {{/f.personalizado}}
 
+
+  {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
+      {{presentes-ui/input-fecha
+          valor=fi.value
+          cuandoCambia=fi.update}}
+    {{/f.personalizado}}
   {{f.input etiqueta="Localidad" atributo="localidad"}}
 
   {{#f.personalizado etiqueta="Provincia" name="provincia" as |i|}}

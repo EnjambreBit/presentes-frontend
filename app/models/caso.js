@@ -4,6 +4,8 @@ import { computed } from "@ember/object";
 export default DS.Model.extend({
   nombre: DS.attr("string"),
   apellido: DS.attr("string"),
+  lugarDeNacimiento: DS.attr("string"),
+  fechaDeNacimiento: DS.attr("string"),
   localidad: DS.attr("string"),
   provincia: DS.belongsTo("provincia"),
   latitud: DS.attr("string"),

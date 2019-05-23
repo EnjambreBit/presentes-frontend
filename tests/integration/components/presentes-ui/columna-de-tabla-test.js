@@ -1,26 +1,16 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
+import hbs from "htmlbars-inline-precompile";
 
-module('Integration | Component | presentes-ui/columna-de-tabla', function(hooks) {
+module("Integration | Component | presentes-ui/columna-de-tabla", function(
+  hooks
+) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{presentes-ui/columna-de-tabla}}`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#presentes-ui/columna-de-tabla}}
-        template block text
-      {{/presentes-ui/columna-de-tabla}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+  test("it renders", async function(assert) {
+    this.set("columna", {});
+    await render(hbs`{{presentes-ui/columna-de-tabla columna=columna}}`);
+    assert.ok(this.element.textContent);
   });
 });
