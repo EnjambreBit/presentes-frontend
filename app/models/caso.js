@@ -15,6 +15,7 @@ export default DS.Model.extend({
   etiquetas: DS.hasMany("etiqueta"),
   fechaDeCreacion: DS.attr("string"),
   fechaDelHecho: DS.attr("string"),
+  estadoDePublicacion: DS.belongsTo("estadoDeCaso"),
 
   nombreCompleto: computed("nombre", "apellido", function() {
     return `${this.nombre} ${this.apellido}`;

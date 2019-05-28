@@ -16,6 +16,7 @@ export default Component.extend({
 
     this.provincias.perform();
     this.categorias.perform();
+    this.estadosDePublicacion.perform();
 
     if (this.get("modelo")) {
       this.set("etiqueta", "Guardar");
@@ -47,10 +48,28 @@ export default Component.extend({
     return categorias;
   }),
 
+  estadosDePublicacion: task(function*() {
+    let estados = yield this.store.findAll("estado-de-caso");
+    return estados;
+  }),
+
   submit: task(function*(modelo) {
     yield modelo.save();
     this.router.transitionTo("app.casos.detalle", modelo.get("id"));
   }),
 
-  actions: {}
+  actions: {
+    parseURL(value) {
+      let url = value.split("@");
+      let at = url[1].split("z");
+      let zero = at[0].split(",");
+      let lat = zero[0];
+      let lon = zero[1];
+      let modelo = this.get("modelo");
+      modelo.set("latitud", "");
+      modelo.set("longitud", "");
+      modelo.set("latitud", lat);
+      modelo.set("longitud", lon);
+    }
+  }
 });

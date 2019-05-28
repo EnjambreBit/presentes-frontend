@@ -1,3 +1,4 @@
+
 {{#presentes-ui/formulario
   tarea=submit
   model=(changeset modelo validaciones) as |f|}}
@@ -19,6 +20,8 @@
           valor=fi.value
           cuandoCambia=fi.update}}
     {{/f.personalizado}}
+
+  {{f.input etiqueta="Lugar del hecho" atributo="lugarDelHecho"}}
   {{f.input etiqueta="Localidad" atributo="localidad"}}
 
   {{#f.personalizado etiqueta="Provincia" name="provincia" as |i|}}
@@ -30,13 +33,28 @@
       cuandoSelecciona=i.update}}
   {{/f.personalizado}}
 
-  {{f.input etiqueta="Latitud" atributo="latitud"}}
-  {{f.input etiqueta="Longitud" atributo="longitud"}}
+  <div class="flex w-100">
+      {{f.input etiqueta="Latitud" atributo="latitud" valor=lat}}
+      {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
+  </div>
+
+  <label for="gmap-parser">Ingrese url de Gmap:</label>
+  <input name="gmap-parser" value={{url}} oninput={{action "parseURL" value="target.value"}}>
+
 
 
   {{#f.personalizado etiqueta="Categoría" name="categoria" as |i|}}
     {{presentes-selector/simple-select
       tarea=categorias
+      optionLabel="nombre"
+      valor=i.value
+      disabled=false
+      cuandoSelecciona=i.update}}
+  {{/f.personalizado}}
+
+  {{#f.personalizado etiqueta="Estado de publicación" name="estadoDePublicacion" as |i|}}
+    {{presentes-selector/simple-select
+      tarea=estadosDePublicacion
       optionLabel="nombre"
       valor=i.value
       disabled=false

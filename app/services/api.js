@@ -67,6 +67,10 @@ export default Service.extend({
   },
 
   obtenerCasos() {
-    return this.fetch(`casos/obtener-casos`, false);
+    return this.fetch(`casos/obtener-casos`, true);
+  },
+
+  obtenerCasosPublicos() {
+    return this.fetch(`casos/obtener-casos-publicos`, false);
   }
 });

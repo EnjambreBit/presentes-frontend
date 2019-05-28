@@ -5,7 +5,7 @@ import { task } from "ember-concurrency";
 export default Route.extend({
   api: service(),
   obtenerCasos: task(function*() {
-    let respuesta = yield this.api.obtenerCasos();
+    let respuesta = yield this.api.obtenerCasosPublicos();
     return respuesta;
   }),
   model() {

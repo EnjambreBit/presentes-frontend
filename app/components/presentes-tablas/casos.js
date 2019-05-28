@@ -21,6 +21,10 @@ export default Component.extend({
         componente: "presentes-ui/caso-link"
       },
       {
+        titulo: "Estado de publicación",
+        atributo: "estadoDePublicacion.nombre"
+      },
+      {
         titulo: "Categoría",
         atributo: "categoria.nombre"
       },
