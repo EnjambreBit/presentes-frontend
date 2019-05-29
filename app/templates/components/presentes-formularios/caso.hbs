@@ -56,14 +56,16 @@
       cuandoSelecciona=i.update}}
   {{/f.personalizado}}
 
-  {{#f.personalizado etiqueta="Estado de publicación" name="estadoDePublicacion" as |i|}}
-    {{presentes-selector/simple-select
-      tarea=estadosDePublicacion
-      optionLabel="nombre"
-      valor=i.value
-      disabled=false
-      cuandoSelecciona=i.update}}
-  {{/f.personalizado}}
+  {{#tiene-permiso permiso="casos.puede_validar"}}
+    {{#f.personalizado etiqueta="Estado de publicación" name="estadoDePublicacion" as |i|}}
+      {{presentes-selector/simple-select
+        tarea=estadosDePublicacion
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+  {{/tiene-permiso}}
 
   {{#f.botones as |botones|}}
     {{botones.secundario etiqueta="Cancelar" class="fr" accion=(transition-to "app.casos")}}

@@ -1,5 +1,6 @@
 <h1>Hechos de violencia</h1>
-
-{{presentes-ui/boton  icono="fas fa-plus" texto="Crear" accion=(transition-to "app.casos.crear") primario=true}}
+{{#tiene-permiso permiso="casos.puede_crear"}}
+  {{presentes-ui/boton  icono="fas fa-plus" texto="Crear" accion=(transition-to "app.casos.crear") primario=true}}
+{{/tiene-permiso}}
 {{presentes-tablas/casos}}
 {{outlet}}
