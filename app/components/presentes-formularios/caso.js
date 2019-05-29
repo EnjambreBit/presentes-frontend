@@ -17,6 +17,7 @@ export default Component.extend({
     this.provincias.perform();
     this.categorias.perform();
     this.estadosDePublicacion.perform();
+    this.opcionesSiNo.perform();
 
     if (this.get("modelo")) {
       this.set("etiqueta", "Guardar");
@@ -53,7 +54,14 @@ export default Component.extend({
     return estados;
   }),
 
+  opcionesSiNo: task(function*() {
+    return [{ id: "SI", nombre: "Sí" }, { id: "NO", nombre: "No" }];
+  }),
+
   submit: task(function*(modelo) {
+    let objetoEsMigrante = modelo.get("esMigrante");
+    let esMigranteString = objetoEsMigrante.id;
+    modelo.set("esMigrante", esMigranteString);
     yield modelo.save();
     this.router.transitionTo("app.casos.detalle", modelo.get("id"));
   }),
