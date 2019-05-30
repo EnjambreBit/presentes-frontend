@@ -12,15 +12,28 @@
       cuandoSelecciona=i.update}}
   {{/f.personalizado}}
 
+  {{#tiene-permiso permiso="casos.puede_validar"}}
+    {{#f.personalizado etiqueta="Estado de publicación" name="estadoDePublicacion" as |i|}}
+      {{presentes-selector/simple-select
+        tarea=estadosDePublicacion
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+  {{/tiene-permiso}}
+
   <h2>Datos generales de la víctima</h2>
   {{f.input etiqueta="Nombre" atributo="nombre"}}
   {{f.input etiqueta="Apellido" atributo="apellido"}}
+  {{f.input etiqueta="Edad" atributo="edad"}}
+  {{f.input etiqueta="Lugar de nacimiento" atributo="lugarDeNacimiento"}}
 
   {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
-      {{presentes-ui/input-fecha
-          valor=fi.value
-          cuandoCambia=fi.update}}
-    {{/f.personalizado}}
+    {{presentes-ui/input-fecha
+        valor=fi.value
+        cuandoCambia=fi.update}}
+  {{/f.personalizado}}
 
   {{f.input etiqueta="Localidad" atributo="localidad"}}
 
@@ -41,14 +54,11 @@
   <label for="gmap-parser">Ingrese url de Gmap:</label>
   <input name="gmap-parser" value={{url}} oninput={{action "parseURL" value="target.value"}}>
 
+  {{f.input etiqueta="¿Cuál era su ocupación o trabajo?" atributo="ocupacion"}}
+  {{f.input etiqueta="¿Qué estudios tiene?" atributo="estudiosCursados"}}
 
-  {{f.input etiqueta="Edad" atributo="edad"}}
-  {{f.input etiqueta="Lugar de nacimiento" atributo="lugarDeNacimiento"}}
-
-  {{f.input etiqueta="Causa de la muerte" atributo="causaDeLaMuerte"}}
-
-  {{#f.personalizado etiqueta="¿Es migrante?" name="esMigrante" as |i|}}
-    {{presentes-selector/simple-select
+  {{#f.personalizado etiqueta="¿Estaba en situación de calle?" name="estabaEnSituacionDeCalle" as |i|}}
+    {{presentes-selector/simple-select-enum
       tarea=opcionesSiNo
       optionLabel="nombre"
       valor=i.value
@@ -56,16 +66,184 @@
       cuandoSelecciona=i.update}}
   {{/f.personalizado}}
 
-  {{#tiene-permiso permiso="casos.puede_validar"}}
-    {{#f.personalizado etiqueta="Estado de publicación" name="estadoDePublicacion" as |i|}}
-      {{presentes-selector/simple-select
-        tarea=estadosDePublicacion
+  {{f.input etiqueta="¿Dónde vivía?" atributo="dondeVivia"}}
+
+  {{#f.personalizado etiqueta="¿Es migrante?" name="esMigrante" as |i|}}
+    {{presentes-selector/simple-select-enum
+      tarea=opcionesSiNo
+      optionLabel="nombre"
+      valor=i.value
+      disabled=false
+      cuandoSelecciona=i.update}}
+  {{/f.personalizado}}
+  {{#if (eq f.model.esMigrante "SI")}}
+    {{f.input etiqueta="País de origen" atributo="paisDeOrigen"}}
+    {{f.input etiqueta="Año de llegada" atributo="anioDeLlegada"}}
+  {{/if}}
+
+  {{#f.personalizado etiqueta="¿Hay denuncia?" name="hayDenuncia" as |i|}}
+    {{presentes-selector/simple-select-enum
+      tarea=opcionesSiNoNoSabe
+      optionLabel="nombre"
+      valor=i.value
+      disabled=false
+      cuandoSelecciona=i.update}}
+  {{/f.personalizado}}
+
+  {{#if (eq f.model.hayDenuncia "SI")}}
+    {{#f.personalizado etiqueta="Fecha de la denuncia" name="fechaDeDenuncia" as |fi|}}
+      {{presentes-ui/input-fecha
+          valor=fi.value
+          cuandoCambia=fi.update}}
+    {{/f.personalizado}}
+    {{f.input etiqueta="¿Ante quién se hizo?" atributo="anteQuienSeHizoLaDenuncia"}}
+
+    {{#f.personalizado etiqueta="La denuncia: ¿Reconoce su identidad de género?" name="laDenunciaReconoceGenero" as |i|}}
+      {{presentes-selector/simple-select-enum
+        tarea=opcionesSiNo
         optionLabel="nombre"
         valor=i.value
         disabled=false
         cuandoSelecciona=i.update}}
     {{/f.personalizado}}
-  {{/tiene-permiso}}
+  {{else if (eq f.model.hayDenuncia "NO")}}
+    {{f.input etiqueta="¿Por qué no denunció?" atributo="porQueNoDenuncio"}}
+  {{/if}}
+
+  {{#f.personalizado etiqueta="¿Hay causa judicial?" name="hayCausaJudicial" as |i|}}
+    {{presentes-selector/simple-select-enum
+      tarea=opcionesSiNo
+      optionLabel="nombre"
+      valor=i.value
+      disabled=false
+      cuandoSelecciona=i.update}}
+  {{/f.personalizado}}
+  {{#if (eq f.model.hayCausaJudicial "SI")}}
+    {{f.input etiqueta="Título de la causa" atributo="cjTituloDeLaCausa"}}
+    {{f.input etiqueta="Número de la causa" atributo="cjNumeroDeLaCausa"}}
+    {{f.input etiqueta="Año de inicio" atributo="cjAnioDeInicio"}}
+    {{f.input etiqueta="¿Dónde se tramita?" atributo="cjAnioDeInicio"}}
+    {{f.input etiqueta="Instancia judicial en que se encuentra" atributo="cjInstancia"}}
+    {{#f.personalizado etiqueta="¿Respetaron el nombre de la identidad de género?" name="cjRespetaronNombreDeIg" as |i|}}
+      {{presentes-selector/simple-select-enum
+        tarea=opcionesSiNo
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+    {{f.input etiqueta="Organismos públicos que acompañan" atributo="cjOrganismosPublicos"}}
+
+    {{!-- Organizaciones, implementar selector múltiple --}}
+
+    {{#f.personalizado etiqueta="¿Cuenta con abogadxs privados o de la defensa pública?" name="cjCuentaConDefensa" as |i|}}
+      {{presentes-selector/simple-select-enum
+        tarea=opcionesPublicaPrivada
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+
+    {{#f.personalizado etiqueta="¿Hay informe forense?" name="cjHayInformeForense" as |i|}}
+      {{presentes-selector/simple-select-enum
+        tarea=opcionesSiNo
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+  {{/if}}
+
+  {{#f.personalizado etiqueta="¿Hubo violencia institucional?" name="huboViolenciaInstitucional" as |i|}}
+    {{presentes-selector/simple-select-enum
+      tarea=opcionesSiNo
+      optionLabel="nombre"
+      valor=i.value
+      disabled=false
+      cuandoSelecciona=i.update}}
+  {{/f.personalizado}}
+  {{#if (eq f.model.huboViolenciaInstitucional "SI")}}
+    {{f.input etiqueta="¿De qué institución?" atributo="violenciaInstitucionNombre"}}
+    {{f.input etiqueta="Localidad" atributo="violenciaInstitucionLocalidad"}}
+    {{#f.personalizado etiqueta="Provincia" name="violenciaInstitucionProvincia" as |i|}}
+      {{presentes-selector/simple-select
+        tarea=provincias
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+  {{/if}}
+
+  {{f.textarea etiqueta="Observaciones" atributo="observaciones"}}
+
+  {{#if (or (eq f.model.categoria.nombre "Asesinatos a personas LGBT+") (eq f.model.categoria.nombre "Muerte por travesticidio social"))}}
+    {{f.input etiqueta="Causa de la muerte" atributo="causaDeLaMuerte"}}
+    {{#f.personalizado etiqueta="¿Tenía obra social?" name="teniaObraSocial" as |i|}}
+      {{presentes-selector/simple-select-enum
+        tarea=opcionesSiNo
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+
+    {{#if (eq f.model.teniaObraSocial "SI")}}
+      {{f.input etiqueta="¿Cuál?" atributo="obraSocial"}}
+    {{/if}}
+    {{#f.personalizado etiqueta="¿Tiene o tuvo acceso a prestaciones de salud?" name="tieneAccesoAPrestacionesDeSalud" as |i|}}
+      {{presentes-selector/simple-select-enum
+        tarea=opcionesSiNo
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+    {{#if (eq f.model.tieneAccesoAPrestacionesDeSalud "SI")}}
+      {{f.input etiqueta="¿Cuáles?" atributo="prestacionesDeSalud"}}
+    {{/if}}
+
+    {{f.input etiqueta="¿Cuál era su ocupación o trabajo?" atributo="ocupacion"}}
+    {{f.input etiqueta="¿Qué estudios tiene?" atributo="estudiosCursados"}}
+
+    {{#f.personalizado etiqueta="¿Estaba en situación de calle?" name="estabaEnSituacionDeCalle" as |i|}}
+      {{presentes-selector/simple-select-enum
+        tarea=opcionesSiNo
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+
+    {{f.input etiqueta="¿Dónde vivía? (Barrio o localidad)" atributo="dondeVivia"}}
+  {{/if}}
+
+  {{#f.personalizado etiqueta="¿Tenía condena o prisión preventiva?" name="teniaPrisionPreventiva" as |i|}}
+    {{presentes-selector/simple-select-enum
+      tarea=opcionesSiNo
+      optionLabel="nombre"
+      valor=i.value
+      disabled=false
+      cuandoSelecciona=i.update}}
+  {{/f.personalizado}}
+  {{#if (eq f.model.teniaPrisionPreventiva "SI")}}
+    {{f.input etiqueta="Título de la causa en la Justicia" atributo="tituloDeLaCausaEnLaJusticia"}}
+    {{f.input etiqueta="¿Dónde estaba detenida?" atributo="nombreDelPenal"}}
+    {{f.input etiqueta="Localidad" atributo="localidadDelPenal"}}
+    {{#f.personalizado etiqueta="Provincia" name="provinciaDelPenal" as |i|}}
+      {{presentes-selector/simple-select
+        tarea=provincias
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+  {{/if}}
+
+  <h3>La información de este formulario fue brindada por:</h3>
+  {{f.input etiqueta="Nombre y apellido" atributo="nombreDeQuienBrindoInformacion"}}
+  {{f.input etiqueta="Teléfono" atributo="telefonoDeQuienBrindoInformacion"}}
 
   {{#f.botones as |botones|}}
     {{botones.secundario etiqueta="Cancelar" class="fr" accion=(transition-to "app.casos")}}

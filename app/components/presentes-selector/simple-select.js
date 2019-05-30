@@ -2,7 +2,6 @@ import Component from "@ember/component";
 
 export default Component.extend({
   tagName: "",
-
   actions: {
     cuandoCambia(id) {
       this.tarea.last.value.forEach(opcion => {

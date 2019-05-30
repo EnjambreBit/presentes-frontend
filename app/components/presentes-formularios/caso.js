@@ -16,8 +16,11 @@ export default Component.extend({
 
     this.provincias.perform();
     this.categorias.perform();
+    this.organizaciones.perform();
     this.estadosDePublicacion.perform();
     this.opcionesSiNo.perform();
+    this.opcionesSiNoNoSabe.perform();
+    this.opcionesPublicaPrivada.perform();
 
     if (this.get("modelo")) {
       this.set("etiqueta", "Guardar");
@@ -49,19 +52,42 @@ export default Component.extend({
     return categorias;
   }),
 
+  organizaciones: task(function*() {
+    let organizaciones = yield this.store.findAll("organizacion");
+    return organizaciones;
+  }),
+
   estadosDePublicacion: task(function*() {
     let estados = yield this.store.findAll("estado-de-caso");
     return estados;
   }),
 
   opcionesSiNo: task(function*() {
-    return [{ id: "SI", nombre: "Sí" }, { id: "NO", nombre: "No" }];
+    let opciones = yield [
+      { id: "SI", nombre: "Sí" },
+      { id: "NO", nombre: "No" }
+    ];
+    return opciones;
+  }),
+
+  opcionesSiNoNoSabe: task(function*() {
+    let opciones = yield [
+      { id: "SI", nombre: "Sí" },
+      { id: "NO", nombre: "No" },
+      { id: "NS", nombre: "No sabe" }
+    ];
+    return opciones;
+  }),
+
+  opcionesPublicaPrivada: task(function*() {
+    let opciones = yield [
+      { id: "PU", nombre: "Pública" },
+      { id: "PR", nombre: "Privada" }
+    ];
+    return opciones;
   }),
 
   submit: task(function*(modelo) {
-    let objetoEsMigrante = modelo.get("esMigrante");
-    let esMigranteString = objetoEsMigrante.id;
-    modelo.set("esMigrante", esMigranteString);
     yield modelo.save();
     this.router.transitionTo("app.casos.detalle", modelo.get("id"));
   }),

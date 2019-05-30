@@ -1,26 +1,29 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
+import hbs from "htmlbars-inline-precompile";
 
-module('Integration | Component | tiene-permiso', function(hooks) {
+module("Integration | Component | tiene-permiso", function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test("it renders", async function(assert) {
+    this.set("perfil", {
+      permisos: {
+        "perfiles.puede_listar": true,
+        "perfiles.puede_eliminar": false
+      }
+    });
 
-    await render(hbs`{{tiene-permiso}}`);
+    await render(
+      hbs`{{#tiene-permiso perfil=perfil permiso='perfiles.puede_listar'}}Listar{{/tiene-permiso}}`
+    );
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.element.textContent.trim(), "Listar");
 
-    // Template block usage:
-    await render(hbs`
-      {{#tiene-permiso}}
-        template block text
-      {{/tiene-permiso}}
-    `);
+    await render(
+      hbs`{{#tiene-permiso perfil=perfil permiso='perfiles.puede_eliminar'}}Eliminar{{/tiene-permiso}}`
+    );
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), "");
   });
 });
