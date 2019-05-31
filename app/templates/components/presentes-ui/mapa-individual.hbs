@@ -1,0 +1,10 @@
+
+{{#leaflet-map lat=modelo.latitud lng=modelo.longitud zoom=zoom}}
+  {{tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}}
+    {{#marker-layer lat=modelo.latitud lng=modelo.longitud as |marker|}}
+      {{#popup-layer}}
+        <h3>{{modelo.nombre}} {{modelo.apellido}}</h3>
+        <p>Ocurrió el {{moment-format modelo.fechaDelHecho 'DD/MM/YYYY'}} en {{modelo.localidad}}, {{modelo.provincia}}</p>
+      {{/popup-layer}}
+    {{/marker-layer}}
+{{/leaflet-map}}

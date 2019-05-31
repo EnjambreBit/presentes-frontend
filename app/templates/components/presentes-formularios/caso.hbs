@@ -26,8 +26,22 @@
   <h2>Datos generales de la víctima</h2>
   {{f.input etiqueta="Nombre" atributo="nombre"}}
   {{f.input etiqueta="Apellido" atributo="apellido"}}
+
   {{f.input etiqueta="Edad" atributo="edad"}}
   {{f.input etiqueta="Lugar de nacimiento" atributo="lugarDeNacimiento"}}
+
+  {{#f.personalizado etiqueta="¿Es migrante?" name="esMigrante" as |i|}}
+    {{presentes-selector/simple-select-enum
+      tarea=opcionesSiNo
+      optionLabel="nombre"
+      valor=i.value
+      disabled=false
+      cuandoSelecciona=i.update}}
+  {{/f.personalizado}}
+  {{#if (eq f.model.esMigrante "SI")}}
+    {{f.input etiqueta="País de origen" atributo="paisDeOrigen"}}
+    {{f.input etiqueta="Año de llegada" atributo="anioDeLlegada"}}
+  {{/if}}
 
   {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
     {{presentes-ui/input-fecha
@@ -54,33 +68,10 @@
   <label for="gmap-parser">Ingrese url de Gmap:</label>
   <input name="gmap-parser" value={{url}} oninput={{action "parseURL" value="target.value"}}>
 
-  {{f.input etiqueta="¿Cuál era su ocupación o trabajo?" atributo="ocupacion"}}
-  {{f.input etiqueta="¿Qué estudios tiene?" atributo="estudiosCursados"}}
 
-  {{#f.personalizado etiqueta="¿Estaba en situación de calle?" name="estabaEnSituacionDeCalle" as |i|}}
-    {{presentes-selector/simple-select-enum
-      tarea=opcionesSiNo
-      optionLabel="nombre"
-      valor=i.value
-      disabled=false
-      cuandoSelecciona=i.update}}
-  {{/f.personalizado}}
+  <div class="w-100 bb b--light-gray pv2 mb2"></div>
 
-  {{f.input etiqueta="¿Dónde vivía?" atributo="dondeVivia"}}
-
-  {{#f.personalizado etiqueta="¿Es migrante?" name="esMigrante" as |i|}}
-    {{presentes-selector/simple-select-enum
-      tarea=opcionesSiNo
-      optionLabel="nombre"
-      valor=i.value
-      disabled=false
-      cuandoSelecciona=i.update}}
-  {{/f.personalizado}}
-  {{#if (eq f.model.esMigrante "SI")}}
-    {{f.input etiqueta="País de origen" atributo="paisDeOrigen"}}
-    {{f.input etiqueta="Año de llegada" atributo="anioDeLlegada"}}
-  {{/if}}
-
+  <h2>Datos de la denuncia</h2>
   {{#f.personalizado etiqueta="¿Hay denuncia?" name="hayDenuncia" as |i|}}
     {{presentes-selector/simple-select-enum
       tarea=opcionesSiNoNoSabe
@@ -110,6 +101,9 @@
     {{f.input etiqueta="¿Por qué no denunció?" atributo="porQueNoDenuncio"}}
   {{/if}}
 
+  <div class="w-100 bb b--light-gray pv2 mb2"></div>
+
+  <h2>Causa judicial</h2>
   {{#f.personalizado etiqueta="¿Hay causa judicial?" name="hayCausaJudicial" as |i|}}
     {{presentes-selector/simple-select-enum
       tarea=opcionesSiNo
@@ -122,7 +116,7 @@
     {{f.input etiqueta="Título de la causa" atributo="cjTituloDeLaCausa"}}
     {{f.input etiqueta="Número de la causa" atributo="cjNumeroDeLaCausa"}}
     {{f.input etiqueta="Año de inicio" atributo="cjAnioDeInicio"}}
-    {{f.input etiqueta="¿Dónde se tramita?" atributo="cjAnioDeInicio"}}
+    {{f.input etiqueta="¿Dónde se tramita?" atributo="cjDondeSeTramita"}}
     {{f.input etiqueta="Instancia judicial en que se encuentra" atributo="cjInstancia"}}
     {{#f.personalizado etiqueta="¿Respetaron el nombre de la identidad de género?" name="cjRespetaronNombreDeIg" as |i|}}
       {{presentes-selector/simple-select-enum
@@ -154,6 +148,8 @@
         cuandoSelecciona=i.update}}
     {{/f.personalizado}}
   {{/if}}
+
+  <div class="w-100 bb b--light-gray pv2 mb2"></div>
 
   {{#f.personalizado etiqueta="¿Hubo violencia institucional?" name="huboViolenciaInstitucional" as |i|}}
     {{presentes-selector/simple-select-enum
@@ -219,6 +215,9 @@
     {{f.input etiqueta="¿Dónde vivía? (Barrio o localidad)" atributo="dondeVivia"}}
   {{/if}}
 
+  <div class="w-100 bb b--light-gray pv2 mb2"></div>
+
+  <h2>Situación de encierro</h2>
   {{#f.personalizado etiqueta="¿Tenía condena o prisión preventiva?" name="teniaPrisionPreventiva" as |i|}}
     {{presentes-selector/simple-select-enum
       tarea=opcionesSiNo
@@ -240,6 +239,8 @@
         cuandoSelecciona=i.update}}
     {{/f.personalizado}}
   {{/if}}
+
+  <div class="w-100 bb b--light-gray pv2 mb2"></div>
 
   <h3>La información de este formulario fue brindada por:</h3>
   {{f.input etiqueta="Nombre y apellido" atributo="nombreDeQuienBrindoInformacion"}}

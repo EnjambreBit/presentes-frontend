@@ -3,12 +3,94 @@
   {{model.categoria.nombre}} > {{model.nombreCompleto}}
 </h1>
 
-<h2>Datos generales</h2>
-<ul>
-  <li><b>Fecha del hecho: </b>{{moment-format model.fechaDelHecho 'DD/MM/YYYY'}}</li>
-  <li><b>Localidad: </b>{{model.localidad}}</li>
-  <li><b>Provincia: </b>{{model.provincia.nombre}}</li>
-</ul>
+<h2>Datos generales de la víctima</h2>
+<div class="flex">
+  <div class="flex flex-column w-50">
+    {{presentes-detalle/detalle-item etiqueta="Categoría" valor=model.categoria.nombre}}
+    {{presentes-detalle/detalle-item etiqueta="Nombre y apellido" valor=model.nombreCompleto}}
+    {{presentes-detalle/detalle-item etiqueta="Lugar del hecho" valor=model.lugarDelHechoCompleto}}
+    {{presentes-detalle/detalle-item etiqueta="Fecha del hecho" valor=model.fechaDelHecho fecha=true}}
+    {{presentes-detalle/detalle-item etiqueta="Edad" valor=model.edad}}
+    {{presentes-detalle/detalle-item etiqueta="Lugar de nacimiento" valor=model.lugarDeNacimiento}}
+    {{presentes-detalle/detalle-item etiqueta="¿Es migrante?" valor=model.esMigrante opciones=true}}
+    {{#if (eq model.esMigrante 'SI')}}
+      {{presentes-detalle/detalle-item etiqueta="País de origen" valor=model.paisDeOrigen}}
+      {{presentes-detalle/detalle-item etiqueta="Año de llegada" valor=model.anioDeLlegada}}
+    {{/if}}
+  </div>
+  <div class="flex flex-column w-40">
+    {{presentes-ui/mapa-individual modelo=model zoom=12}}
+  </div>
+</div>
+
+<div class="w-100 bb b--light-gray pv2 mb2"></div>
+
+<h2>Datos de la denuncia</h2>
+{{#if (eq model.hayDenuncia 'SI')}}
+  <div class="flex">
+    <div class="flex flex-column w-50">
+      {{presentes-detalle/detalle-item etiqueta="Fecha de la denuncia" valor=model.fechaDeDenuncia fecha=true}}
+    </div>
+  </div>
+{{else}}
+  {{presentes-detalle/detalle-item etiqueta="¿Hay denuncia?" valor=model.hayDenuncia opciones=true}}
+  {{#if (eq model.hayDenuncia 'NO')}}
+    {{presentes-detalle/detalle-item etiqueta="¿Por qué no denunció?" valor=model.porQueNoDenuncio}}
+  {{/if}}
+{{/if}}
+
+<div class="w-100 bb b--light-gray pv2 mb2"></div>
+
+<h2>Causa judicial</h2>
+{{#if (eq model.hayCausaJudicial 'SI')}}
+  {{presentes-detalle/detalle-item etiqueta="Título y número de la causa" valor=model.tituloYNumeroDeLaCausa}}
+  {{presentes-detalle/detalle-item etiqueta="Año de inicio" valor=model.cjAnioDeInicio}}
+  {{presentes-detalle/detalle-item etiqueta="¿Dónde se tramita?" valor=model.cjDondeSeTramita}}
+  {{presentes-detalle/detalle-item etiqueta="Instancia judicial en que se encuentra" valor=model.cjInstancia}}
+  {{presentes-detalle/detalle-item etiqueta="¿Respetaron el nombre de la IG?" valor=model.cjRespetaronNombreDeIg opciones=true}}
+  {{presentes-detalle/detalle-item etiqueta="Organismos públicos que acompañan" valor=model.cjOrganismosPublicos}}
+  {{presentes-detalle/detalle-item etiqueta="Organizaciones (activismo) que acompañan" valor=model.cjOrganizaciones muchos=true}}
+  {{presentes-detalle/detalle-item etiqueta="Cuenta con abogadxs privados o de la defensa pública" valor=model.cjCuentaConDefensa opciones=true}}
+  {{presentes-detalle/detalle-item etiqueta="¿Hay informe forense?" valor=model.cjHayInformeForense opciones=true}}
+{{else}}
+  No hay causa judicial
+{{/if}}
+
+<div class="w-100 bb b--light-gray pv2 mb2"></div>
+
+{{presentes-detalle/detalle-item etiqueta="¿Hubo violencia institucional?" valor=model.huboViolenciaInstitucional opciones=true}}
+{{#if (eq model.huboViolenciaInstitucional 'SI')}}
+  {{presentes-detalle/detalle-item etiqueta="¿De qué institución?" valor=model.violenciaInstitucionNombreCompleto}}
+{{/if}}
+{{presentes-detalle/detalle-item etiqueta="Observaciones" valor=model.observaciones textarea=true}}
+
+{{#if (or (eq model.categoria.nombre "Asesinatos a personas LGBT+") (eq model.categoria.nombre "Muerte por travesticidio social"))}}
+  {{presentes-detalle/detalle-item etiqueta="Causa de la muerte" valor=model.causaDeLaMuerte}}
+  {{presentes-detalle/detalle-item etiqueta="¿Tenía obra social?" valor=model.teniaObraSocial opciones=true}}
+  {{#if (eq model.teniaObraSocial 'SI')}}
+    {{presentes-detalle/detalle-item etiqueta="¿Cuál?" valor=model.obraSocial}}
+  {{/if}}
+  {{presentes-detalle/detalle-item etiqueta="¿Tiene o tuvo acceso a prestaciones de salud?" valor=model.tieneAccesoAPrestacionesDeSalud opciones=true}}
+  {{#if (eq model.tieneAccesoAPrestacionesDeSalud 'SI')}}
+    {{presentes-detalle/detalle-item etiqueta="¿Cuáles?" valor=model.prestacionesDeSalud}}
+  {{/if}}
+  {{presentes-detalle/detalle-item etiqueta="¿Cuál era su ocupación/trabajo?" valor=model.ocupacion}}
+  {{presentes-detalle/detalle-item etiqueta="¿Qué estudios tiene?" valor=model.estudiosCursados}}
+  {{presentes-detalle/detalle-item etiqueta="¿Estaba en situación de calle?" valor=model.estabaEnSituacionDeCalle opciones=true}}
+  {{presentes-detalle/detalle-item etiqueta="¿Dónde vivía?" valor=model.dondeVivia}}
+{{/if}}
+
+<div class="w-100 bb b--light-gray pv2 mb2"></div>
+
+<h2>Situación de encierro</h2>
+{{#if (eq model.teniaPrisionPreventiva 'SI')}}
+
+{{else}}
+  No se encontraba en situación de encierro.
+{{/if}}
+
+<div class="w-100 bb b--light-gray pv2 mb2"></div>
+
 <div class="pt3">
   {{presentes-ui/boton texto="Volver" accion=(transition-to "app.casos.index")}}
   {{presentes-ui/boton texto="Editar" accion=(transition-to "app.casos.editar" model.id) primario=true}}

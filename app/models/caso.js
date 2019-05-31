@@ -63,5 +63,31 @@ export default DS.Model.extend({
   lugarDelHechoCompleto: computed("localidad", "provincia", function() {
     let lugar = this.localidad + ", " + this.get("provincia.nombre");
     return lugar;
-  })
+  }),
+  tituloYNumeroDeLaCausa: computed(
+    "cjTituloDeLaCausa",
+    "cjNumeroDeLaCausa",
+    function() {
+      let tituloCompleto =
+        this.cjTituloDeLaCausa + " - " + this.cjNumeroDeLaCausa;
+      if (tituloCompleto === " - ") {
+        tituloCompleto = "";
+      }
+      return tituloCompleto;
+    }
+  ),
+  violenciaInstitucionNombreCompleto: computed(
+    "violenciaInstitucionNombre",
+    "violenciaInstitucionLocalidad",
+    "violenciaInstitucionProvincia",
+    function() {
+      let nombreCompleto =
+        this.violenciaInstitucionNombre +
+        " - " +
+        this.violenciaInstitucionLocalidad +
+        ", " +
+        this.get("violenciaInstitucionProvincia.nombre");
+      return nombreCompleto;
+    }
+  )
 });

@@ -1,0 +1,40 @@
+<div class="{{if (and valor textarea) '' 'flex'}} pv1">
+  <div class="w-30 truncate pv1 ba b--white gray pr3">
+  {{etiqueta}}:
+  </div>
+  <div class="{{if (and valor textarea) 'w-60 tj' ''}} pv1">
+    {{#if valor}}
+      {{#if fecha}}
+        {{moment-format valor 'DD/MM/YYYY'}}
+      {{else if opciones}}
+        {{#if (eq valor 'SI')}}
+          Sí
+        {{/if}}
+        {{#if (eq valor 'NO')}}
+          No
+        {{/if}}
+        {{#if (eq valor 'NS')}}
+          No sabe
+        {{/if}}
+        {{#if (eq valor 'PU')}}
+          Defensa pública
+        {{/if}}
+        {{#if (eq valor 'PR')}}
+          Defensa privada
+        {{/if}}
+      {{else if muchos}}
+        {{#each valor as |v index|}}
+          {{#unless (eq v valor.lastObject)}}
+            {{v.nombre}},
+          {{else}}
+            {{v.nombre}}
+          {{/unless}}
+        {{/each}}
+      {{else}}
+        {{valor}}
+      {{/if}}
+    {{else}}
+      Sin datos
+    {{/if}}
+  </div>
+</div>
