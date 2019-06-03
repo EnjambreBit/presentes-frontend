@@ -1,1 +1,10 @@
 {{yield}}
+{{#if cargando}}
+  Cargando
+{{else}}
+  {{#if fila}}
+    {{#if (get fila atributo)}}
+      {{moment-format (get fila atributo) 'DD/MM/YYYY'}}
+    {{/if}}
+  {{/if}}
+{{/if}}

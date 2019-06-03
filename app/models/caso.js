@@ -89,5 +89,31 @@ export default DS.Model.extend({
         this.get("violenciaInstitucionProvincia.nombre");
       return nombreCompleto;
     }
+  ),
+  nombreDelPenalCompleto: computed(
+    "nombreDelPenal",
+    "localidadDelPenal",
+    "provinciaDelPenal",
+    function() {
+      let nombre = this.nombreDelPenal;
+      let localidad = this.localidadDelPenal;
+      let provincia = this.get("provinciaDelPenal.nombre");
+      if (localidad != "") {
+        if (nombre != "") {
+          localidad = ", " + localidad;
+        }
+      } else {
+        localidad = "";
+      }
+      if (provincia != undefined) {
+        if (nombre != "" || localidad != "") {
+          provincia = ", " + provincia;
+        }
+      } else {
+        provincia = "";
+      }
+      let nombreCompleto = nombre + localidad + provincia;
+      return nombreCompleto;
+    }
   )
 });

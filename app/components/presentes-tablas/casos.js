@@ -30,7 +30,8 @@ export default Component.extend({
       },
       {
         titulo: "Fecha del hecho",
-        atributo: "fechaDelHecho"
+        atributo: "fechaDelHecho",
+        fecha: true
       },
       {
         titulo: "Lugar del hecho",

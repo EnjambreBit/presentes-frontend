@@ -6,6 +6,7 @@
         {{#popup-layer}}
           <h3>{{m.nombre}} {{m.apellido}}</h3>
           <p>Ocurrió el {{moment-format m.fechaDelHecho 'DD/MM/YYYY'}} en {{m.localidad}}, {{m.provincia}}</p>
+          {{presentes-ui/boton texto="Ver ficha" accion=(transition-to "app.casos.detalle" m.id) primario=true}}
         {{/popup-layer}}
       {{/marker-layer}}
     {{/each}}

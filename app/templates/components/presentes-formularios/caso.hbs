@@ -247,7 +247,7 @@
   {{f.input etiqueta="Teléfono" atributo="telefonoDeQuienBrindoInformacion"}}
 
   {{#f.botones as |botones|}}
-    {{botones.secundario etiqueta="Cancelar" class="fr" accion=(transition-to "app.casos")}}
+    {{botones.secundario etiqueta="Cancelar" class="fr" accion=(transition-to "app.casos.detalle" modelo)}}
     {{botones.separador}}
     {{botones.primario etiqueta=etiqueta accion=f.submit}}
   {{/f.botones}}

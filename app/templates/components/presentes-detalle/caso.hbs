@@ -84,10 +84,15 @@
 
 <h2>Situación de encierro</h2>
 {{#if (eq model.teniaPrisionPreventiva 'SI')}}
-
+  {{presentes-detalle/detalle-item etiqueta="Título de la causa en la justicia" valor=model.tituloDeLaCausaEnLaJusticia}}
+  {{presentes-detalle/detalle-item etiqueta="¿Dónde estaba detenida?" valor=model.nombreDelPenalCompleto}}
 {{else}}
   No se encontraba en situación de encierro.
 {{/if}}
+
+<h3>La información de este formulario fue brindada por:</h3>
+{{presentes-detalle/detalle-item etiqueta="Nombre y apellido" valor=model.nombreDeQuienBrindoInformacion}}
+{{presentes-detalle/detalle-item etiqueta="Teléfono" valor=model.telefonoDeQuienBrindoInformacion}}
 
 <div class="w-100 bb b--light-gray pv2 mb2"></div>
 
