@@ -1,9 +1,12 @@
 @import "ember-power-select";
+@import url("https://fonts.googleapis.com/css?family=Asap:400,400i,500,500i,600,600i,700,700i&display=swap");
 
 .roboto {
   font-family: roboto;
 }
-
+.asap {
+  font-family: "Asap";
+}
 .disable-select {
   user-select: none;
 }
@@ -16,7 +19,7 @@
 }
 
 h1 {
-  font-family: "Din Next Rounded Regular";
+  font-family: "Asap", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -36,7 +39,7 @@ h1 {
 }
 
 .ember-power-select-options[role="listbox"] {
-  font-family: "Din Next Rounded Light";
+  font-family: "Asap", sans-serif;
 }
 
 .no-pointer-events {

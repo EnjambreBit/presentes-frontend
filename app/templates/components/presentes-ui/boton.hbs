@@ -1,5 +1,5 @@
 {{#if deshabilitado}}
-    <div class="mb2 dib ba {{if sinBorde 'b--transparent' 'b--silver'}} pa2 disable-select br2 button {{extraClass}} o-50 min-w4 tc dinnext-regular">
+    <div class="mb2 dib ba {{if sinBorde 'b--transparent' 'b--silver'}} pa2 disable-select br2 button {{extraClass}} o-50 min-w4 tc asap">
       {{#if icono}}
         <i class="{{icono}}"></i>
       {{/if}}
@@ -7,7 +7,7 @@
     </div>
 {{else}}
   {{#if ejecutando}}
-    <div class="mb2 dib ba o-50 {{if sinBorde 'b--transparent' 'b--silver'}} pa2 disable-select br2 button {{extraClass}} dinnext-regular" {{action accion}}>
+    <div class="mb2 dib ba o-50 {{if sinBorde 'b--transparent' 'b--silver'}} pa2 disable-select br2 button {{extraClass}} asap" {{action accion}}>
       {{korolev-ui/spinner}}
       {{#if icono}}
         <i class="{{icono}}"></i>
@@ -15,7 +15,7 @@
       {{yield}}{{textoAlternativo}}
     </div>
   {{else}}
-    <button {{action accion model}} class="mb2 {{if primario 'bg-blue white hover-bg-dark-blue' 'bg-white blue hover-bg-near-white'}} outline-0 ba bg-animate hover-b--dark-blue b--blue br2 pa2 min-w4 pointer button {{class}} dinnext-regular">
+    <button {{action accion model}} class="mb2 {{if primario 'bg-blue white hover-bg-dark-blue' 'bg-white blue hover-bg-near-white'}} outline-0 ba bg-animate hover-b--dark-blue b--blue br2 pa2 min-w4 pointer button {{class}} asap">
       {{#if icono}}
         <i class="{{icono}} mr1"></i>
       {{/if}}

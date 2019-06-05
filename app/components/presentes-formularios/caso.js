@@ -20,6 +20,7 @@ export default Component.extend({
     this.estadosDePublicacion.perform();
     this.opcionesSiNo.perform();
     this.opcionesSiNoNoSabe.perform();
+    this.opcionesDenuncia.perform();
     this.opcionesPublicaPrivada.perform();
 
     if (this.get("modelo")) {
@@ -75,6 +76,16 @@ export default Component.extend({
       { id: "SI", nombre: "Sí" },
       { id: "NO", nombre: "No" },
       { id: "NS", nombre: "No sabe" }
+    ];
+    return opciones;
+  }),
+
+  opcionesDenuncia: task(function*() {
+    let opciones = yield [
+      { id: "SI", nombre: "Sí" },
+      { id: "NO", nombre: "No" },
+      { id: "NS", nombre: "No sabe" },
+      { id: "NT", nombre: "No se la tomaron" }
     ];
     return opciones;
   }),

@@ -22,6 +22,7 @@ export default DS.Model.extend({
   estudiosCursados: DS.attr("string"),
   estabaEnSituacionDeCalle: DS.attr("string"),
   dondeVivia: DS.attr("string"),
+  estabaDetenida: DS.attr("string"),
   teniaPrisionPreventiva: DS.attr("string"),
   tituloDeLaCausaEnLaJusticia: DS.attr("string"),
   nombreDelPenal: DS.attr("string"),
@@ -56,6 +57,10 @@ export default DS.Model.extend({
   telefonoDeQuienBrindoInformacion: DS.attr("string"),
   linkDeNota: DS.attr("string"),
   copete: DS.attr("string"),
+  calle: DS.attr("string"),
+  comoFueElAtaque: DS.attr("string"),
+  huboVictimas: DS.attr("string"),
+  hayRegistroFotografico: DS.attr("string"),
 
   estadoDePublicacion: DS.belongsTo("estadoDeCaso"),
   fechaDeCreacion: DS.attr("string"),
@@ -71,9 +76,16 @@ export default DS.Model.extend({
     "cjTituloDeLaCausa",
     "cjNumeroDeLaCausa",
     function() {
-      let tituloCompleto =
-        this.cjTituloDeLaCausa + " - " + this.cjNumeroDeLaCausa;
-      if (tituloCompleto === " - ") {
+      let titulo = this.cjTituloDeLaCausa;
+      let numero = this.cjNumeroDeLaCausa;
+      let tituloCompleto = "";
+      if (titulo && numero) {
+        tituloCompleto = titulo + " - " + numero;
+      } else if (titulo && !numero) {
+        tituloCompleto = titulo;
+      } else if (!titulo && numero) {
+        tituloCompleto = numero;
+      } else {
         tituloCompleto = "";
       }
       return tituloCompleto;

@@ -1,7 +1,7 @@
 {{yield}}
 
 {{#unless tarea.last.isRunning}}
-  <select name="" disabled={{deshabilitado}} class="pa1 bg-white w-100 dinnext {{if deshabilitado 'o-50'}}" onchange={{action "cuandoCambia" value="target.value"}} disabled={{disabled}}>
+  <select name="" disabled={{deshabilitado}} class="pa1 bg-white w-100 asap {{if deshabilitado 'o-50'}}" onchange={{action "cuandoCambia" value="target.value"}} disabled={{disabled}}>
     <option value="" disabled selected>Seleccione una Opción</option>
     {{#each tarea.last.value as |opcion|}}
       {{#if (eq opcion.id valor)}}
