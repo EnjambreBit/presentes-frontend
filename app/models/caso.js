@@ -27,6 +27,7 @@ export default DS.Model.extend({
   nombreDelPenal: DS.attr("string"),
   localidadDelPenal: DS.attr("string"),
   provinciaDelPenal: DS.belongsTo("provincia"),
+  prostitucion: DS.attr("string"),
   esMigrante: DS.attr("string"),
   paisDeOrigen: DS.attr("string"),
   anioDeLlegada: DS.attr("string"),

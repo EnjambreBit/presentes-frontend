@@ -23,31 +23,11 @@
     {{/f.personalizado}}
   {{/tiene-permiso}}
 
+  <div class="w-100 bb b--light-gray pv2 mb2"></div>
+
   <h2>Datos generales de la víctima</h2>
   {{f.input etiqueta="Nombre" atributo="nombre"}}
   {{f.input etiqueta="Apellido" atributo="apellido"}}
-
-  {{f.input etiqueta="Edad" atributo="edad"}}
-  {{f.input etiqueta="Lugar de nacimiento" atributo="lugarDeNacimiento"}}
-
-  {{#f.personalizado etiqueta="¿Es migrante?" name="esMigrante" as |i|}}
-    {{presentes-selector/simple-select-enum
-      tarea=opcionesSiNo
-      optionLabel="nombre"
-      valor=i.value
-      disabled=false
-      cuandoSelecciona=i.update}}
-  {{/f.personalizado}}
-  {{#if (eq f.model.esMigrante "SI")}}
-    {{f.input etiqueta="País de origen" atributo="paisDeOrigen"}}
-    {{f.input etiqueta="Año de llegada" atributo="anioDeLlegada"}}
-  {{/if}}
-
-  {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
-    {{presentes-ui/input-fecha
-        valor=fi.value
-        cuandoCambia=fi.update}}
-  {{/f.personalizado}}
 
   {{f.input etiqueta="Localidad" atributo="localidad"}}
 
@@ -78,6 +58,36 @@
         <button class="borderless transparent" {{action "addr_search" q}}><i class="ui search link icon"></i></button>
     <div id="results"/>
   </div>
+
+  {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
+    {{presentes-ui/input-fecha
+        valor=fi.value
+        cuandoCambia=fi.update}}
+  {{/f.personalizado}}
+
+  {{f.input etiqueta="Edad" atributo="edad"}}
+  {{f.input etiqueta="Lugar de nacimiento" atributo="lugarDeNacimiento"}}
+
+  {{#f.personalizado etiqueta="¿Es migrante?" name="esMigrante" as |i|}}
+    {{presentes-selector/simple-select-enum
+      tarea=opcionesSiNo
+      optionLabel="nombre"
+      valor=i.value
+      disabled=false
+      cuandoSelecciona=i.update}}
+  {{/f.personalizado}}
+  {{#if (eq f.model.esMigrante "SI")}}
+    {{f.input etiqueta="País de origen" atributo="paisDeOrigen"}}
+    {{f.input etiqueta="Año de llegada" atributo="anioDeLlegada"}}
+  {{/if}}
+  {{#f.personalizado etiqueta="¿Prostitución?" name="prostitucion" as |i|}}
+    {{presentes-selector/simple-select-enum
+      tarea=opcionesSiNo
+      optionLabel="nombre"
+      valor=i.value
+      disabled=false
+      cuandoSelecciona=i.update}}
+  {{/f.personalizado}}
 
   <div class="w-100 bb b--light-gray pv2 mb2"></div>
 
