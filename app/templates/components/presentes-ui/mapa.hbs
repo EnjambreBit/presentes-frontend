@@ -2,12 +2,19 @@
 {{#leaflet-map lat=latitud lng=longitud zoom=zoom}}
   {{tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}}
     {{#each model.data as |m|}}
-      {{#marker-layer lat=m.latitud lng=m.longitud onClick=(action "accionDePrueba" m) as |marker|}}
-        {{#popup-layer}}
-          <h3>{{m.nombre}} {{m.apellido}}</h3>
-          <p>Ocurrió el {{moment-format m.fechaDelHecho 'DD/MM/YYYY'}} en {{m.localidad}}, {{m.provincia}}</p>
-          {{presentes-ui/boton texto="Ver ficha" accion=(transition-to "app.casos.detalle" m.id) primario=true}}
-        {{/popup-layer}}
+      {{#marker-layer lat=m.latitud lng=m.longitud onClick=(action "accionDePrueba" m) icon=categoryIcon as |marker|}}
+        {{presentes-ui/mapa-popup
+          nombre=m.nombreCompleto
+          fecha=m.fechaDelHecho
+          localidad=m.localidad
+          provincia=m.provincia
+          id=m.id
+          ficha=true
+          nota=m.linkDeNota
+          categoria=m.categoria
+          copete=m.copete
+          modelo=m
+        }}
       {{/marker-layer}}
     {{/each}}
 {{/leaflet-map}}

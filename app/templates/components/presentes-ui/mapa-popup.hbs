@@ -1,0 +1,72 @@
+{{#popup-layer}}
+  <section class="cf w-100">
+    <div class="fl w-25 pt3">
+      <img
+          src="http://tachyons.io/img/logo.jpg"
+          class="br-100 ba {{color-de-categoria categoria}} bw2 h3 w3 dib v-mid" alt="avatar">
+    </div>
+    <div class="fl w-75 pl3">
+      <h3>{{nombre}}</h3>
+      <div class="gray mt1">
+        <i class="fas fa-calendar-alt"></i> {{moment-format fecha 'DD.MM.YYYY'}}
+      </div>
+      <div class="gray mt1">
+        <i class="fas fa-map-marker-alt"></i>
+        {{#if (eq provincia "Ciudad Autónoma de Buenos Aires")}}
+          {{localidad}}, CABA
+        {{else}}
+          {{localidad}}, {{provincia}}
+        {{/if}}
+      </div>
+      <div class="{{color-de-categoria categoria}} mt1">
+        <i class="fas fa-circle"></i> {{categoria}}
+      </div>
+    </div>
+  </section>
+  <section class="cf w-100 mt2">
+    {{#if (eq categoria "Muerte por travesticidio social")}}
+      {{modelo.nombreCompleto}},
+      {{#if modelo.edad}}
+        {{modelo.edad}} años.
+      {{else}}
+        .
+      {{/if}}
+      {{#if modelo.lugarDeNacimiento}}
+        Oriunda de {{modelo.lugarDeNacimiento}},
+        {{#if modelo.paisDeOrigen}}
+          {{modelo.paisDeOrigen}}.
+        {{else}}
+        .
+        {{/if}}
+      {{/if}}
+
+      {{#if modelo.dondeVivia}}
+        Vivía en {{modelo.dondeVivia}}.
+      {{/if}}
+      {{#if modelo.fechaDelHecho}}
+        Falleció el {{moment-format modelo.fechaDelHecho 'D \d\e MMMM'}}
+        {{#if modelo.causaDeLaMuerte}}
+         debido a {{modelo.causaDeLaMuerte}}.
+         {{else}}
+         .
+        {{/if}}
+      {{/if}}
+
+    {{else}}
+      {{#if copete}}
+        {{copete}}
+      {{else}}
+        <div class="db w5"></div>
+      {{/if}}
+    {{/if}}
+
+  </section>
+  <section class="cf w-100 mt2">
+    {{#if ficha}}
+      {{#link-to 'app.casos.detalle' id}}Ver ficha{{/link-to}}
+    {{/if}}
+    {{#if nota}}
+      <a href="{{nota}}" target="_blank">Ver nota</a>
+    {{/if}}
+  </section>
+{{/popup-layer}}

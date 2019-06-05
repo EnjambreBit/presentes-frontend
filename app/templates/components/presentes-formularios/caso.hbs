@@ -65,9 +65,19 @@
       {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
   </div>
 
+
   <label for="gmap-parser">Ingrese url de Gmap:</label>
   <input name="gmap-parser" value={{url}} oninput={{action "parseURL" value="target.value"}}>
 
+  <input name="addr" value="" id="addr" oninput={{action "addr_search" value="target.value"}}>
+
+  <div class="w-100 bb b--light-gray pv2 mb2"></div>
+
+  <div id="search">
+    {{input type="text" placeholder="Buscar" value=q}}
+        <button class="borderless transparent" {{action "addr_search" q}}><i class="ui search link icon"></i></button>
+    <div id="results"/>
+  </div>
 
   <div class="w-100 bb b--light-gray pv2 mb2"></div>
 
@@ -245,6 +255,11 @@
   <h3>La información de este formulario fue brindada por:</h3>
   {{f.input etiqueta="Nombre y apellido" atributo="nombreDeQuienBrindoInformacion"}}
   {{f.input etiqueta="Teléfono" atributo="telefonoDeQuienBrindoInformacion"}}
+
+  <div class="w-100 bb b--light-gray pv2 mb2"></div>
+  {{f.input etiqueta="Link a nota" atributo="linkDeNota"}}
+  {{f.textarea etiqueta="Copete" atributo="copete"}}
+
 
   {{#f.botones as |botones|}}
     {{botones.secundario etiqueta="Cancelar" class="fr" accion=(transition-to "app.casos.detalle" modelo)}}

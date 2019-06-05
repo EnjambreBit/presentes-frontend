@@ -104,6 +104,9 @@ export default Component.extend({
       modelo.set("longitud", "");
       modelo.set("latitud", lat);
       modelo.set("longitud", lon);
+    },
+    addr_search(q) {
+      console.log(q);
     }
   }
 });

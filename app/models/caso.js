@@ -53,6 +53,8 @@ export default DS.Model.extend({
   observaciones: DS.attr("string"),
   nombreDeQuienBrindoInformacion: DS.attr("string"),
   telefonoDeQuienBrindoInformacion: DS.attr("string"),
+  linkDeNota: DS.attr("string"),
+  copete: DS.attr("string"),
 
   estadoDePublicacion: DS.belongsTo("estadoDeCaso"),
   fechaDeCreacion: DS.attr("string"),

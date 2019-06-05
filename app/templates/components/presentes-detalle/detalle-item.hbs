@@ -6,6 +6,8 @@
     {{#if valor}}
       {{#if fecha}}
         {{moment-format valor 'DD/MM/YYYY'}}
+      {{else if link}}
+        <a href="{{valor}}" target="_blank">{{valor}}</a>
       {{else if opciones}}
         {{#if (eq valor 'SI')}}
           Sí

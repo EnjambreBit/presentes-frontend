@@ -1,8 +1,7 @@
 {{yield}}
-<h1>
+<h1 class="{{color-de-categoria model.categoria.nombre}}">
   {{model.categoria.nombre}} > {{model.nombreCompleto}}
 </h1>
-
 <h2>Datos generales de la víctima</h2>
 <div class="flex">
   <div class="flex flex-column w-50">
@@ -90,9 +89,16 @@
   No se encontraba en situación de encierro.
 {{/if}}
 
+<div class="w-100 bb b--light-gray pv2 mb2"></div>
+
 <h3>La información de este formulario fue brindada por:</h3>
 {{presentes-detalle/detalle-item etiqueta="Nombre y apellido" valor=model.nombreDeQuienBrindoInformacion}}
 {{presentes-detalle/detalle-item etiqueta="Teléfono" valor=model.telefonoDeQuienBrindoInformacion}}
+
+<div class="w-100 bb b--light-gray pv2 mb2"></div>
+
+{{presentes-detalle/detalle-item etiqueta="Link a nota" valor=model.linkDeNota link=true}}
+{{presentes-detalle/detalle-item etiqueta="Copete" valor=model.copete textarea=true}}
 
 <div class="w-100 bb b--light-gray pv2 mb2"></div>
 
