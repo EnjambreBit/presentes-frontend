@@ -45,7 +45,7 @@ export default DS.Model.extend({
   cjInstancia: DS.attr("string"),
   cjRespetaronNombreDeIg: DS.attr("string"),
   cjOrganismosPublicos: DS.attr("string"),
-  cjOrganizaciones: DS.hasMany("etiqueta"),
+  cjOrganizaciones: DS.hasMany("organizacion"),
   cjCuentaConDefensa: DS.attr("string"),
   cjHayInformeForense: DS.attr("string"),
   huboViolenciaInstitucional: DS.attr("string"),

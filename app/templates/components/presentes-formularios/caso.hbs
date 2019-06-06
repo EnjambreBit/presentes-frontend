@@ -230,7 +230,12 @@
       {{/f.personalizado}}
       {{f.input etiqueta="Organismos públicos que acompañan" atributo="cjOrganismosPublicos"}}
 
-      {{!-- Organizaciones, implementar selector múltiple --}}
+      {{#f.personalizado etiqueta="Organizaciones que acompañan" name="cjOrganizaciones" as |i|}}
+        {{presentes-selector/organizaciones
+            valor=i.value
+            cuandoSelecciona=i.update
+            css="w-100 v-mid"}}
+      {{/f.personalizado}}
 
       {{#f.personalizado etiqueta="¿El abogade es de la defensa pública o privada?" name="cjCuentaConDefensa" as |i|}}
         {{presentes-selector/simple-select-enum

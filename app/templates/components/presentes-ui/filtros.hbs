@@ -1,1 +1,30 @@
 {{yield}}
+
+<div class="pt2">
+  <div class="flex">
+
+    <div class="flex1">
+      {{#if (or tareaFiltros.last.isRunning tareaFiltros.last.isIdle)}}
+        <div class="placeholder-filtro">Cargando ...</div>
+      {{else}}
+        {{#if tareaFiltros.last.isSuccessful}}
+          {{visual-search
+              options=tareaFiltros.last.value
+              onChange=(action 'onChange')
+              searchButton=false
+              registerAs=controlador
+              placeholder="Ingrese un filtro"
+              searchButtonText="Buscar"
+              getKeyValues=(action "getKeyValuesFunc")
+              suggestOnFocus=(hash keys=true values=true)
+          }}
+
+        {{/if}}
+      {{/if}}
+    </div>
+
+    <div class="pl2">
+      {{presentes-ui/boton texto="Buscar" accion=(action "buscar")}}
+    </div>
+  </div>
+</div>
