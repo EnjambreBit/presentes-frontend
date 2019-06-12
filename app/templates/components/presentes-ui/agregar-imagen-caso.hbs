@@ -1,0 +1,17 @@
+{{#unless subiendo}}
+  {{#if caso.imagenUrl}}
+    <img src="{{ caso.imagenUrl }}" alt="" class="br2 h4 w4 dib pv3 tc {{if disabled '' ' pointer'}}" {{action "abrirInput"}}>
+    <div class="dtc pr1">
+    </div>
+  {{else}}
+    <div class="white bg-black-50 b1 b--black br2 h4 w4 dib pv3 pt4 tc pointer {{if disabled '' ' pointer'}}" {{action "abrirInput"}}>
+      <div class="pt3 lh-copy">Sin imagen</div>
+    </div>
+  {{/if}}
+{{else}}
+  <div class="tc pa3 pv4 h-160px v-mid">
+    <img src="/spinners/spinner-blanco.svg" alt="">
+  </div>
+{{/unless}}
+
+<input type="file" value="" class="dn" accept="image/x-png,image/gif,image/jpeg" onchange={{action "upload"}} multiple="false">

@@ -16,6 +16,7 @@ export default Service.extend({
       this.set("usuario", datos.usuario);
       this.set("permisos", datos.permisos);
       this.set("grupo", datos.grupo);
+      this.set("imagenUrl", datos.imagen_url);
       this.set("idPerfil", datos.id);
       this.set("versionDelServidor", datos.version_del_servidor);
       return this.store.findRecord("perfil", datos.id).then(perfil => {

@@ -4,6 +4,7 @@ import { computed } from "@ember/object";
 export default DS.Model.extend({
   nombre: DS.attr("string"),
   apellido: DS.attr("string"),
+  imagenUrl: DS.attr("string"),
   lugarDeNacimiento: DS.attr("string"),
   edad: DS.attr("string"),
   fechaDelHecho: DS.attr("string"),

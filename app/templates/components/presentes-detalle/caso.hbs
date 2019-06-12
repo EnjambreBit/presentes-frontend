@@ -35,6 +35,7 @@
   <h2>Datos generales de la víctima</h2>
   <div class="flex">
     <div class="flex flex-column w-50">
+      {{presentes-ui/agregar-imagen-caso caso=model disabled=true}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Categoría" valor=model.categoria.nombre}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Nombre y apellido" valor=model.nombreCompleto}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Lugar del hecho" valor=model.lugarDelHechoCompleto}}

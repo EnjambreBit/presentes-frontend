@@ -111,6 +111,10 @@
 
     {{f.input etiqueta="Apellido" atributo="apellido"}}
 
+    {{#f.personalizado etiqueta="Foto" name="imagen" as |i|}}
+      {{presentes-ui/agregar-imagen-caso caso=f.model disabled=false}}
+    {{/f.personalizado}}
+
     {{f.input etiqueta="Localidad" atributo="localidad"}}
 
     {{#f.personalizado etiqueta="Provincia" name="provincia" as |i|}}

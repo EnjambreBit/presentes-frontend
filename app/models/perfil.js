@@ -6,6 +6,7 @@ export default DS.Model.extend({
   apellido: DS.attr("string"),
   email: DS.attr("string"),
   usuario: DS.attr("string"),
+  imagenUrl: DS.attr("string"),
 
   nombreCompleto: computed("nombre", "apellido", function() {
     return `${this.nombre} ${this.apellido}`;

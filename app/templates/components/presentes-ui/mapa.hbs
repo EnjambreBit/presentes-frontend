@@ -1,8 +1,11 @@
 
 {{#leaflet-map lat=latitud lng=longitud zoom=zoom}}
-  {{tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}}
+  {{!-- {{tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}} --}}
+  {{!-- {{tile-layer url="http://a.tile.stamen.com/toner/{z}/{x}/{y}.png"}} --}}
+  {{tile-layer url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"}}
+  {{!-- {{tile-layer url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"}} --}}
     {{#each model.data as |m|}}
-      {{#marker-layer lat=m.latitud lng=m.longitud onClick=(action "accionDePrueba" m) icon=categoryIcon as |marker|}}
+      {{#marker-layer lat=m.latitud lng=m.longitud onClick=(action "accionDePrueba" m) icon=(category-icon m.categoria) as |marker|}}
         {{presentes-ui/mapa-popup
           nombre=m.nombreCompleto
           fecha=m.fechaDelHecho
@@ -15,6 +18,7 @@
           categoria=m.categoria
           copete=m.copete
           modelo=m
+          imagen=m.imagen_url
         }}
       {{/marker-layer}}
     {{/each}}
