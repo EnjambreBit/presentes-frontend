@@ -64,7 +64,7 @@ export default DS.Model.extend({
   hayRegistroFotografico: DS.attr("string"),
 
   estadoDePublicacion: DS.belongsTo("estadoDeCaso"),
-  fechaDeCreacion: DS.attr("string"),
+  fechaDeCreacion: DS.attr("string", { readOnly: true }),
 
   nombreCompleto: computed("nombre", "apellido", function() {
     return `${this.nombre} ${this.apellido}`;

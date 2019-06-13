@@ -26,7 +26,12 @@ export default Component.extend({
     }
     let validaciones = {
       nombre: [validatePresence(true)],
-      apellido: [validatePresence(true)]
+      direccion: [validatePresence(true)],
+      telefono: [validatePresence(true)],
+      email: [validatePresence(true)],
+      localidad: [validatePresence(true)],
+      provincia: [validatePresence(true)],
+      descripcion: [validatePresence(true)]
     };
     this.set("validaciones", validaciones);
   },

@@ -1,11 +1,12 @@
 import Component from "@ember/component";
 import { inject as service } from "@ember/service";
-import { task } from "ember-concurrency";
+import { task, timeout } from "ember-concurrency";
 
 export default Component.extend({
   tagName: "",
   store: service(),
   columnas: null,
+  filtro: null,
 
   didInsertElement() {
     this._super(...arguments);
@@ -13,11 +14,22 @@ export default Component.extend({
       {
         titulo: "Nombre",
         atributo: "nombre",
-        componente: "presentes-ui/organizacion-link"
+        componente: "presentes-ui/organizacion-link",
+        ordenamiento: "nombre"
       },
       {
         titulo: "Dirección",
         atributo: "direccion"
+      },
+      {
+        titulo: "Localidad",
+        atributo: "localidad",
+        ordenamiento: "localidad"
+      },
+      {
+        titulo: "Provincia",
+        atributo: "provincia.nombre",
+        ordenamiento: "provincia__nombre"
       },
       {
         titulo: "Teléfono",
@@ -29,9 +41,33 @@ export default Component.extend({
       }
     ]);
   },
+  crearFiltros: task(function*() {
+    yield timeout(500);
+    let provincias = yield this.store.findAll("Provincia");
 
-  tarea: task(function*() {
-    let datos = yield this.store.query("organizacion", {});
+    provincias = provincias.map(e => e.nombre);
+
+    return {
+      keys: [
+        {
+          key: "nombre",
+          title: "Nombre"
+        },
+        {
+          key: "localidad",
+          title: "Localidad"
+        },
+        {
+          key: "provincia",
+          title: "Provincia",
+          valores: provincias
+        }
+      ]
+    };
+  }),
+
+  tarea: task(function*(filtros) {
+    let datos = yield this.store.query("organizacion", filtros);
     return { filas: datos, meta: datos.meta };
   }).restartable()
 });

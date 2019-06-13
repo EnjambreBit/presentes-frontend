@@ -44,20 +44,7 @@
         {{f.input etiqueta="Latitud" atributo="latitud" valor=lat}}
         {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
     </div>
-
-
-    <label for="gmap-parser">Ingrese url de Gmap:</label>
-    <input name="gmap-parser" value={{url}} oninput={{action "parseURL" value="target.value"}}>
-
-    <input name="addr" value="" id="addr" oninput={{action "addr_search" value="target.value"}}>
-
-    <div class="w-100 bb b--light-gray pv2 mb2"></div>
-
-    <div id="search">
-      {{input type="text" placeholder="Buscar" value=q}}
-          <button class="borderless transparent" {{action "addr_search" q}}><i class="ui search link icon"></i></button>
-      <div id="results"/>
-    </div>
+    <span class="orange">Sólo es necesario ingresar Latitud y Longitud si no se puede encontrar la dirección automáticamente</span>
 
     {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
       {{presentes-ui/input-fecha
@@ -131,17 +118,9 @@
         {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
     </div>
 
-
-    <label for="gmap-parser">Ingrese url de Gmap:</label>
-    <input name="gmap-parser" value={{url}} oninput={{action "parseURL" value="target.value"}}>
-
-    <input name="addr" value="" id="addr" oninput={{action "addr_search" value="target.value"}}>
-
-    <div class="w-100 bb b--light-gray pv2 mb2"></div>
-
     <div id="search">
-      {{input type="text" placeholder="Buscar" value=q}}
-          <button class="borderless transparent" {{action "addr_search" q}}><i class="ui search link icon"></i></button>
+      {{input class="asap pa2 br2 ba  b--light-silver w-90 input" type="text" placeholder="Buscar dirección" value=q}}
+          <button class="fas fa-search" {{action "addr_search" q}}></button>
       <div id="results"/>
     </div>
 

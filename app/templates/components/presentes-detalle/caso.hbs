@@ -14,7 +14,12 @@
       {{presentes-detalle/detalle-item ancho="40" etiqueta="Fecha del hecho" valor=model.fechaDelHecho fecha=true}}
     </div>
     <div class="flex flex-column w-40">
-      {{presentes-ui/mapa-individual modelo=model zoom=12}}
+      {{#if (or (eq model.latitud "") (eq model.longitud ""))}}
+        <div class="bg-light-gray h-100 tc pt5">Sin Mapa</div>
+        <div class="bg-light-gray h-100 tc pt0">Revisar si la dirección existe en <a href="https://www.openstreetmap.org" target="_blank">Open Street Map</a></div>
+      {{else}}
+        {{presentes-ui/mapa-individual modelo=model zoom=12}}
+      {{/if}}
     </div>
   </div>
   <h2>Detalle del ataque</h2>
