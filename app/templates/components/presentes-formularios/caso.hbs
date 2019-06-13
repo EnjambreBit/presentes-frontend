@@ -120,12 +120,7 @@
         {{f.input etiqueta="Latitud" atributo="latitud" valor=lat}}
         {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
     </div>
-
-    <div id="search">
-      {{input class="asap pa2 br2 ba  b--light-silver w-90 input" type="text" placeholder="Buscar dirección" value=q}}
-          <button class="fas fa-search" {{action "addr_search" q}}></button>
-      <div id="results"/>
-    </div>
+    <span class="orange">Sólo es necesario ingresar Latitud y Longitud si no se puede encontrar la dirección automáticamente</span>
 
     {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
       {{presentes-ui/input-fecha
