@@ -5,7 +5,7 @@ export default Component.extend({
   didInsertElement() {
     let modelo = this.get("modelo");
     let categoria = modelo.get("categoria.nombre");
-    let color;
+    let iconoUrl;
     if (categoria === "Asesinatos a personas LGBT+") {
       iconoUrl = "/markers/light-blue-marker.png";
     }
@@ -20,7 +20,7 @@ export default Component.extend({
     }
 
     let categoryIcon = L.icon({
-      iconUrl: iconUrl,
+      iconUrl: iconoUrl,
       iconSize: [30, 30],
       iconAnchor: [25, 23],
       popupAnchor: [-12, 9]
