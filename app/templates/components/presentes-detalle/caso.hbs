@@ -7,6 +7,7 @@
   <h2>Datos generales</h2>
   <div class="flex">
     <div class="flex flex-column w-50">
+      {{presentes-ui/agregar-imagen-caso caso=model disabled=true}}
       {{presentes-detalle/detalle-item ancho="40" etiqueta="Nombre del lugar" valor=model.nombreCompleto}}
       {{presentes-detalle/detalle-item ancho="40" etiqueta="Calle" valor=model.calle}}
       {{presentes-detalle/detalle-item ancho="40" etiqueta="Localidad" valor=model.localidad}}
@@ -18,7 +19,7 @@
         <div class="bg-light-gray h-100 tc pt5">Sin Mapa</div>
         <div class="bg-light-gray h-100 tc pt0">Revisar si la dirección existe en <a href="https://www.openstreetmap.org" target="_blank">Open Street Map</a></div>
       {{else}}
-        {{presentes-ui/mapa-individual modelo=model zoom=12}}
+        {{presentes-ui/mapa-individual popup=false modelo=model zoom=12}}
       {{/if}}
     </div>
   </div>

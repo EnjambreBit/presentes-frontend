@@ -18,7 +18,7 @@ module("Integration | Component | presentes-detalle/caso", function(hooks) {
       nombre: "Prueba"
     });
     await render(
-      hbs`{{presentes-detalle/caso model=model lat=lat lng=lon zoom=zoom}}`
+      hbs`{{presentes-detalle/caso model=model lat="-37.5434" lng="-57.5434" zoom="12"}}`
     );
     assert.ok(this.element.textContent);
     servidor.shutdown();

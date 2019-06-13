@@ -4,16 +4,16 @@ export function colorDeCategoria(params /*, hash*/) {
   let categoria = params[0];
   let color;
   if (categoria === "Asesinatos a personas LGBT+") {
-    color = "black b--black";
+    color = "azul b--azul";
   }
   if (categoria === "Ataques a personas") {
-    color = "red b--red";
+    color = "rojo b--rojo";
   }
   if (categoria === "Ataques a lugares") {
-    color = "light-blue b--light-blue";
+    color = "rosa b--rosa";
   }
   if (categoria === "Muerte por travesticidio social") {
-    color = "yellow b--yellow";
+    color = "naranja b--naranja";
   }
 
   return color;

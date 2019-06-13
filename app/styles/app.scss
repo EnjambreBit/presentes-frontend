@@ -248,6 +248,66 @@ a {
   height: 100%;
 }
 
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: none;
+  box-shadow: none;
+}
+
 .leaflet-popup-content {
   min-width: 90%;
+}
+
+.leaflet-popup-close-button {
+  top: 1.5em !important;
+  right: 2em !important;
+}
+
+.leaflet-top {
+  top: inherit;
+  bottom: 2em !important;
+}
+
+.referencias {
+  position: absolute;
+  display: block;
+  top: 1em;
+  left: 1em;
+  background-color: white;
+  z-index: 900000;
+}
+
+/* colores de pop-up */
+.rosa {
+  color: #ff698c;
+}
+.b--rosa {
+  border-color: #ff698c;
+}
+
+.rojo {
+  color: #e40420;
+}
+.b--rojo {
+  border-color: #e40420;
+}
+
+.azul {
+  color: #2a7f9e;
+}
+.b--azul {
+  border-color: #2a7f9e;
+}
+
+.naranja {
+  color: #f3b919;
+}
+.b--naranja {
+  border-color: #f3b919;
+}
+
+.gris a,
+a.gris,
+.gris {
+  color: #808080;
 }

@@ -7,13 +7,13 @@ export default Component.extend({
     let categoria = modelo.get("categoria.nombre");
     let color;
     if (categoria === "Asesinatos a personas LGBT+") {
-      color = "black";
+      color = "light-blue";
     }
     if (categoria === "Ataques a personas") {
       color = "red";
     }
     if (categoria === "Ataques a lugares") {
-      color = "light-blue";
+      color = "pink";
     }
     if (categoria === "Muerte por travesticidio social") {
       color = "yellow";
@@ -22,12 +22,9 @@ export default Component.extend({
     let icon = "/markers/" + color + "-marker.png";
     let categoryIcon = L.icon({
       iconUrl: icon,
-      iconSize: [41, 41]
-      // iconAnchor: [22, 94],
-      // popupAnchor: [-3, -76]
-      // shadowUrl: "my-icon-shadow.png",
-      // shadowSize: [68, 95],
-      // shadowAnchor: [22, 94]
+      iconSize: [30, 30],
+      iconAnchor: [25, 23],
+      popupAnchor: [-12, 9]
     });
     this.set("categoryIcon", categoryIcon);
   }

@@ -28,6 +28,9 @@
   {{#if (eq f.model.categoria.nombre "Ataques a lugares")}}
     <h2>Datos generales</h2>
     {{f.input etiqueta="Nombre" atributo="nombre"}}
+    {{#f.personalizado etiqueta="Foto" name="imagen" as |i|}}
+      {{presentes-ui/agregar-imagen-caso caso=f.model disabled=false}}
+    {{/f.personalizado}}
     {{f.input etiqueta="Calle" atributo="calle"}}
     {{f.input etiqueta="Localidad" atributo="localidad"}}
 

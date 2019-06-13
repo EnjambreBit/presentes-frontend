@@ -6,4 +6,6 @@ export default function() {
   this.get("perfiles", { data: [] });
   this.get("perfiles/obtener-nombres", { data: [] });
   this.get("casos", { data: [] });
+  this.get("organizaciones", { data: [] });
+  this.get("provincias", { data: [] });
 }

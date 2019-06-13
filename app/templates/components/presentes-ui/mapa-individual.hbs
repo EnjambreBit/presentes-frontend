@@ -2,16 +2,18 @@
 {{#leaflet-map lat=modelo.latitud lng=modelo.longitud zoom=zoom}}
   {{tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}}
     {{#marker-layer lat=modelo.latitud lng=modelo.longitud icon=categoryIcon as |marker|}}
-      {{presentes-ui/mapa-popup
-        nombre=modelo.nombreCompleto
-        fecha=modelo.fechaDelHecho
-        calle=modelo.calle
-        localidad=modelo.localidad
-        provincia=modelo.provincia.nombre
-        nota=modelo.linkDeNota
-        copete=modelo.copete
-        categoria=modelo.categoria.nombre
-        modelo=modelo
-      }}
+      {{#if popup}}
+        {{presentes-ui/mapa-popup
+          nombre=modelo.nombreCompleto
+          fecha=modelo.fechaDelHecho
+          calle=modelo.calle
+          localidad=modelo.localidad
+          provincia=modelo.provincia.nombre
+          nota=modelo.linkDeNota
+          copete=modelo.copete
+          categoria=modelo.categoria.nombre
+          modelo=modelo
+        }}
+      {{/if}}
     {{/marker-layer}}
 {{/leaflet-map}}

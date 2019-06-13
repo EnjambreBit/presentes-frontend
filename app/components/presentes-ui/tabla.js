@@ -13,6 +13,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
+    this.send("recargar");
   },
 
   routeName: computed("router.currentURL", function() {

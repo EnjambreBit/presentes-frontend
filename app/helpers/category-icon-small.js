@@ -16,14 +16,7 @@ export function categoryIcon(params /*, hash*/) {
     iconoUrl = "/markers/yellow-marker.png";
   }
 
-  var icono = L.icon({
-    iconUrl: iconoUrl,
-    iconSize: [30, 30],
-    iconAnchor: [25, 23],
-    popupAnchor: [-12, 9]
-  });
-
-  return icono;
+  return iconoUrl;
 }
 
 export default helper(categoryIcon);
