@@ -225,6 +225,8 @@
             css="w-100 v-mid"}}
       {{/f.personalizado}}
 
+      {{f.textarea etiqueta="Otras organizaciones" atributo="cjOtrasOrganizaciones"}}
+
       {{#f.personalizado etiqueta="¿El abogade es de la defensa pública o privada?" name="cjCuentaConDefensa" as |i|}}
         {{presentes-selector/simple-select-enum
           tarea=opcionesPublicaPrivada
