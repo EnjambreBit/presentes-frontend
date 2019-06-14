@@ -121,7 +121,7 @@
     <h2>Situación de encierro</h2>
     {{#if (eq model.estabaDetenida 'SI')}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Dónde?" valor=model.nombreDelPenalCompleto}}
-      {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Desde cuándo?" valor=""}}
+      {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Desde cuándo?" valor=model.desdeCuandoEstabaEncerrada}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Tenía condena o prisión preventiva?" valor=model.teniaPrisionPreventiva opciones=true}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Título de la causa en la justicia" valor=model.tituloDeLaCausaEnLaJusticia}}
 

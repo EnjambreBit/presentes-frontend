@@ -325,7 +325,8 @@
           disabled=false
           cuandoSelecciona=i.update}}
       {{/f.personalizado}}
-      {{!-- Desde cuando? --}}
+      {{f.input etiqueta="¿Desde cuándo?" atributo="desdeCuandoEstabaEncerrada"}}
+
       {{#f.personalizado etiqueta="¿Tenía condena o prisión preventiva?" name="teniaPrisionPreventiva" as |i|}}
         {{presentes-selector/simple-select-enum
           tarea=opcionesSiNo

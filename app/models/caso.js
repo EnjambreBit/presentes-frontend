@@ -24,6 +24,7 @@ export default DS.Model.extend({
   estabaEnSituacionDeCalle: DS.attr("string"),
   dondeVivia: DS.attr("string"),
   estabaDetenida: DS.attr("string"),
+  desdeCuandoEstabaEncerrada: DS.attr("string"),
   teniaPrisionPreventiva: DS.attr("string"),
   tituloDeLaCausaEnLaJusticia: DS.attr("string"),
   nombreDelPenal: DS.attr("string"),
