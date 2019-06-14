@@ -273,17 +273,6 @@
           cuandoSelecciona=i.update}}
       {{/f.personalizado}}
 
-      {{!-- {{#if (eq f.model.teniaObraSocial "SI")}}
-        {{f.input etiqueta="¿Cuál?" atributo="obraSocial"}}
-      {{/if}}
-      {{#f.personalizado etiqueta="¿Tiene o tuvo acceso a prestaciones de salud?" name="tieneAccesoAPrestacionesDeSalud" as |i|}}
-        {{presentes-selector/simple-select-enum
-          tarea=opcionesSiNo
-          optionLabel="nombre"
-          valor=i.value
-          disabled=false
-          cuandoSelecciona=i.update}}
-      {{/f.personalizado}} --}}
       {{#if (eq f.model.tieneAccesoAPrestacionesDeSalud "SI")}}
         {{f.input etiqueta="¿Cuáles?" atributo="prestacionesDeSalud"}}
       {{/if}}
@@ -304,30 +293,9 @@
     {{/if}}
 
     <div class="w-100 bb b--light-gray pv2 mb2"></div>
-
-    <h2>Situación de encierro</h2>
-    {{#f.personalizado etiqueta="¿Estaba detenida o internada?" name="estabaDetenida" as |i|}}
-      {{presentes-selector/simple-select-enum
-        tarea=opcionesSiNo
-        optionLabel="nombre"
-        valor=i.value
-        disabled=false
-        cuandoSelecciona=i.update}}
-    {{/f.personalizado}}
-    {{#if (eq f.model.estabaDetenida "SI")}}
-      {{f.input etiqueta="¿Dónde?" atributo="nombreDelPenal"}}
-      {{f.input etiqueta="Localidad" atributo="localidadDelPenal"}}
-      {{#f.personalizado etiqueta="Provincia" name="provinciaDelPenal" as |i|}}
-        {{presentes-selector/simple-select
-          tarea=provincias
-          optionLabel="nombre"
-          valor=i.value
-          disabled=false
-          cuandoSelecciona=i.update}}
-      {{/f.personalizado}}
-      {{f.input etiqueta="¿Desde cuándo?" atributo="desdeCuandoEstabaEncerrada"}}
-
-      {{#f.personalizado etiqueta="¿Tenía condena o prisión preventiva?" name="teniaPrisionPreventiva" as |i|}}
+    {{#if (eq f.model.categoria.nombre "Muerte por travesticidio social")}}
+      <h2>Situación de encierro</h2>
+      {{#f.personalizado etiqueta="¿Estaba detenida o internada?" name="estabaDetenida" as |i|}}
         {{presentes-selector/simple-select-enum
           tarea=opcionesSiNo
           optionLabel="nombre"
@@ -335,12 +303,30 @@
           disabled=false
           cuandoSelecciona=i.update}}
       {{/f.personalizado}}
-      {{f.input etiqueta="Título de la causa en la Justicia" atributo="tituloDeLaCausaEnLaJusticia"}}
+      {{#if (eq f.model.estabaDetenida "SI")}}
+        {{f.input etiqueta="¿Dónde?" atributo="nombreDelPenal"}}
+        {{f.input etiqueta="Localidad" atributo="localidadDelPenal"}}
+        {{#f.personalizado etiqueta="Provincia" name="provinciaDelPenal" as |i|}}
+          {{presentes-selector/simple-select
+            tarea=provincias
+            optionLabel="nombre"
+            valor=i.value
+            disabled=false
+            cuandoSelecciona=i.update}}
+        {{/f.personalizado}}
+        {{f.input etiqueta="¿Desde cuándo?" atributo="desdeCuandoEstabaEncerrada"}}
 
-
+        {{#f.personalizado etiqueta="¿Tenía condena o prisión preventiva?" name="teniaPrisionPreventiva" as |i|}}
+          {{presentes-selector/simple-select-enum
+            tarea=opcionesSiNo
+            optionLabel="nombre"
+            valor=i.value
+            disabled=false
+            cuandoSelecciona=i.update}}
+        {{/f.personalizado}}
+        {{f.input etiqueta="Título de la causa en la Justicia" atributo="tituloDeLaCausaEnLaJusticia"}}
+      {{/if}}
     {{/if}}
-
-
 {{/if}}
 
     <div class="w-100 bb b--light-gray pv2 mb2"></div>

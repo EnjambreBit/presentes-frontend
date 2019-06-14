@@ -1,18 +1,21 @@
 {{yield}}
 <h1>
-  Organizaciones > {{model.nombre}}
+  <span class="gris">Organizaciones > </span>{{model.nombre}}
 </h1>
 
-<h2>Datos generales</h2>
-<ul>
-  <li><b>Teléfono: </b>{{model.telefono}}</li>
-  <li><b>Email: </b>{{model.email}}</li>
-  <li><b>Dirección: </b>{{model.direccion}}</li>
-  <li><b>Localidad: </b>{{model.localidad}}</li>
-  <li><b>Provincia: </b>{{model.provincia.nombre}}</li>
-  <li><b>Descripción de su especificidad: </b>{{model.descripcion}}</li>
-
-</ul>
+<h2>Datos de la organización</h2>
+<div class="flex">
+  <div class="flex flex-column w-50">
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Nombre" valor=model.nombre}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Referente" valor=model.referente}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Teléfono de contacto" valor=model.telefono}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Email" valor=model.email}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Dirección" valor=model.direccion}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Localidad" valor=model.localidad}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Provincia" valor=model.provincia.nombre}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Descripción de su especificidad" valor=model.descripcion textarea=true}}
+  </div>
+</div>
 <div class="pt3">
   {{presentes-ui/boton texto="Volver" accion=(transition-to "app.organizaciones.index")}}
   {{presentes-ui/boton texto="Editar" accion=(transition-to "app.organizaciones.editar" model.id) primario=true}}

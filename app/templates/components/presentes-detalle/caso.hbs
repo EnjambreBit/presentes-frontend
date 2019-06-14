@@ -117,7 +117,7 @@
   {{/if}}
 
   <div class="w-100 bb b--light-gray pv2 mb2"></div>
-  {{#if (not-eq model.categoria.nombre "Ataques a lugares")}}
+  {{#if (eq model.categoria.nombre "Muerte por travesticidio social")}}
     <h2>Situación de encierro</h2>
     {{#if (eq model.estabaDetenida 'SI')}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Dónde?" valor=model.nombreDelPenalCompleto}}
