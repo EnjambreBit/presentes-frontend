@@ -44,10 +44,12 @@ export default Component.extend({
     let provincias = yield this.store.findAll("Provincia");
     let estados = yield this.store.findAll("EstadoDeCaso");
     let categorias = yield this.store.findAll("Categoria");
+    let etiquetas = yield this.store.findAll("Etiqueta");
 
     provincias = provincias.map(e => e.nombre);
     estados = estados.map(e => e.nombre);
     categorias = categorias.map(e => e.nombre);
+    etiquetas = etiquetas.map(e => e.nombre);
 
     return {
       keys: [
@@ -64,6 +66,11 @@ export default Component.extend({
           key: "categoria",
           title: "Categoría",
           valores: categorias
+        },
+        {
+          key: "etiqueta",
+          title: "Etiqueta",
+          valores: etiquetas
         },
         {
           key: "localidad",

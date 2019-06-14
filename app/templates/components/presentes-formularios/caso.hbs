@@ -12,6 +12,13 @@
       cuandoSelecciona=i.update}}
   {{/f.personalizado}}
 
+  {{#f.personalizado etiqueta="Etiquetas" name="etiquetas" as |i|}}
+    {{presentes-selector/etiquetas
+        valor=i.value
+        cuandoSelecciona=i.update
+        css="w-100 v-mid"}}
+  {{/f.personalizado}}
+
   {{#tiene-permiso permiso="casos.puede_validar"}}
     {{#f.personalizado etiqueta="Estado de publicación" name="estadoDePublicacion" as |i|}}
       {{presentes-selector/simple-select

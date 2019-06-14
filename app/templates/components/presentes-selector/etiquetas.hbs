@@ -1,0 +1,21 @@
+{{yield}}
+
+{{#if valor.isPending}}
+  Cargando ....
+{{else}}
+  {{#power-select-multiple
+      disabled=disabled
+      options=buscar.last.value
+      searchField="nombre"
+      searchMessage="Ingrese texto para buscar"
+      loadingMessage="Cargando..."
+      noMatchesMessage="No se encontraron coincidencias"
+      selected=valor
+      placeholder=placeholder
+      class=css
+      tagName="div"
+      onchange=(action "cuandoSeleccionaEtiqueta")
+      as |item|}}
+    {{item.nombre}}
+  {{/power-select-multiple}}
+{{/if}}
