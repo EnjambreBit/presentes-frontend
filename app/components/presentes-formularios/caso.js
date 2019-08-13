@@ -20,6 +20,7 @@ export default Component.extend({
     this.estadosDePublicacion.perform();
     this.opcionesSiNo.perform();
     this.opcionesSiNoNoSabe.perform();
+    this.opcionesCausaJudicial.perform();
     this.opcionesDenuncia.perform();
     this.opcionesPublicaPrivada.perform();
 
@@ -115,6 +116,15 @@ export default Component.extend({
       { id: "SI", nombre: "Sí" },
       { id: "NO", nombre: "No" },
       { id: "NS", nombre: "No sabe" }
+    ];
+    return opciones;
+  }),
+
+  opcionesCausaJudicial: task(function*() {
+    let opciones = yield [
+      { id: "SI", nombre: "Sí" },
+      { id: "NO", nombre: "No" },
+      { id: "SD", nombre: "Sin determinar" }
     ];
     return opciones;
   }),

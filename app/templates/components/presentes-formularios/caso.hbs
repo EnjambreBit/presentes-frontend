@@ -54,7 +54,7 @@
         {{f.input etiqueta="Latitud" atributo="latitud" valor=lat}}
         {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
     </div>
-    <span class="orange">Sólo es necesario ingresar Latitud y Longitud si no se puede encontrar la dirección automáticamente</span>
+    <span class="gray">Sólo es necesario ingresar Latitud y Longitud si no se puede encontrar la dirección automáticamente</span>
 
     {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
       {{presentes-ui/input-fecha
@@ -127,13 +127,15 @@
         {{f.input etiqueta="Latitud" atributo="latitud" valor=lat}}
         {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
     </div>
-    <span class="orange">Sólo es necesario ingresar Latitud y Longitud si no se puede encontrar la dirección automáticamente</span>
+    <span class="gray">Sólo es necesario ingresar Latitud y Longitud si no se puede encontrar la dirección automáticamente</span>
 
     {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
       {{presentes-ui/input-fecha
           valor=fi.value
           cuandoCambia=fi.update}}
     {{/f.personalizado}}
+
+    {{f.textarea etiqueta="Descripción del hecho" atributo="descripcionDelHecho"}}
 
     {{f.input etiqueta="Edad" atributo="edad"}}
     {{f.input etiqueta="Lugar de nacimiento" atributo="lugarDeNacimiento"}}
@@ -191,12 +193,19 @@
       {{f.input etiqueta="¿Por qué no denunció?" atributo="porQueNoDenuncio"}}
     {{/if}}
 
+    {{#f.personalizado etiqueta="Organizaciones que acompañan" name="denunciaOrganizaciones" as |i|}}
+      {{presentes-selector/organizaciones
+          valor=i.value
+          cuandoSelecciona=i.update
+          css="w-100 v-mid"}}
+    {{/f.personalizado}}
+
     <div class="w-100 bb b--light-gray pv2 mb2"></div>
 
     <h2>Causa judicial</h2>
     {{#f.personalizado etiqueta="¿Hay causa judicial?" name="hayCausaJudicial" as |i|}}
       {{presentes-selector/simple-select-enum
-        tarea=opcionesSiNo
+        tarea=opcionesCausaJudicial
         optionLabel="nombre"
         valor=i.value
         disabled=false

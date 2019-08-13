@@ -52,6 +52,7 @@
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Nombre y apellido" valor=model.nombreCompleto}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Lugar del hecho" valor=model.lugarDelHechoCompleto}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Fecha del hecho" valor=model.fechaDelHecho fecha=true}}
+      {{presentes-detalle/detalle-item ancho="30" etiqueta="Descripción del hecho" valor=model.descripcionDelHecho textarea=true}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Edad" valor=model.edad}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Lugar de nacimiento" valor=model.lugarDeNacimiento}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Es migrante?" valor=model.esMigrante opciones=true}}
@@ -73,6 +74,7 @@
   {{#if (eq model.hayDenuncia 'SI')}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Fecha de la denuncia" valor=model.fechaDeDenuncia fecha=true}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Ante quién se hizo?" valor=model.anteQuienSeHizoLaDenuncia}}
+      {{presentes-detalle/detalle-item ancho="30" etiqueta="Organizaciones (activismo) que acompañan" valor=model.denunciaOrganizaciones muchos=true}}
 
   {{else}}
     {{#if (eq model.hayDenuncia 'NO')}}
