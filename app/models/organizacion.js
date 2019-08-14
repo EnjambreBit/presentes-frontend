@@ -8,5 +8,10 @@ export default DS.Model.extend({
   telefono: DS.attr("string"),
   email: DS.attr("string"),
   descripcion: DS.attr("string"),
-  provincia: DS.belongsTo("provincia")
+  provincia: DS.belongsTo("provincia"),
+  website: DS.attr("string"),
+  facebook: DS.attr("string"),
+  twitter: DS.attr("string"),
+  instagram: DS.attr("string"),
+  youtube: DS.attr("string")
 });

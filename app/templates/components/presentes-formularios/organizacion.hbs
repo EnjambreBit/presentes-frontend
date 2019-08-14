@@ -21,6 +21,13 @@
 
   {{f.textarea etiqueta="Descripción de su especificidad" atributo="descripcion"}}
 
+  <h2>Redes</h2>
+
+  {{f.input etiqueta="Website" atributo="website"}}
+  {{f.input etiqueta="Facebook" atributo="facebook"}}
+  {{f.input etiqueta="Twitter" atributo="twitter"}}
+  {{f.input etiqueta="Instagram" atributo="instagram"}}
+  {{f.input etiqueta="YouTube" atributo="youtube"}}
 
   {{#f.botones as |botones|}}
     {{botones.secundario etiqueta="Cancelar" class="fr" accion=(transition-to "app.organizaciones")}}

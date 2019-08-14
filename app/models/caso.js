@@ -73,10 +73,22 @@ export default DS.Model.extend({
   nombreCompleto: computed("nombre", "apellido", function() {
     return `${this.nombre} ${this.apellido}`;
   }),
-  lugarDelHechoCompleto: computed("localidad", "provincia", function() {
-    let lugar = this.localidad + ", " + this.get("provincia.nombre");
-    return lugar;
-  }),
+  lugarDelHechoCompleto: computed(
+    "calle",
+    "localidad",
+    "provincia",
+    function() {
+      let lugar;
+      let calle;
+      if (this.calle) {
+        calle = this.calle + ", ";
+      } else {
+        calle = "";
+      }
+      lugar = calle + this.localidad + ", " + this.get("provincia.nombre");
+      return lugar;
+    }
+  ),
   tituloYNumeroDeLaCausa: computed(
     "cjTituloDeLaCausa",
     "cjNumeroDeLaCausa",
