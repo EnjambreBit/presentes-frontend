@@ -27,6 +27,12 @@ Router.map(function() {
   this.route("login");
   this.route("logout");
   this.route("mapa");
+
+  this.route('publico', function() {
+    this.route('casos', function() {
+      this.route('detalle');
+    });
+  });
 });
 
 export default Router;

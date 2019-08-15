@@ -85,11 +85,19 @@
     <div class="dib ba b--light-gray pointer dim pa1 w2 gray}}">&nbsp;</div>
     <div class="dib ba b--light-gray pointer dim pa1 w2 gray}}">&nbsp;</div>
   {{else}}
+    <div class="fl mt2 dark-gray">
+      {{#if (eq tarea.lastSuccessful.value.meta.pagination.count 1)}}
+         Se encontró {{tarea.lastSuccessful.value.meta.pagination.count}} registro
+      {{else}}
+         Se encontraron {{tarea.lastSuccessful.value.meta.pagination.count}} registros
+      {{/if}}
+    </div>
     {{#each (range 1 (add tarea.lastSuccessful.value.meta.pagination.pages 1)) as |p|}}
       <div role="button" class="dib ba pointer dim pa1 w2 {{if (eq pagina p) 'b--blue bb white bg-blue' 'blue'}}" {{action "definirPagina" p}}>
         {{p}}
       </div>
     {{/each}}
+
   {{/unless}}
 
 </div>

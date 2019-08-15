@@ -18,8 +18,14 @@
     </div>
 
     <div class="gray">
-      {{#link-to "app.mi-perfil" activeClass="bg-black white b bw2 bb b-purple" class="link gray dim h-100 pa2 pt3 dib"}}Mi perfil{{/link-to}}
-      {{#link-to "logout" activeClass="bg-black white b bb bw2 b-purple" class="link gray dim h-100 pa2 pt3 dib"}}Salir{{/link-to}}
+      {{#if session.isAuthenticated}}
+        {{#link-to "app.mi-perfil" activeClass="bg-black white b bw2 bb b-purple" class="link gray dim h-100 pa2 pt3 dib"}}Mi perfil{{/link-to}}
+        {{#link-to "logout" activeClass="bg-black white b bb bw2 b-purple" class="link gray dim h-100 pa2 pt3 dib"}}Salir{{/link-to}}
+      {{else}}
+        {{#link-to 'login' activeClass="bg-black white b bw2 bb b-purple" class="link gray dim h-100 pa2 pt3 dib"}}Login{{/link-to}}
+      {{/if}}
+
+
     </div>
 
   </div>
