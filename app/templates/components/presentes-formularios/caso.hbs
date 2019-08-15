@@ -297,7 +297,15 @@
       {{/if}}
 
       {{f.input etiqueta="¿Cuál era su ocupación o trabajo?" atributo="ocupacion"}}
-      {{f.input etiqueta="¿Qué estudios tiene?" atributo="estudiosCursados"}}
+
+      {{#f.personalizado etiqueta="¿Qué estudios tiene?" name="queEstudiosTiene" as |i|}}
+        {{presentes-selector/simple-select
+          tarea=estudios
+          optionLabel="nombre"
+          valor=i.value
+          disabled=false
+          cuandoSelecciona=i.update}}
+      {{/f.personalizado}}
 
       {{#f.personalizado etiqueta="¿Estaba en situación de calle?" name="estabaEnSituacionDeCalle" as |i|}}
         {{presentes-selector/simple-select-enum

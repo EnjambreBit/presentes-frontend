@@ -10,5 +10,6 @@ inflector.irregular("pais", "paises");
 inflector.irregular("categoria", "categorias");
 inflector.irregular("etiqueta", "etiquetas");
 inflector.irregular("organizacion", "organizaciones");
+inflector.irregular("estudio", "estudios");
 
 export default {};

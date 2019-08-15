@@ -23,6 +23,7 @@ export default Component.extend({
     this.opcionesCausaJudicial.perform();
     this.opcionesDenuncia.perform();
     this.opcionesPublicaPrivada.perform();
+    this.estudios.perform();
 
     if (this.get("modelo")) {
       this.set("etiqueta", "Guardar");
@@ -91,6 +92,11 @@ export default Component.extend({
   categorias: task(function*() {
     let categorias = yield this.store.findAll("categoria");
     return categorias;
+  }),
+
+  estudios: task(function*() {
+    let estudios = yield this.store.findAll("estudio");
+    return estudios;
   }),
 
   organizaciones: task(function*() {

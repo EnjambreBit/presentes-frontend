@@ -22,6 +22,7 @@ export default DS.Model.extend({
   prestacionesDeSalud: DS.attr("string"),
   ocupacion: DS.attr("string"),
   estudiosCursados: DS.attr("string"),
+  queEstudiosTiene: DS.belongsTo("estudio"),
   estabaEnSituacionDeCalle: DS.attr("string"),
   dondeVivia: DS.attr("string"),
   estabaDetenida: DS.attr("string"),
