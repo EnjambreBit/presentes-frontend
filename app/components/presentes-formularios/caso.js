@@ -59,7 +59,7 @@ export default Component.extend({
     let provincia = modelo.get("provincia.nombre");
     let categoria = modelo.get("categoria.nombre");
     let url =
-      "http://nominatim.openstreetmap.org/search?format=json&limit=1&q=";
+      "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=";
     let query;
 
     if (calle) {
