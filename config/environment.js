@@ -10,6 +10,11 @@ module.exports = function(environment) {
       // includeLocales: true
       includeLocales: ["es"]
     },
+    contentSecurityPolicy: {
+      "connect-src":
+        "'self' 'http://localhost:4200' 'presentes-backend.enjambrelab.space' 'presentes.enjambrelab.space' 'mapa.agenciapresentes.org'",
+      "style-src": "'self' 'unsafe-inline'"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
