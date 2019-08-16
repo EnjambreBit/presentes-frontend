@@ -51,7 +51,7 @@
         {{#each columnas as |columna|}}
             {{#presentes-ui/celda}}
               {{#if columna.componente}}
-                {{#if (eq columna.componente "presentes-ui/celula-link")}}
+                {{#if (eq columna.componente "presentes-ui/caso-link")}}
                   {{presentes-ui/caso-link fila=fila}}
                 {{else}}
                   {{component columna.componente fila=fila}}

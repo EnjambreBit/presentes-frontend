@@ -1,16 +1,7 @@
-{{#if session.isAuthenticated}}
-  {{presentes-ui/tabla
+{{presentes-ui/tabla
     modulo="casos"
     columnas=columnas
     tarea=tarea
     tareaFiltros=crearFiltros
-  }}
-{{else}}
-{{presentes-ui/tabla
-  modulo="casos"
-  columnas=columnas
-  tarea=tareaPublico
-  tareaFiltros=crearFiltrosPublico
 }}
-{{/if}}
 {{yield}}

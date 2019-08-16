@@ -84,55 +84,8 @@ export default Component.extend({
       ]
     };
   }),
-
-  crearFiltrosPublico: task(function*() {
-    yield timeout(500);
-    let provincias = yield this.store.findAll("Provincia");
-    let categorias = yield this.store.findAll("Categoria");
-    let etiquetas = yield this.store.findAll("Etiqueta");
-
-    provincias = provincias.map(e => e.nombre);
-    categorias = categorias.map(e => e.nombre);
-    etiquetas = etiquetas.map(e => e.nombre);
-
-    return {
-      keys: [
-        {
-          key: "nombre",
-          title: "Nombre"
-        },
-        {
-          key: "categoria",
-          title: "Categoría",
-          valores: categorias
-        },
-        {
-          key: "etiqueta",
-          title: "Etiqueta",
-          valores: etiquetas
-        },
-        {
-          key: "localidad",
-          title: "Localidad"
-        },
-        {
-          key: "provincia",
-          title: "Provincia",
-          valores: provincias
-        }
-      ]
-    };
-  }),
   tarea: task(function*(filtros) {
     let datos = yield this.store.query("caso", filtros);
-    return { filas: datos, meta: datos.meta };
-  }).restartable(),
-  tareaPublico: task(function*(filtros) {
-    console.log(filtros);
-    let query = [{ estadoDePublicacion: "Publicado" }];
-    console.log(query);
-
-    let datos = yield this.store.query("caso", { query, filtros });
     return { filas: datos, meta: datos.meta };
   }).restartable()
 });

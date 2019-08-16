@@ -28,9 +28,12 @@ Router.map(function() {
   this.route("logout");
   this.route("mapa");
 
-  this.route('publico', function() {
-    this.route('casos', function() {
-      this.route('detalle');
+  this.route("publico", function() {
+    this.route("casos", function() {
+      this.route("detalle", { path: "detalle/:caso_id" });
+    });
+    this.route("organizaciones", function() {
+      this.route("detalle", { path: "detalle/:organizacion_id" });
     });
   });
 });

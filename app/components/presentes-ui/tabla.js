@@ -10,6 +10,7 @@ export default Component.extend({
   URLInicial: null,
   ordenamiento: "",
   filtrosSeleccionados: null,
+  session: service(),
 
   init() {
     this._super(...arguments);

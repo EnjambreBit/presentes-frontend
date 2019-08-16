@@ -135,18 +135,20 @@
     <div class="w-100 bb b--light-gray pv2 mb2"></div>
   {{/if}}
 {{/if}}
-
+{{#if session.isAuthenticated}}
   <h3>La información de este formulario fue brindada por:</h3>
   {{presentes-detalle/detalle-item ancho="30" etiqueta="Nombre y apellido" valor=model.nombreDeQuienBrindoInformacion}}
   {{presentes-detalle/detalle-item ancho="30" etiqueta="Teléfono" valor=model.telefonoDeQuienBrindoInformacion}}
 
   <div class="w-100 bb b--light-gray pv2 mb2"></div>
-
+{{/if}}
   {{presentes-detalle/detalle-item ancho="30" etiqueta="Link a nota" valor=model.linkDeNota link=true}}
   {{presentes-detalle/detalle-item ancho="30" etiqueta="Copete" valor=model.copete textarea=true}}
 
   <div class="w-100 bb b--light-gray pv2 mb2"></div>
 <div class="pt3">
   {{presentes-ui/boton texto="Volver" accion=(transition-to "app.casos.index")}}
-  {{presentes-ui/boton texto="Editar" accion=(transition-to "app.casos.editar" model.id) primario=true}}
+  {{#if session.isAuthenticated}}
+    {{presentes-ui/boton texto="Editar" accion=(transition-to "app.casos.editar" model.id) primario=true}}
+  {{/if}}
 </div>

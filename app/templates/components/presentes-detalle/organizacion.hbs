@@ -20,6 +20,14 @@
     {{presentes-detalle/detalle-item ancho="40" etiqueta="Instagram" valor=model.instagram}}
     {{presentes-detalle/detalle-item ancho="40" etiqueta="YouTube" valor=model.youtube}}
   </div>
+  <div class="flex flex-column w-40">
+    {{#if (or (eq model.latitud "") (eq model.longitud ""))}}
+      <div class="bg-light-gray h-100 tc pt5">Sin Mapa</div>
+      <div class="bg-light-gray h-100 tc pt0">Revisar si la dirección existe en <a href="https://www.openstreetmap.org" target="_blank">Open Street Map</a></div>
+    {{else}}
+      {{presentes-ui/mapa-individual popup=false modelo=model zoom=12}}
+    {{/if}}
+  </div>
 </div>
 <div class="pt3">
   {{presentes-ui/boton texto="Volver" accion=(transition-to "app.organizaciones.index")}}

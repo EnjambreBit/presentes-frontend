@@ -9,11 +9,8 @@ export default Component.extend({
     this.set("columnas", [
       {
         titulo: "Víctima",
-        atributo: "nombreCompleto"
-      },
-      {
-        titulo: "Estado de publicación",
-        atributo: "estadoDePublicacion"
+        atributo: "nombreCompleto",
+        componente: "presentes-ui/caso-link"
       },
       {
         titulo: "Categoría",

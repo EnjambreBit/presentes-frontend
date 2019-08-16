@@ -61,7 +61,8 @@ export default Component.extend({
     let url =
       "http://nominatim.openstreetmap.org/search?format=json&limit=1&q=";
     let query;
-    if (categoria === "Ataques a lugares") {
+
+    if (calle) {
       query = calle + "+" + localidad + "+" + provincia;
     } else {
       query = localidad + "+" + provincia;

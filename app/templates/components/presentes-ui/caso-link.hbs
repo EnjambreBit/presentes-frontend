@@ -3,6 +3,10 @@
   Cargando
 {{else}}
   {{#if fila}}
-    {{#link-to 'app.casos.detalle' fila.id}}{{fila.nombre}} {{fila.apellido}}{{/link-to}}
+    {{#if session.isAuthenticated}}
+      {{#link-to 'app.casos.detalle' fila.id}}{{fila.nombre}} {{fila.apellido}}{{/link-to}}
+    {{else}}
+      {{#link-to 'publico.casos.detalle' fila.id}}{{fila.nombreCompleto}}{{/link-to}}
+    {{/if}}
   {{/if}}
 {{/if}}
