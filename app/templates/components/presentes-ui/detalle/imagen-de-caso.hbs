@@ -1,0 +1,10 @@
+{{yield}}
+
+{{#if caso.imagenUrl}}
+  <img src="{{ caso.imagenUrl }}" alt="" class="ba b--light-silver br2 h4 w4 dib pv3 tc">
+  <div class="dtc pr1"></div>
+{{else}}
+  <div class="white bg-black-50 b1 b--black br2 h4 w4 dib pv3 pt4 tc pointer {{if disabled '' ' pointer'}}" {{action "abrirInput"}}>
+    <div class="pt3 lh-copy">Sin imagen</div>
+  </div>
+{{/if}}

@@ -12,7 +12,7 @@
   <h2>Datos generales</h2>
   <div class="flex">
     <div class="flex flex-column w-50">
-      {{presentes-ui/agregar-imagen-caso caso=model disabled=true}}
+      {{presentes-ui/detalle/imagen-de-caso caso=model}}
       {{presentes-detalle/detalle-item ancho="40" etiqueta="Nombre del lugar" valor=model.nombre}}
       {{presentes-detalle/detalle-item ancho="40" etiqueta="Calle" valor=model.calle}}
       {{presentes-detalle/detalle-item ancho="40" etiqueta="Localidad" valor=model.localidad}}
@@ -46,7 +46,9 @@
   <h2>Datos generales de la víctima</h2>
   <div class="flex">
     <div class="flex flex-column w-50">
-      {{presentes-ui/agregar-imagen-caso caso=model disabled=true}}
+
+      {{presentes-ui/detalle/imagen-de-caso caso=model}}
+
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Categoría" valor=model.categoria.nombre}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Etiquetas" valor=model.etiquetas muchos=true}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Nombre y apellido" valor=model.nombreCompleto}}

@@ -5,8 +5,14 @@
 
     <div class="flex1">
       {{#if (or tareaFiltros.last.isRunning tareaFiltros.last.isIdle)}}
-        <div class="placeholder-filtro">Cargando ...</div>
+
+        <div class="relative">
+          <img src="/spinners/spinner-negro.svg" class="absolute h1 pa2">
+          <input type="text" style="height: 34px" class="f7 pv2 ba b--light-silver silver br2 w-100" disabled>
+        </div>
+
       {{else}}
+
         {{#if tareaFiltros.last.isSuccessful}}
           {{visual-search
               options=tareaFiltros.last.value

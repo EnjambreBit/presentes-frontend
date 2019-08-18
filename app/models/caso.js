@@ -5,6 +5,7 @@ export default DS.Model.extend({
   nombre: DS.attr("string"),
   apellido: DS.attr("string"),
   imagenUrl: DS.attr("string"),
+  imagen: DS.attr(), // Campo sin tipar de uso temporal para el componente presentes-ui/agregar-imagen-caso
   lugarDeNacimiento: DS.attr("string"),
   edad: DS.attr("string"),
   fechaDelHecho: DS.attr("string"),

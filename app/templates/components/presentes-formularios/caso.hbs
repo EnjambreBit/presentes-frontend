@@ -36,7 +36,7 @@
     <h2>Datos generales</h2>
     {{f.input etiqueta="Nombre" atributo="nombre"}}
     {{#f.personalizado etiqueta="Foto" name="imagen" as |i|}}
-      {{presentes-ui/agregar-imagen-caso caso=f.model disabled=false}}
+      {{presentes-ui/agregar-imagen-caso url=f.model.imagenUrl valor=i.value cuandoCambia=i.update}}
     {{/f.personalizado}}
     {{f.input etiqueta="Calle" atributo="calle"}}
     {{f.input etiqueta="Localidad" atributo="localidad"}}
@@ -109,7 +109,7 @@
     {{f.input etiqueta="Apellido" atributo="apellido"}}
 
     {{#f.personalizado etiqueta="Foto" name="imagen" as |i|}}
-      {{presentes-ui/agregar-imagen-caso caso=f.model disabled=false}}
+      {{presentes-ui/agregar-imagen-caso url=f.model.imagenUrl valor=i.value cuandoCambia=i.update}}
     {{/f.personalizado}}
 
     {{f.input etiqueta="Calle" atributo="calle"}}

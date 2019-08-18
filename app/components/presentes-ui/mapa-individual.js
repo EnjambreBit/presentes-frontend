@@ -6,6 +6,7 @@ export default Component.extend({
     let modelo = this.get("modelo");
     let categoria = modelo.get("categoria.nombre");
     let iconoUrl;
+
     if (categoria === "Asesinatos a personas LGBT+") {
       iconoUrl = "/markers/light-blue-marker.png";
     }
@@ -25,6 +26,7 @@ export default Component.extend({
       iconAnchor: [25, 23],
       popupAnchor: [-12, 9]
     });
+
     this.set("categoryIcon", categoryIcon);
   }
 });

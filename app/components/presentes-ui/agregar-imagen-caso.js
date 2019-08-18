@@ -6,7 +6,6 @@ export default Component.extend({
   store: service(),
   api: service(),
   subiendo: false,
-  disabled: false,
   perfil: null,
 
   obtenerContenido(file) {
@@ -24,9 +23,7 @@ export default Component.extend({
 
   actions: {
     abrirInput() {
-      if (!this.get("disabled")) {
-        this.$("input").click();
-      }
+      this.$("input").click();
     },
 
     upload(evento) {
@@ -34,11 +31,9 @@ export default Component.extend({
         let archivo = evento.target.files[0];
         this.set("subiendo", true);
         this.obtenerContenido(archivo).then(data => {
-          data.caso_id = this.get("caso.id");
-          this.api.post("casos/cambiar-imagen", data).then(result => {
-            this.set("caso.imagenUrl", result.data.imagen_url);
-            this.set("subiendo", false);
-          });
+          this.set("subiendo", false);
+          this.cuandoCambia(data);
+          this.set("valor", data);
         });
       }
     }

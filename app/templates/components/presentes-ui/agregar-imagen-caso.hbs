@@ -1,17 +1,29 @@
 {{#unless subiendo}}
-  {{#if caso.imagenUrl}}
-    <img src="{{ caso.imagenUrl }}" alt="" class="br2 h4 w4 dib pv3 tc {{if disabled '' ' pointer'}}" {{action "abrirInput"}}>
-    <div class="dtc pr1">
+
+  <div class="hide-child dib relative">
+    {{#if valor.contenido}}
+        <img src="{{ valor.contenido }}" alt="" class="ba b--light-silver br2 h4 w4 dib pv3 tc">
+    {{else}}
+      {{#if url}}
+        <img src="{{ url }}" alt="" class="ba b--light-silver br2 h4 w4 dib pv3 tc">
+      {{else}}
+        <div class="white bg-black-50 b1 b--black br2 h4 w4 dib pv3 pt4 tc">
+          <div class="pt3 lh-copy">Sin imagen</div>
+        </div>
+      {{/if}}
+    {{/if}}
+
+    <div class="child pa4 tc absolute absolute--fill bg-black-50 white unselectable pointer" {{action "abrirInput"}}>
+      Cambiar
     </div>
-  {{else}}
-    <div class="white bg-black-50 b1 b--black br2 h4 w4 dib pv3 pt4 tc pointer {{if disabled '' ' pointer'}}" {{action "abrirInput"}}>
-      <div class="pt3 lh-copy">Sin imagen</div>
-    </div>
-  {{/if}}
+  </div>
+
 {{else}}
-  <div class="tc pa3 pv4 h-160px v-mid">
+  <div class="tc ph3 pv4 v-mid bg-gray h4 w4 br2">
     <img src="/spinners/spinner-blanco.svg" alt="">
   </div>
 {{/unless}}
+
+
 
 <input type="file" value="" class="dn" accept="image/x-png,image/gif,image/jpeg" onchange={{action "upload"}} multiple="false">
