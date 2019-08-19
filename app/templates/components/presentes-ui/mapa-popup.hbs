@@ -79,7 +79,11 @@
   </section>
   <section class="cf w-100 mt2 tr pr3">
     {{#if ficha}}
-      {{#link-to 'app.casos.detalle' id class="gris"}}Ver ficha{{/link-to}}
+      {{#if session.isAuthenticated}}
+        {{#link-to 'app.casos.detalle' id class="gris"}}Ver ficha{{/link-to}}
+      {{else}}
+        {{#link-to 'publico.casos.detalle' id class="gris"}}Ver ficha{{/link-to}}
+      {{/if}}
     {{/if}}
     {{#if (and ficha nota)}}
       |

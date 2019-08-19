@@ -72,5 +72,9 @@ export default Service.extend({
 
   obtenerCasosPublicos() {
     return this.fetch(`casos/obtener-casos-publicos`, false);
+  },
+
+  obtenerCasosPublicosParaMapa() {
+    return this.fetch(`casos/obtener-casos-publicos-para-mapa`, false);
   }
 });
