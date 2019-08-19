@@ -9,16 +9,16 @@
     {{presentes-detalle/detalle-item ancho="40" etiqueta="Nombre" valor=model.nombre}}
     {{presentes-detalle/detalle-item ancho="40" etiqueta="Referente" valor=model.referente}}
     {{presentes-detalle/detalle-item ancho="40" etiqueta="Teléfono de contacto" valor=model.telefono}}
-    {{presentes-detalle/detalle-item ancho="40" etiqueta="Email" valor=model.email}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Email" valor=model.email email=true}}
     {{presentes-detalle/detalle-item ancho="40" etiqueta="Dirección" valor=model.direccion}}
     {{presentes-detalle/detalle-item ancho="40" etiqueta="Localidad" valor=model.localidad}}
     {{presentes-detalle/detalle-item ancho="40" etiqueta="Provincia" valor=model.provincia.nombre}}
     {{presentes-detalle/detalle-item ancho="40" etiqueta="Descripción de su especificidad" valor=model.descripcion textarea=true}}
-    {{presentes-detalle/detalle-item ancho="40" etiqueta="Website" valor=model.website}}
-    {{presentes-detalle/detalle-item ancho="40" etiqueta="Facebook" valor=model.facebook}}
-    {{presentes-detalle/detalle-item ancho="40" etiqueta="Twitter" valor=model.twitter}}
-    {{presentes-detalle/detalle-item ancho="40" etiqueta="Instagram" valor=model.instagram}}
-    {{presentes-detalle/detalle-item ancho="40" etiqueta="YouTube" valor=model.youtube}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Website" valor=model.website link=true}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Facebook" valor=model.facebook link=true}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Twitter" valor=model.twitter link=true}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="Instagram" valor=model.instagram link=true}}
+    {{presentes-detalle/detalle-item ancho="40" etiqueta="YouTube" valor=model.youtube link=true}}
   </div>
   <div class="flex flex-column w-40">
     {{#if (or (eq model.latitud "") (eq model.longitud ""))}}
