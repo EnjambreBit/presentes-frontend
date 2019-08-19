@@ -18,13 +18,13 @@
       disabled=false
       cuandoSelecciona=i.update}}
   {{/f.personalizado}}
-
-  <div class="flex w-100">
-      {{f.input etiqueta="Latitud" atributo="latitud" valor=lat}}
-      {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
+  <div class="dn">
+    <div class="flex w-100">
+        {{f.input etiqueta="Latitud" atributo="latitud" valor=lat}}
+        {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
+    </div>
+    <span class="gray">IMPORTANTE: Sólo completar Latitud y Longitud si al guardar el formulario no se puede encontrar la dirección automáticamente</span>
   </div>
-  <span class="gray">IMPORTANTE: Sólo completar Latitud y Longitud si al guardar el formulario no se puede encontrar la dirección automáticamente</span>
-
   {{f.textarea etiqueta="Descripción de su especificidad" atributo="descripcion"}}
 
   <h2>Redes</h2>
