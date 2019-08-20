@@ -35,6 +35,7 @@ Router.map(function() {
     this.route("organizaciones", function() {
       this.route("detalle", { path: "detalle/:organizacion_id" });
     });
+    this.route('mapa');
   });
 });
 

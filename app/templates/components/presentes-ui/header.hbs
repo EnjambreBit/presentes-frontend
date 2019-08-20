@@ -1,18 +1,28 @@
 {{#if (media 'isMobile')}}
   <div class="flex shadow-1 bg-white gray asap">
     {{presentes-ui/menu-mobile}}
-
-    <div class="b4lue pa1 pointer disable-select pr4" {{action (transition-to "app.index")}}>
-      {{presentes-ui/logo size=38 extraClass='v-top'}}
-    </div>
+    {{#if session.isAuthenticated}}
+      <div class="b4lue pa1 pointer disable-select pr4" {{action (transition-to "app.index")}}>
+        {{presentes-ui/logo size=38 extraClass='v-top'}}
+      </div>
+    {{else}}
+      <div class="b4lue pa1 pointer disable-select pr4" {{action (transition-to "publico.index")}}>
+        {{presentes-ui/logo size=38 extraClass='v-top'}}
+      </div>
+    {{/if}}
   </div>
 {{else}}
   <div class="flex shadow-1 bg-white gray asap">
 
-    <div class="b4lue pa0 pointer disable-select pr4" {{action (transition-to "app.index")}}>
-      {{presentes-ui/logo extraClass='v-top'}}
-    </div>
-
+    {{#if session.isAuthenticated}}
+      <div class="b4lue pa0 pointer disable-select pr4" {{action (transition-to "app.index")}}>
+        {{presentes-ui/logo extraClass='v-top'}}
+      </div>
+    {{else}}
+      <div class="b4lue pa0 pointer disable-select pr4" {{action (transition-to "publico.index")}}>
+        {{presentes-ui/logo extraClass='v-top'}}
+      </div>
+    {{/if}}
     <div class="flex1">
       {{presentes-ui/secciones}}
     </div>

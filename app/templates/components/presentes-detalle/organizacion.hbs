@@ -30,6 +30,10 @@
   </div>
 </div>
 <div class="pt3">
-  {{presentes-ui/boton texto="Volver" accion=(transition-to "app.organizaciones.index")}}
-  {{presentes-ui/boton texto="Editar" accion=(transition-to "app.organizaciones.editar" model.id) primario=true}}
+  {{#if session.isAuthenticated}}
+    {{presentes-ui/boton texto="Volver" accion=(transition-to "app.organizaciones.index")}}
+    {{presentes-ui/boton texto="Editar" accion=(transition-to "app.organizaciones.editar" model.id) primario=true}}
+  {{else}}
+    {{presentes-ui/boton texto="Volver" accion=(transition-to "publico.organizaciones.index")}}
+  {{/if}}
 </div>
