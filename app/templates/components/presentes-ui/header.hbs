@@ -3,11 +3,11 @@
     {{presentes-ui/menu-mobile}}
     {{#if session.isAuthenticated}}
       <div class="b4lue pa1 pointer disable-select pr4" {{action (transition-to "app.index")}}>
-        {{presentes-ui/logo size=38 extraClass='v-top'}}
+        {{presentes-ui/logo extraClass='w-60 v-mid'}}
       </div>
     {{else}}
       <div class="b4lue pa1 pointer disable-select pr4" {{action (transition-to "publico.index")}}>
-        {{presentes-ui/logo size=38 extraClass='v-top'}}
+        {{presentes-ui/logo extraClass='w-60 v-mid'}}
       </div>
     {{/if}}
   </div>
