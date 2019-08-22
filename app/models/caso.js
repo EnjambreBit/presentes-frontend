@@ -16,6 +16,7 @@ export default DS.Model.extend({
   categoria: DS.belongsTo("categoria"),
   etiquetas: DS.hasMany("etiqueta"),
   descripcionDelHecho: DS.attr("string"),
+  laVictimaConociaAlVictimario: DS.attr("string"),
   causaDeLaMuerte: DS.attr("string"),
   teniaObraSocial: DS.attr("string"),
   obraSocial: DS.attr("string"),

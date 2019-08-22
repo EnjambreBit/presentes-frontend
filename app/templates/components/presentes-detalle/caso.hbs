@@ -51,22 +51,23 @@
         {{presentes-ui/detalle/imagen-de-caso caso=model}}
       {{/if}}
 
-      {{presentes-detalle/detalle-item ancho="30" etiqueta="Categoría" valor=model.categoria.nombre}}
-      {{presentes-detalle/detalle-item ancho="30" etiqueta="Etiquetas" valor=model.etiquetas muchos=true}}
-      {{presentes-detalle/detalle-item ancho="30" etiqueta="Nombre y apellido" valor=model.nombreCompleto}}
-      {{presentes-detalle/detalle-item ancho="30" etiqueta="Lugar del hecho" valor=model.lugarDelHechoCompleto}}
-      {{presentes-detalle/detalle-item ancho="30" etiqueta="Fecha del hecho" valor=model.fechaDelHecho fecha=true}}
-      {{presentes-detalle/detalle-item ancho="30" etiqueta="Descripción del hecho" valor=model.descripcionDelHecho textarea=true}}
-      {{presentes-detalle/detalle-item ancho="30" etiqueta="Edad" valor=model.edad}}
+      {{presentes-detalle/detalle-item ancho="50" etiqueta="Categoría" valor=model.categoria.nombre}}
+      {{presentes-detalle/detalle-item ancho="50" etiqueta="Etiquetas" valor=model.etiquetas muchos=true}}
+      {{presentes-detalle/detalle-item ancho="50" etiqueta="Nombre y apellido" valor=model.nombreCompleto}}
+      {{presentes-detalle/detalle-item ancho="50" etiqueta="Lugar del hecho" valor=model.lugarDelHechoCompleto}}
+      {{presentes-detalle/detalle-item ancho="50" etiqueta="Fecha del hecho" valor=model.fechaDelHecho fecha=true}}
+      {{presentes-detalle/detalle-item ancho="50" etiqueta="Fecha del hecho" valor=model.fechaDelHecho fecha=true}}
+      {{presentes-detalle/detalle-item ancho="50" etiqueta="¿La víctima conocía al victimario?" valor=model.laVictimaConociaAlVictimario}}
+      {{presentes-detalle/detalle-item ancho="50" etiqueta="Edad" valor=model.edad}}
 
       {{#if session.isAuthenticated}}
-        {{presentes-detalle/detalle-item ancho="30" etiqueta="Lugar de nacimiento" valor=model.lugarDeNacimiento}}
-        {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Es migrante?" valor=model.esMigrante opciones=true}}
+        {{presentes-detalle/detalle-item ancho="50" etiqueta="Lugar de nacimiento" valor=model.lugarDeNacimiento}}
+        {{presentes-detalle/detalle-item ancho="50" etiqueta="¿Es migrante?" valor=model.esMigrante opciones=true}}
         {{#if (eq model.esMigrante 'SI')}}
-          {{presentes-detalle/detalle-item ancho="30" etiqueta="País de origen" valor=model.paisDeOrigen}}
-          {{presentes-detalle/detalle-item ancho="30" etiqueta="Año de llegada" valor=model.anioDeLlegada}}
+          {{presentes-detalle/detalle-item ancho="50" etiqueta="País de origen" valor=model.paisDeOrigen}}
+          {{presentes-detalle/detalle-item ancho="50" etiqueta="Año de llegada" valor=model.anioDeLlegada}}
         {{/if}}
-        {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Prostitución?" valor=model.prostitucion opciones=true}}
+        {{presentes-detalle/detalle-item ancho="50" etiqueta="¿Prostitución?" valor=model.prostitucion opciones=true}}
       {{/if}}
     </div>
     <div class="flex flex-column w-40">

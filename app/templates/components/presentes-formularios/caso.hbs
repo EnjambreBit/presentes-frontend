@@ -139,6 +139,17 @@
           cuandoCambia=fi.update}}
     {{/f.personalizado}}
 
+    {{#if (or (eq f.model.categoria.nombre 'Asesinatos a personas LGBT+') (eq f.model.categoria.nombre 'Ataques a personas'))}}
+    {{#f.personalizado etiqueta="¿La víctima conocia al victimario?" name="laVictimaConociaAlVictimario" as |i|}}
+      {{presentes-selector/simple-select-enum
+        tarea=opcionesSiNo
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+    {{/if}}
+
     {{f.textarea etiqueta="Descripción del hecho" atributo="descripcionDelHecho"}}
 
     {{f.input etiqueta="Edad" atributo="edad"}}
