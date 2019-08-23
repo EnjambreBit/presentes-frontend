@@ -62,6 +62,8 @@ export default DS.Model.extend({
   cjCuentaConDefensa: DS.attr("string"),
   cjHayInformeForense: DS.attr("string"),
   huboViolenciaInstitucional: DS.attr("string"),
+  institucionInvolucrada: DS.belongsTo("institucion"),
+  institucionInvolucradaOtro: DS.attr("string"),
   violenciaInstitucionNombre: DS.attr("string"),
   violenciaInstitucionLocalidad: DS.attr("string"),
   violenciaInstitucionProvincia: DS.belongsTo("provincia"),

@@ -14,5 +14,6 @@ inflector.irregular("estudio", "estudios");
 inflector.irregular("lugar-del-hecho", "lugares-del-hecho");
 inflector.irregular("espacio-privado", "espacios-privados");
 inflector.irregular("mecanica-del-hecho", "mecanicas-del-hecho");
+inflector.irregular("institucion", "instituciones");
 
 export default {};

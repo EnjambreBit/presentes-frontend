@@ -315,6 +315,17 @@
         cuandoSelecciona=i.update}}
     {{/f.personalizado}}
     {{#if (eq f.model.huboViolenciaInstitucional "SI")}}
+      {{#f.personalizado etiqueta="¿De qué tipo?" name="institucionInvolucrada" as |i|}}
+        {{presentes-selector/simple-select
+          tarea=instituciones
+          optionLabel="nombre"
+          valor=i.value
+          disabled=false
+          cuandoSelecciona=i.update}}
+      {{/f.personalizado}}
+      {{#if (eq f.model.institucionInvolucrada.nombre 'Otra')}}
+        {{f.input etiqueta="¿Cuál?" atributo="institucionInvolucradaOtro"}}
+      {{/if}}
       {{f.input etiqueta="¿De qué institución?" atributo="violenciaInstitucionNombre"}}
       {{f.input etiqueta="Localidad" atributo="violenciaInstitucionLocalidad"}}
       {{#f.personalizado etiqueta="Provincia" name="violenciaInstitucionProvincia" as |i|}}

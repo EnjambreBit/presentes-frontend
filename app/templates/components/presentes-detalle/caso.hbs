@@ -136,6 +136,11 @@
 
     {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Hubo violencia institucional?" valor=model.huboViolenciaInstitucional opciones=true}}
     {{#if (eq model.huboViolenciaInstitucional 'SI')}}
+      {{presentes-detalle/detalle-item ancho="30" etiqueta="¿De qué tipo?" valor=model.institucionInvolucrada.nombre}}
+      {{#if (eq model.institucionInvolucrada.nombre 'Otra')}}
+        {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Cuál?" valor=model.institucionInvolucradaOtro}}
+      {{/if}}
+
       {{presentes-detalle/detalle-item ancho="30" etiqueta="¿De qué institución?" valor=model.violenciaInstitucionNombreCompleto}}
     {{/if}}
     {{presentes-detalle/detalle-item ancho="30" etiqueta="Observaciones" valor=model.observaciones textarea=true}}
