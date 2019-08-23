@@ -24,6 +24,8 @@ export default Component.extend({
     this.opcionesDenuncia.perform();
     this.opcionesPublicaPrivada.perform();
     this.estudios.perform();
+    this.lugaresDelHecho.perform();
+    this.espaciosPrivados.perform();
 
     if (this.get("modelo")) {
       this.set("etiqueta", "Guardar");
@@ -108,6 +110,16 @@ export default Component.extend({
   estadosDePublicacion: task(function*() {
     let estados = yield this.store.findAll("estado-de-caso");
     return estados;
+  }),
+
+  lugaresDelHecho: task(function*() {
+    let lugares = yield this.store.findAll("lugar-del-hecho");
+    return lugares;
+  }),
+
+  espaciosPrivados: task(function*() {
+    let espacios = yield this.store.findAll("espacio-privado");
+    return espacios;
   }),
 
   opcionesSiNo: task(function*() {

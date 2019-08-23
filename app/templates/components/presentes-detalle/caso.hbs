@@ -57,6 +57,20 @@
       {{presentes-detalle/detalle-item ancho="50" etiqueta="Lugar del hecho" valor=model.lugarDelHechoCompleto}}
       {{presentes-detalle/detalle-item ancho="50" etiqueta="Fecha del hecho" valor=model.fechaDelHecho fecha=true}}
       {{presentes-detalle/detalle-item ancho="50" etiqueta="Fecha del hecho" valor=model.fechaDelHecho fecha=true}}
+      {{#if (eq model.dondeOcurrioElHecho.nombre 'Espacio privado')}}
+        {{#if model.espacioPrivado}}
+          {{#if (eq model.espacioPrivado.nombre 'Otro')}}
+            {{presentes-detalle/detalle-item ancho="50" etiqueta="¿Dónde ocurrió el hecho?" valor=model.espacioPrivado.nombre}}
+            {{presentes-detalle/detalle-item ancho="50" etiqueta="¿Cuál?" valor=model.espacioPrivadoOtro}}
+          {{else}}
+            {{presentes-detalle/detalle-item ancho="50" etiqueta="¿Dónde ocurrió el hecho?" valor=model.espacioPrivado.nombre}}
+          {{/if}}
+        {{else}}
+          {{presentes-detalle/detalle-item ancho="50" etiqueta="¿Dónde ocurrió el hecho?" valor=model.dondeOcurrioElHecho.nombre}}
+        {{/if}}
+      {{else}}
+        {{presentes-detalle/detalle-item ancho="50" etiqueta="¿Dónde ocurrió el hecho?" valor=model.dondeOcurrioElHecho.nombre}}
+      {{/if}}
       {{presentes-detalle/detalle-item ancho="50" etiqueta="¿La víctima conocía al victimario?" valor=model.laVictimaConociaAlVictimario}}
       {{presentes-detalle/detalle-item ancho="50" etiqueta="Edad" valor=model.edad}}
 

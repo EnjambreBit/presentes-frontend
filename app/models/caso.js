@@ -16,6 +16,9 @@ export default DS.Model.extend({
   categoria: DS.belongsTo("categoria"),
   etiquetas: DS.hasMany("etiqueta"),
   descripcionDelHecho: DS.attr("string"),
+  dondeOcurrioElHecho: DS.belongsTo("lugar-del-hecho"),
+  espacioPrivado: DS.belongsTo("espacio-privado"),
+  espacioPrivadoOtro: DS.attr("string"),
   laVictimaConociaAlVictimario: DS.attr("string"),
   causaDeLaMuerte: DS.attr("string"),
   teniaObraSocial: DS.attr("string"),
@@ -83,12 +86,16 @@ export default DS.Model.extend({
     function() {
       let lugar;
       let calle;
+      let provincia = this.get("provincia.nombre");
       if (this.calle) {
         calle = this.calle + ", ";
       } else {
         calle = "";
       }
-      lugar = calle + this.localidad + ", " + this.get("provincia.nombre");
+      if (provincia === "Ciudad Autónoma de Buenos Aires") {
+        provincia = "CABA";
+      }
+      lugar = calle + this.localidad + ", " + provincia;
       return lugar;
     }
   ),

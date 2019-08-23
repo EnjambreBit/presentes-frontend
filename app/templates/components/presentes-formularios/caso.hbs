@@ -140,14 +140,38 @@
     {{/f.personalizado}}
 
     {{#if (or (eq f.model.categoria.nombre 'Asesinatos a personas LGBT+') (eq f.model.categoria.nombre 'Ataques a personas'))}}
-    {{#f.personalizado etiqueta="¿La víctima conocia al victimario?" name="laVictimaConociaAlVictimario" as |i|}}
-      {{presentes-selector/simple-select-enum
-        tarea=opcionesSiNo
-        optionLabel="nombre"
-        valor=i.value
-        disabled=false
-        cuandoSelecciona=i.update}}
-    {{/f.personalizado}}
+      {{#f.personalizado etiqueta="¿Dónde ocurrió el hecho?" name="dondeOcurrioElHecho" as |i|}}
+        {{presentes-selector/simple-select
+          tarea=lugaresDelHecho
+          optionLabel="nombre"
+          valor=i.value
+          disabled=false
+          cuandoSelecciona=i.update}}
+      {{/f.personalizado}}
+      {{#if (eq f.model.dondeOcurrioElHecho.nombre 'Espacio privado')}}
+        {{#f.personalizado etiqueta="Espacio privado" name="espacioPrivado" as |i|}}
+          {{presentes-selector/simple-select
+            tarea=espaciosPrivados
+            optionLabel="nombre"
+            valor=i.value
+            disabled=false
+            cuandoSelecciona=i.update}}
+        {{/f.personalizado}}
+        {{#if (eq f.model.espacioPrivado.nombre 'Otro')}}
+          {{f.input etiqueta="¿Cuál?" atributo="espacioPrivadoOtro"}}
+        {{/if}}
+      {{/if}}
+
+
+
+      {{#f.personalizado etiqueta="¿La víctima conocia al victimario?" name="laVictimaConociaAlVictimario" as |i|}}
+        {{presentes-selector/simple-select-enum
+          tarea=opcionesSiNo
+          optionLabel="nombre"
+          valor=i.value
+          disabled=false
+          cuandoSelecciona=i.update}}
+      {{/f.personalizado}}
     {{/if}}
 
     {{f.textarea etiqueta="Descripción del hecho" atributo="descripcionDelHecho"}}

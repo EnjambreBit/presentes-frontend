@@ -11,5 +11,7 @@ inflector.irregular("categoria", "categorias");
 inflector.irregular("etiqueta", "etiquetas");
 inflector.irregular("organizacion", "organizaciones");
 inflector.irregular("estudio", "estudios");
+inflector.irregular("lugar-del-hecho", "lugares-del-hecho");
+inflector.irregular("espacio-privado", "espacios-privados");
 
 export default {};
