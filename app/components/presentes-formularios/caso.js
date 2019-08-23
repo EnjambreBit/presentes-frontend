@@ -26,6 +26,7 @@ export default Component.extend({
     this.estudios.perform();
     this.lugaresDelHecho.perform();
     this.espaciosPrivados.perform();
+    this.mecanicasDelHecho.perform();
 
     if (this.get("modelo")) {
       this.set("etiqueta", "Guardar");
@@ -120,6 +121,11 @@ export default Component.extend({
   espaciosPrivados: task(function*() {
     let espacios = yield this.store.findAll("espacio-privado");
     return espacios;
+  }),
+
+  mecanicasDelHecho: task(function*() {
+    let mecanicas = yield this.store.findAll("mecanica-del-hecho");
+    return mecanicas;
   }),
 
   opcionesSiNo: task(function*() {

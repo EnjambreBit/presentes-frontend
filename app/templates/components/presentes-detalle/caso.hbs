@@ -56,7 +56,6 @@
       {{presentes-detalle/detalle-item ancho="50" etiqueta="Nombre y apellido" valor=model.nombreCompleto}}
       {{presentes-detalle/detalle-item ancho="50" etiqueta="Lugar del hecho" valor=model.lugarDelHechoCompleto}}
       {{presentes-detalle/detalle-item ancho="50" etiqueta="Fecha del hecho" valor=model.fechaDelHecho fecha=true}}
-      {{presentes-detalle/detalle-item ancho="50" etiqueta="Fecha del hecho" valor=model.fechaDelHecho fecha=true}}
       {{#if (eq model.dondeOcurrioElHecho.nombre 'Espacio privado')}}
         {{#if model.espacioPrivado}}
           {{#if (eq model.espacioPrivado.nombre 'Otro')}}
@@ -72,6 +71,16 @@
         {{presentes-detalle/detalle-item ancho="50" etiqueta="¿Dónde ocurrió el hecho?" valor=model.dondeOcurrioElHecho.nombre}}
       {{/if}}
       {{presentes-detalle/detalle-item ancho="50" etiqueta="¿La víctima conocía al victimario?" valor=model.laVictimaConociaAlVictimario}}
+
+      {{#if (eq model.mecanicaDelHecho.nombre 'Otra')}}
+        {{presentes-detalle/detalle-item ancho="50" etiqueta="Mecánica del hecho" valor=model.mecanicaDelHecho.nombre}}
+        {{presentes-detalle/detalle-item ancho="50" etiqueta="¿Cuál?" valor=model.mecanicaDelHechoOtro}}
+      {{else}}
+        {{presentes-detalle/detalle-item ancho="50" etiqueta="Mecánica del hecho" valor=model.mecanicaDelHecho.nombre}}
+      {{/if}}
+
+      {{presentes-detalle/detalle-item ancho="50" etiqueta="Descripción del hecho" valor=model.descripcionDelHecho textarea=true}}
+
       {{presentes-detalle/detalle-item ancho="50" etiqueta="Edad" valor=model.edad}}
 
       {{#if session.isAuthenticated}}

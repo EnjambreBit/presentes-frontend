@@ -162,8 +162,6 @@
         {{/if}}
       {{/if}}
 
-
-
       {{#f.personalizado etiqueta="¿La víctima conocia al victimario?" name="laVictimaConociaAlVictimario" as |i|}}
         {{presentes-selector/simple-select-enum
           tarea=opcionesSiNo
@@ -172,6 +170,18 @@
           disabled=false
           cuandoSelecciona=i.update}}
       {{/f.personalizado}}
+    {{/if}}
+
+    {{#f.personalizado etiqueta="Mecánica del hecho" name="mecanicaDelHecho" as |i|}}
+      {{presentes-selector/simple-select
+        tarea=mecanicasDelHecho
+        optionLabel="nombre"
+        valor=i.value
+        disabled=false
+        cuandoSelecciona=i.update}}
+    {{/f.personalizado}}
+    {{#if (eq f.model.mecanicaDelHecho.nombre 'Otra')}}
+      {{f.input etiqueta="¿Cuál?" atributo="mecanicaDelHechoOtro"}}
     {{/if}}
 
     {{f.textarea etiqueta="Descripción del hecho" atributo="descripcionDelHecho"}}

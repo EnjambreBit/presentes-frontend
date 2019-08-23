@@ -20,6 +20,8 @@ export default DS.Model.extend({
   espacioPrivado: DS.belongsTo("espacio-privado"),
   espacioPrivadoOtro: DS.attr("string"),
   laVictimaConociaAlVictimario: DS.attr("string"),
+  mecanicaDelHecho: DS.belongsTo("mecanica-del-hecho"),
+  mecanicaDelHechoOtro: DS.attr("string"),
   causaDeLaMuerte: DS.attr("string"),
   teniaObraSocial: DS.attr("string"),
   obraSocial: DS.attr("string"),
