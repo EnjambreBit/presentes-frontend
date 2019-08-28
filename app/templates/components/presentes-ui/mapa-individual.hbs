@@ -1,5 +1,5 @@
 {{#leaflet-map lat=modelo.latitud lng=modelo.longitud zoom=zoom}}
-  {{tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}}
+  {{tile-layer url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png?lang=es" attribution="Wikimedia maps | Map data &copy; <a href='https://openstreetmap.org/copyright'>OpenStreetMap contributors</a>"}}
     {{#marker-layer lat=modelo.latitud lng=modelo.longitud icon=categoryIcon as |marker|}}
       {{#if popup}}
         {{presentes-ui/mapa-popup
