@@ -1,7 +1,7 @@
 {{#popup-layer maxWidth=450 minWidth=300}}
 <div class="w-100 pt2 pl4 pr2 pb3 bg-white br4 ba bw2 {{color-de-categoria categoria}}">
   <section class="cf w-100 ">
-    <div class="fl w-25 pt3">
+    {{!-- <div class="fl w-25 pt3">
       {{#if session.isAuthenticated}}
         <img
             src="{{imagen}}"
@@ -12,8 +12,8 @@
             class="br-100 ba {{color-de-categoria categoria}} bw2 h3 w3 dib v-mid" alt="avatar">
       {{/if}}
 
-    </div>
-    <div class="fl w-75 pl3">
+    </div> --}}
+    <div class="fl w-100 pl0">
       <h3>
         {{#if (eq categoria "Ataques a lugares")}}
           {{modelo.nombre}}

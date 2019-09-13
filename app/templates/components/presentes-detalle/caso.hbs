@@ -47,9 +47,9 @@
   <div class="flex">
     <div class="flex flex-column w-50">
 
-      {{#if session.isAuthenticated}}
+      {{!-- {{#if session.isAuthenticated}}
         {{presentes-ui/detalle/imagen-de-caso caso=model}}
-      {{/if}}
+      {{/if}} --}}
 
       {{presentes-detalle/detalle-item ancho="50" etiqueta="Categoría" valor=model.categoria.nombre}}
       {{presentes-detalle/detalle-item ancho="50" etiqueta="Etiquetas" valor=model.etiquetas muchos=true}}
