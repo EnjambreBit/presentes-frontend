@@ -6,6 +6,26 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
+EmberRouter.reopen({
+  analytics: Ember.inject.service("analytics"),
+  rutaAnterior: "",
+
+  didTransition() {
+    this._super(...arguments);
+
+    let rutaActual = this.get("currentRouteName");
+    let haCambiadoDeRuta = this.get("rutaAnterior") !== rutaActual;
+
+    this.get("analytics").notifificarTransicion(this.get("url"));
+
+    if (haCambiadoDeRuta) {
+      window.scrollTop = 0;
+    }
+
+    this.set("rutaAnterior", rutaActual);
+  }
+});
+
 Router.map(function() {
   this.route("app", function() {
     this.route("app");
@@ -35,7 +55,7 @@ Router.map(function() {
     this.route("organizaciones", function() {
       this.route("detalle", { path: "detalle/:organizacion_id" });
     });
-    this.route('mapa');
+    this.route("mapa");
   });
 });
 

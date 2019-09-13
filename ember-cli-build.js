@@ -18,5 +18,7 @@ module.exports = function(defaults) {
   app.import("vendor/DinNextRounded/DINNEXTROUNDEDLTPRO-LIGHT.OTF");
   app.import("vendor/DinNextRounded/DINNEXTROUNDEDLTPRO-REGULAR.OTF");
 
+  app.import("vendor/ga.js");
+
   return app.toTree();
 };
