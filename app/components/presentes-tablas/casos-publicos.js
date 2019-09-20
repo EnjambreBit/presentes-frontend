@@ -1,10 +1,11 @@
 import Component from "@ember/component";
-import { task /*, timeout*/ } from "ember-concurrency";
+import { task } from "ember-concurrency";
 import { inject as service } from "@ember/service";
 
 export default Component.extend({
   api: service(),
   store: service(),
+
   didInsertElement() {
     this.set("columnas", [
       {
@@ -27,8 +28,13 @@ export default Component.extend({
       }
     ]);
   },
-  tarea: task(function*(/*filtros*/) {
-    let resultado = yield this.api.obtenerCasosPublicos();
+  crearFiltros: task(function*() {
+    let filtros = yield this.api.obtenerFiltrosParaCasosPublicos();
+    return filtros.data;
+  }),
+
+  tarea: task(function*(filtros) {
+    let resultado = yield this.api.obtenerCasosPublicos(filtros);
     return { filas: resultado.data.filas, meta: resultado.meta };
   }).restartable()
 });

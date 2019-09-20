@@ -1,5 +1,4 @@
 import Component from "@ember/component";
-import { validatePresence } from "ember-changeset-validations/validators";
 import { task, timeout } from "ember-concurrency";
 import { inject as service } from "@ember/service";
 
@@ -61,7 +60,7 @@ export default Component.extend({
     let calle = modelo.get("calle");
     let localidad = modelo.get("localidad");
     let provincia = modelo.get("provincia.nombre");
-    let categoria = modelo.get("categoria.nombre");
+    //let categoria = modelo.get("categoria.nombre");
     let url =
       "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=";
     let query;

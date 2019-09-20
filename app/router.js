@@ -1,5 +1,7 @@
 import EmberRouter from "@ember/routing/router";
 import config from "./config/environment";
+import { inject as service } from '@ember/service';
+
 
 const Router = EmberRouter.extend({
   location: config.locationType,
@@ -7,7 +9,7 @@ const Router = EmberRouter.extend({
 });
 
 EmberRouter.reopen({
-  analytics: Ember.inject.service("analytics"),
+  analytics: service("analytics"),
   rutaAnterior: "",
 
   didTransition() {

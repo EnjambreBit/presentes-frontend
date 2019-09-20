@@ -1,7 +1,5 @@
 import Component from "@ember/component";
-import { task } from "ember-concurrency";
 import { inject as service } from "@ember/service";
-import { later } from "@ember/runloop";
 
 export default Component.extend({
   filtrosSeleccionados: null,
@@ -18,7 +16,9 @@ export default Component.extend({
   },
 
   didInsertElement() {
-    this.tareaFiltros.perform();
+    if (this.tareaFiltros) {
+      this.tareaFiltros.perform();
+    }
   },
 
   actions: {

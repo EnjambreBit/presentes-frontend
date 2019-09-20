@@ -1,4 +1,5 @@
 import Service from "@ember/service";
+import { later } from '@ember/runloop';
 
 export default Service.extend({
   activado: false,
@@ -10,7 +11,7 @@ export default Service.extend({
 
   notifificarTransicion(ruta) {
     if (this.get("activado")) {
-      Ember.run.later(() => {
+      later(() => {
         let params = {
           page: ruta,
           title: ruta

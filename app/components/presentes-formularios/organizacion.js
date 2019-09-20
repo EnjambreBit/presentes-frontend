@@ -47,7 +47,7 @@ export default Component.extend({
     let direccion = modelo.get("direccion");
     let localidad = modelo.get("localidad");
     let provincia = modelo.get("provincia.nombre");
-    let categoria = modelo.get("categoria.nombre");
+    //let categoria = modelo.get("categoria.nombre");
     let url =
       "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=";
     let query;

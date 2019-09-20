@@ -70,8 +70,13 @@ export default Service.extend({
     return this.fetch(`casos/obtener-casos`, true);
   },
 
-  obtenerCasosPublicos() {
-    return this.fetch(`casos/obtener-casos-publicos`, false);
+  obtenerCasosPublicos(filtros) {
+    let params = new URLSearchParams(filtros).toString();
+    return this.fetch(`casos/obtener-casos-publicos?${params}`, false);
+  },
+
+  obtenerFiltrosParaCasosPublicos() {
+    return this.fetch(`casos/obtener-filtros`, false);
   },
 
   obtenerCasosPublicosParaMapa() {

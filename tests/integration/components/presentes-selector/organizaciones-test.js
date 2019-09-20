@@ -24,5 +24,6 @@ module("Integration | Component | presentes-selector/organizaciones", function(
     `);
 
     assert.equal(this.element.textContent.trim(), "template block text");
+    servidor.shutdown();
   });
 });

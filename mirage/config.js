@@ -8,4 +8,8 @@ export default function() {
   this.get("casos", { data: [] });
   this.get("organizaciones", { data: [] });
   this.get("provincias", { data: [] });
+  this.get("etiquetas", { data: [] });
+  this.get("estudios", { data: [] });
+  this.get("estados-de-caso", { data: [] });
+  this.get("categorias", { data: [] });
 }
