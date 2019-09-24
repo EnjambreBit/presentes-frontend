@@ -1,7 +1,6 @@
 import EmberRouter from "@ember/routing/router";
 import config from "./config/environment";
-import { inject as service } from '@ember/service';
-
+import { inject as service } from "@ember/service";
 
 const Router = EmberRouter.extend({
   location: config.locationType,
@@ -59,6 +58,7 @@ Router.map(function() {
     });
     this.route("mapa");
   });
+  this.route('mexico', function() {});
 });
 
 export default Router;

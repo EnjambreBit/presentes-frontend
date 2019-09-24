@@ -330,3 +330,35 @@ a.gris,
 .unselectable {
   user-select: none;
 }
+
+/* Mapa México */
+
+#info-box {
+  display: none;
+  position: absolute;
+  pointer-events: none;
+}
+
+.provincia-hovered {
+  // stroke: #d4145a !important;
+  // stroke-width: 2px;
+  // stroke-linejoin: round;
+  fill: #d4145a !important;
+  cursor: pointer;
+}
+
+.mexico-violeta {
+  color: #5e2d86;
+}
+.mexico-amarillo {
+  color: #ead400;
+}
+.mexico-verde {
+  color: #4dcc5a;
+}
+.mexico-azul {
+  color: #596ab3;
+}
+.mexico-gris {
+  color: #b8b8b8;
+}
