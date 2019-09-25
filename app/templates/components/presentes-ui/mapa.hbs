@@ -1,14 +1,14 @@
 {{#if (or (media 'isDesktop') (media 'isNetbook'))}}
-  <div class="referencias pb3">
+  <div class="referencias pb2">
     {{#if homeLink}}
-      {{#link-to 'app'}}<img src="/imagenes/presentes-logo.png" width=auto height=32 alt="" class='mb3'>{{/link-to}}
+      {{#link-to 'app'}}<img src="/imagenes/presentes-logo.png" width=auto height=32 alt="" class='mb2'>{{/link-to}}
     {{else}}
-      <img src="/imagenes/presentes-logo.png" width=auto height=32 alt="" class='mb3'>
+      <img src="/imagenes/presentes-logo.png" width=auto height=32 alt="" class='mb2'>
     {{/if}}
-    <p class="ml4 mr4 asap f4"><img class="v-base" height=16 src="/markers/red-marker.png"> Ataques a personas</p>
-    <p class="ml4 mr4 asap f4"><img class="v-base" height=16 src="/markers/yellow-marker.png"> Muerte por travesticidio social</p>
-    <p class="ml4 mr4 asap f4"><img class="v-base" height=16 src="/markers/light-blue-marker.png"> Asesinatos a personas LGBT+</p>
-    <p class="ml4 mr4 asap f4"><img class="v-base" height=16 src="/markers/pink-marker.png"> Ataques a lugares</p>
+    <p class="ml3 mr3 asap f5"><img class="v-base" height=13 src="/markers/red-marker.png"> Ataques a personas</p>
+    <p class="ml3 mr3 asap f5"><img class="v-base" height=13 src="/markers/yellow-marker.png"> Muerte por travesticidio social</p>
+    <p class="ml3 mr3 asap f5"><img class="v-base" height=13 src="/markers/light-blue-marker.png"> Asesinatos a personas LGBT+</p>
+    <p class="ml3 mr3 asap f5"><img class="v-base" height=13 src="/markers/pink-marker.png"> Ataques a lugares</p>
   </div>
 {{/if}}
 {{#leaflet-map lat=latitud lng=longitud zoom=zoom}}
