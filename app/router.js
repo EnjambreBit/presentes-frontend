@@ -59,6 +59,7 @@ Router.map(function() {
     this.route("mapa");
   });
   this.route('mexico', function() {});
+  this.route('candidates2019', function() {});
 });
 
 export default Router;

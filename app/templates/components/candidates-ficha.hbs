@@ -1,0 +1,40 @@
+{{yield}}
+{{#if lista}}
+    <div class="w-20 pa3 tc">
+      <img class="br3 h4 w4 dib" src="{{foto}}" alt="{{nombre}}">
+      <div class="f5">
+        {{nombre}}
+      </div>
+    </div>
+{{else}}
+  <div class="w-third pa3 ph4 tc">
+    <img class="br3 w-100 dib" src="{{foto}}" alt="{{nombre}}">
+    <div class="f5 mv2 tl">
+      <b>Nombre: </b>{{nombre}}
+    </div>
+    <div class="f5 mv2 tl">
+      <b>Identidad: </b>{{identidad}}
+    </div>
+    <div class="f5 mv2 tl">
+      <b>Ciudad, provincia:</b> {{lugar}}
+    </div>
+    <div class="f5 mv2 tl">
+      <b>Candidate a:</b> {{candidatura}}
+    </div>
+    <div class="f5 mv2 tl">
+      <b>Puesto en la lista:</b> {{puesto-en-lista}}
+    </div>
+    <div class="f5 mv2 tl">
+      <b>Partido:</b> {{partido}}
+    </div>
+    <div class="f5 mv2 tl">
+      <b>Inicio en la política:</b> <span class="tj dib">{{inicio-en-politica}}</span>
+    </div>
+    <div class="f5 mv2 tl">
+      <b>Experiencia política:</b> <span class="tj dib">{{experiencia-politica}}</span>
+    </div>
+    <div class="f5 mv2 tl">
+      <b>Proyectos:</b> <span class="tj dib">{{proyectos}}</span>
+    </div>
+  </div>
+{{/if}}
