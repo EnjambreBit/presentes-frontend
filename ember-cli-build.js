@@ -19,6 +19,8 @@ module.exports = function(defaults) {
   app.import("vendor/DinNextRounded/DINNEXTROUNDEDLTPRO-REGULAR.OTF");
 
   app.import("vendor/ga.js");
+  app.import("vendor/isotope.pkgd.min.js");
+  app.import("vendor/imagesloaded.pkgd.min.js");
 
   return app.toTree();
 };
