@@ -42,10 +42,16 @@ export default Component.extend({
         }
 
         var filterValue = concatValues(filters);
+
         contenedor.isotope({
           filter: filterValue
         });
-
+        var elementosFiltrados = contenedor.isotope("getFilteredItemElements");
+        if (elementosFiltrados.length === 0) {
+          $(".grilla-vacia").fadeIn();
+        } else {
+          $(".grilla-vacia").fadeOut();
+        }
         return true;
       }
     );
