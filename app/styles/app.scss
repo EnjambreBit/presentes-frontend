@@ -38,6 +38,11 @@ h1 {
   }
 }
 
+/* Modales */
+.bg-modal-black {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
 .ember-power-select-options[role="listbox"] {
   font-family: "Asap", sans-serif;
 }
@@ -361,4 +366,35 @@ a.gris,
 }
 .mexico-gris {
   color: #b8b8b8;
+}
+
+/* Borrar */
+.action-container {
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.scroll-btn {
+  flex: 0 0 1;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: #083d8d;
+  border: 1px solid #083d8d;
+  padding: 5px;
+  margin: 0px 40px 0px 40px;
+}
+
+.scroll-btn:hover {
+  background-color: #083d8d;
+  color: #fff;
+}
+
+.target {
+  margin-top: 40px;
+  border: 2px solid #083d8d;
+  height: 300px;
+  width: 50%;
+  margin-left: 25%;
+  text-align: center;
 }

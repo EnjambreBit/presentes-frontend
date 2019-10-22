@@ -1,84 +1,107 @@
 <h1 class="">
-  Candidates 2019
+  Elecciones Argentina 2019: candidates LGBTI
 </h1>
-<section class="cf w-100 pv3 f6 ph3 ph4-ns">
-  <div class="flex flex-wrap">
-    {{candidates-ficha
-      foto="/imagenes/candidates2019/fotos/mia-colussi.jpg"
-      nombre="Mía Colussi"
-      modo="lista"
-    }}
-    {{candidates-ficha
-      foto="/imagenes/candidates2019/fotos/giulliana-ailen-tobares.jpg"
-      nombre="Giulliana Ailén Tobares"
-      modo="lista"
-    }}
-    {{candidates-ficha
-      foto="/imagenes/candidates2019/fotos/patricia-gabriela-rearte.jpg"
-      nombre="Patricia Gabriela Rearte"
-      modo="lista"
-    }}
+{{!-- <section class="cf w-100 pv3 f6 ph3 ph4-ns">
+  <div class="flex flex-wrap justify-center"> --}}
+    {{!-- <div class="w-50 w-third-m w-20-ns pa3 tc" {{action (route-action "mostrarModal" "colussi")}}>
+      <img class="br3 h4 w4 dib" src="/imagenes/candidates2019/fotos/mia-colussi.jpg" alt="Mía Colussi">
+      <div class="f5 mt2">
+        Mía Colussi
+      </div>
+    </div>
+    <div class="w-50 w-third-m w-20-ns pa3 tc" {{action (route-action "mostrarModal" "tobares")}}>
+      <img class="br3 h4 w4 dib" src="/imagenes/candidates2019/fotos/giulliana-ailen-tobares.jpg" alt="Giulliana Ailén Tobares">
+      <div class="f5 mt2">
+        Giulliana Ailén Tobares
+      </div>
+    </div>
+    <div class="w-50 w-third-m w-20-ns pa3 tc" {{action (route-action "mostrarModal" "rearte")}}>
+      <img class="br3 h4 w4 dib" src="/imagenes/candidates2019/fotos/patricia-gabriela-rearte.jpg" alt="Patricia Gabriela Rearte">
+      <div class="f5 mt2">
+        Patricia Gabriela Rearte
+      </div>
+    </div>
+    <div class="w-50 w-third-m w-20-ns pa3 tc" {{action (route-action "mostrarModal" "rearte")}}>
+      <img class="br3 h4 w4 dib" src="/imagenes/candidates2019/fotos/patricia-gabriela-rearte.jpg" alt="Patricia Gabriela Rearte">
+      <div class="f5 mt2">
+        Patricia Gabriela Rearte
+      </div>
+    </div> --}}
+{{!--
     {{candidates-ficha
       foto="/imagenes/candidates2019/fotos/leonardo-grosso.jpg"
       nombre="Leonardo Grosso"
       modo="lista"
+      target="grosso"
     }}
     {{candidates-ficha
       foto="/imagenes/candidates2019/fotos/paula-arraigada.jpg"
       nombre="Paula Arraigada"
       modo="lista"
+      target="arraigada"
     }}
     {{candidates-ficha
       foto="/imagenes/candidates2019/fotos/tomas-mascolo.jpg"
       nombre="Tomás Máscolo"
       modo="lista"
+      target="mascolo"
     }}
     {{candidates-ficha
       foto="/imagenes/candidates2019/fotos/santiago-lucas-dambrosio.jpg"
       nombre="Santiago Lucas D'Ambrosio"
       modo="lista"
+      target="dambrosio"
     }}
     {{candidates-ficha
       foto="/imagenes/candidates2019/fotos/facundo-martinez-cantarino.jpg"
       nombre="Facundo Martínez Cantariño"
       modo="lista"
+      target="cantarino"
     }}
     {{candidates-ficha
       foto="/imagenes/candidates2019/fotos/saira-millaqueo.jpg"
       nombre="Saira Millaqueo"
       modo="lista"
+      target="millaqueo"
     }}
     {{candidates-ficha
       foto="/imagenes/candidates2019/fotos/sofia-caceres-sforza.jpg"
       nombre="Sofía Cáceres Sforza"
       modo="lista"
+      target="sforza"
     }}
     {{candidates-ficha
       foto="/imagenes/candidates2019/fotos/daniela-andrade.jpg"
       nombre="Daniela Andrade"
       modo="lista"
+      target="andrade"
     }}
     {{candidates-ficha
       foto="/imagenes/candidates2019/fotos/katiana-villagra.jpg"
       nombre="Katiana Villagra"
       modo="lista"
+      target="villagra"
     }}
     {{candidates-ficha
       foto="/imagenes/candidates2019/fotos/merlina-tello.jpg"
       nombre="Merlina Tello"
       modo="lista"
+      target="tello"
     }}
     {{candidates-ficha
       foto="/imagenes/candidates2019/fotos/paola-cardenas.jpg"
       nombre="Paola Cárdenas"
       modo="lista"
-    }}
-  </div>
-</section>
+      target="cardenas"
+    }} --}}
+  {{!-- </div>
+</section> --}}
 <div class="ph6"></div>
 <section class="cf w-100 pv3 f6 ph3 ph4-ns">
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap ">
     {{candidates-ficha
+      id="colussi"
+      categoria="trans"
       foto="/imagenes/candidates2019/fotos/mia-colussi.jpg"
       nombre="Mía Colussi"
       identidad="Activista trans"
@@ -91,6 +114,8 @@
       proyectos="Tengo muchas propuesta pero una de las principales es crear un área de Derechos Humanos en la Municipalidad. La idea es que pueda atender los casos que involucren vulneración de derechos de las mujeres, la diversidad, los publicos originarios, las personas con discapacidad. Hoy no hay nada así en el municipio y todas las demandas llegan a la provincia directamente. Es necesario fortalecer el primer nivel de atención."
     }}
     {{candidates-ficha
+      id="tobares"
+      categoria="trans"
       foto="/imagenes/candidates2019/fotos/giulliana-ailen-tobares.jpg"
       nombre="Giulliana Ailén Tobares"
       identidad="Mujer trans"
@@ -98,13 +123,13 @@
       candidatura="Concejala"
       puesto-en-lista="2do"
       partido="Democracia para todos - Frente de Todos - PJ"
-      inicio-en-politica="Milito desde 2003. Primero fue para un color político que me dio trabajo pero después dejé de militar porque había cosas que no me gustaban y no me tenían en cuenta.
-  "
+      inicio-en-politica="Milito desde 2003. Primero fue para un color político que me dio trabajo pero después dejé de militar porque había cosas que no me gustaban y no me tenían en cuenta."
       experiencia-politica="No tengo mucha experiencia política. Después de esa primera experiencia me convocaron para militar en el PJ en 2013. A partir de eso tuve cargos en la Municipalidad. Primero estuve como responsable de un centro integrado y en 2014 fui jefa de división del departamento automotores y, luego, jefa de departamento. No estoy muy empapada de lo que es la política pero nunca es tarde. Lo importante es que incluyen a las personas trans y eso tiene mucho valor, por eso acepté."
-      proyectos="Mi principal propuesta es poder llegar adelante proyectos del colectivo lgbtiq como el cupo laboral trans y la creación de un área de diversidad en el municipio. También tengo propuestas para que en los gimnasios municipales se amplíen en las propuestas, quiero embellecer las pocas canchas de paddle que hay en la ciudad. El deporte es una de las áreas donde tenemos que seguir incluyendo a las personas trans.
-  "
+      proyectos="Mi principal propuesta es poder llegar adelante proyectos del colectivo lgbtiq como el cupo laboral trans y la creación de un área de diversidad en el municipio. También tengo propuestas para que en los gimnasios municipales se amplíen en las propuestas, quiero embellecer las pocas canchas de paddle que hay en la ciudad. El deporte es una de las áreas donde tenemos que seguir incluyendo a las personas trans."
     }}
     {{candidates-ficha
+      id="rearte"
+      categoria="trans"
       foto="/imagenes/candidates2019/fotos/patricia-gabriela-rearte.jpg"
       nombre="Patricia Gabriela Rearte"
       identidad="Mujer trans"
@@ -117,6 +142,8 @@
       proyectos="Quiero crear en mi municipio una defensoría que controles, fiscalice y genere normas que tengan que ver con los derechos de las personas en general, no sólo de la diversidad. En mi ciudad hay una gran discriminación hacia todo. Hoy no hay acceso al circuito laboral de las personas trans pero también pasa con las personas con capacidades distintas y con los mayores de 30 años. Además pasa que muchos universitarios tienen que dejar la carrera porque no tienen cómo costearla. Y con las mujeres pasa algo particular porque hay muchísimas empresas que no toman mujeres porque sacan licencia por maternidad aún cuando eso por ley está garantizado. Así que mi principal objetivo es trabajar por todas esas personas."
     }}
     {{candidates-ficha
+      id="grosso"
+      categoria="gays"
       foto="/imagenes/candidates2019/fotos/leonardo-grosso.jpg"
       nombre="Leonardo Grosso"
       identidad="Soy marica. Tiene que ver con una historia de sororidad marica con las compañeras trans y con resignificar un término que se usó mucho tiempo de forma despectiva para construirlo en una reivindicación orgullosa de la construcción de la identidad autopercibida."
@@ -129,6 +156,8 @@
       proyectos="En relación a la agenda LGBT, lo que hago es acompañar la agenda de la comunidad y de las organizaciones. Hoy, para mí, la prioridad es el cupo laboral trans a nivel nacional. Porque es una población que ha sufrido mucho estos últimos cuatro años de neoliberalismo, desocupación y violencia por parte del Estado para los colectivos minoritarios y para las mayorías populares. Por lo tanto, como un hecho de reparación creería que sería lo primero a hacer, sancionar la ley de cupo laboral trans. Después hay otras agendas que tienen que ver con la ley antidiscriminatoria y la ley integral trans que me parece que son importantes de sancionar."
     }}
     {{candidates-ficha
+      id="arraigada"
+      categoria="trans"
       foto="/imagenes/candidates2019/fotos/paula-arraigada.jpg"
       nombre="Paula Arraigada"
       identidad="Mujer trans"
@@ -141,6 +170,8 @@
       proyectos="Mi primera propuesta es generar un país donde todas, todos y todes seamos iguales. Hay una población que ha sido exenta de todos los derechos adquiridos por el resto del pueblo. Esa población hay sido relegada, estigmatizada, y se le ha quitado la oportunidad de recibir una educación amigable. No ha tenido un sistema de salud amigable para contener esos cuerpos, ni la posibilidad de un trabajo formal ni una vivienda digna. No han tenido una vida plena ni feliz. Ese núcleo poblacional necesita pronto una respuesta. Las leyes más urgentes son la de cupo laboral travesti-trans y la de reparación histórica por las violencias, vejámenes y violencias sufridas. Hoy se mantiene la expectativa de vida de las personas travestis y trans en 35 años."
     }}
     {{candidates-ficha
+      id="mascolo"
+      categoria="trans"
       foto="/imagenes/candidates2019/fotos/tomas-mascolo.jpg"
       nombre="Tomás Máscolo"
       identidad="Varón trans"
@@ -153,9 +184,11 @@
       proyectos="Cupo laboral trans, ESI y aborto legal, que todo diputado cobre como un docente."
     }}
     {{candidates-ficha
+      id="dambrosio"
+      categoria="no-binarie"
       foto="/imagenes/candidates2019/fotos/santiago-lucas-dambrosio.jpg"
       nombre="Santiago Lucas D'Ambrosio"
-      identidad=""
+      identidad="No binarie"
       lugar="Ciudad Autónoma de Buenos Aires"
       candidatura="Miembro de la Junta Comunal de la Comuna N° 8. CABA."
       puesto-en-lista="4to suplente"
@@ -165,6 +198,8 @@
       proyectos="No a la Universidad del Docente (UniCABA), ESI, aborto legal ya, estatización de todos los servicios."
     }}
     {{candidates-ficha
+      id="cantarino"
+      categoria="gays"
       foto="/imagenes/candidates2019/fotos/facundo-martinez-cantarino.jpg"
       nombre="Facundo Martínez Cantariño"
       identidad="Gay"
@@ -177,6 +212,8 @@
       proyectos="Cumplimiento pleno del cupo laboral trans, medidas preventivas y de asistencia para víctimas de violencia machista. Becas integrales para que lxs pibxs no dejen de estudiar. Todo financiado con la quita de subsidios a la iglesia e impuestos a las grandes fortunas, con el no pago al FMI. La deuda es con nosotrxs."
     }}
     {{candidates-ficha
+      id="millaqueo"
+      categoria="trans"
       foto="/imagenes/candidates2019/fotos/saira-millaqueo.jpg"
       nombre="Saira Millaqueo"
       identidad="Mujer trans"
@@ -189,6 +226,8 @@
       proyectos="Quiero proponer una gestión con perspectiva de género, que actúe de forma transversal a todas las políticas públicas que se generen, profundizando en la inclusión y en promover la erradicación de la discriminación y la violencia."
     }}
     {{candidates-ficha
+      id="sforza"
+      categoria="bisexual"
       foto="/imagenes/candidates2019/fotos/sofia-caceres-sforza.jpg"
       nombre="Sofía Cáceres Sforza"
       identidad="Bisexual"
@@ -211,6 +250,8 @@
   10. El capitalismo no va más: por una Argentina independiente del imperialismo, rumbo al socialismo."
     }}
     {{candidates-ficha
+      id="andrade"
+      categoria="trans"
       foto="/imagenes/candidates2019/fotos/daniela-andrade.jpg"
       nombre="Daniela Andrade"
       identidad="Mujer trans"
@@ -223,6 +264,8 @@
       proyectos="Quiero seguir trabajando en las mismas líneas y temáticas en que me desempeñé y desempeño como funcionaria."
     }}
     {{candidates-ficha
+      id="villagra"
+      categoria="trans"
       foto="/imagenes/candidates2019/fotos/katiana-villagra.jpg"
       nombre="Katiana Villagra"
       identidad="Mujer trans"
@@ -235,6 +278,8 @@
       proyectos="Quiero trabajar para mejorar la calidad de vida y los derechos de las personas trans."
     }}
     {{candidates-ficha
+      id="tello"
+      categoria="trans"
       foto="/imagenes/candidates2019/fotos/merlina-tello.jpg"
       nombre="Merlina Tello"
       identidad="Trava"
@@ -247,6 +292,8 @@
       proyectos="Cupo laboral trans. Quiero más oportunidades e igualdad, quiero derechos humanos. En pos de eso es que voy a trabajar desde mi lugar."
     }}
     {{candidates-ficha
+      id="cardenas"
+      categoria="trans"
       foto="/imagenes/candidates2019/fotos/paola-cardenas.jpg"
       nombre="Paola Cárdenas"
       identidad="Soy una persona trans, militante, activista y prostituta"

@@ -1,40 +1,46 @@
 {{yield}}
-{{#if lista}}
-    <div class="w-20 pa3 tc">
-      <img class="br3 h4 w4 dib" src="{{foto}}" alt="{{nombre}}">
-      <div class="f5">
-        {{nombre}}
+<div class="w-50 w-third-m w-20-ns pa3 tc grow" {{action (route-action "mostrarModal" id)}}>
+  <img class="br3 h4 w4 dib pointer" src="{{foto}}" alt="{{nombre}}">
+  <div class="f5 mt2 pointer">
+    {{nombre}}
+  </div>
+</div>
+<div class="dn" id="{{id}}">
+  <div class="z-999 absolute--fill absolute bg-modal-black flex justify-center items-center" {{action (route-action "cerrarModal" id)}}>
+    <div class="w-70 pa4 tl bg-white shadow-1 br3 ba bw2 {{color-de-identidad categoria}} relative">
+      <a class="absolute top-0 right-0 leaflet-popup-close-button link gray pointer" {{action (route-action "cerrarModal" id)}}>X</a>
+      <div class="fl w-40 ">
+        <img class="br3 w-50 dib" src="{{foto}}" alt="{{nombre}}">
+        <div class="f5 mv2 tl">
+          <b>Nombre: </b><span class="black">{{nombre}}</span>
+        </div>
+        <div class="f5 mv2 tl">
+          <b>Identidad: </b><span class="black">{{identidad}}</span>
+        </div>
+        <div class="f5 mv2 tl">
+          <i class="fas fa-map-marker-alt"></i><span class="black"> {{lugar}}</span>
+        </div>
+        <div class="f5 mv2 tl">
+          <b>Candidate a:</b><span class="black"> {{candidatura}}</span>
+        </div>
+        <div class="f5 mv2 tl">
+          <b>Puesto en la lista:</b><span class="black"> {{puesto-en-lista}}</span>
+        </div>
+        <div class="f5 mv2 tl">
+          <b>Partido:</b><span class="black"> {{partido}}</span>
+        </div>
+      </div>
+      <div class="fl w-60 pl3">
+        <div class="f5 mv2 tl">
+          <b>Inicio en la política:</b> <span class="tj dib black">{{inicio-en-politica}}</span>
+        </div>
+        <div class="f5 mv2 tl">
+          <b>Experiencia política:</b> <span class="tj dib black">{{experiencia-politica}}</span>
+        </div>
+        <div class="f5 mv2 tl">
+          <b>Proyectos:</b> <span class="tj dib black">{{proyectos}}</span>
+        </div>
       </div>
     </div>
-{{else}}
-  <div class="w-third pa3 ph4 tc">
-    <img class="br3 w-100 dib" src="{{foto}}" alt="{{nombre}}">
-    <div class="f5 mv2 tl">
-      <b>Nombre: </b>{{nombre}}
-    </div>
-    <div class="f5 mv2 tl">
-      <b>Identidad: </b>{{identidad}}
-    </div>
-    <div class="f5 mv2 tl">
-      <b>Ciudad, provincia:</b> {{lugar}}
-    </div>
-    <div class="f5 mv2 tl">
-      <b>Candidate a:</b> {{candidatura}}
-    </div>
-    <div class="f5 mv2 tl">
-      <b>Puesto en la lista:</b> {{puesto-en-lista}}
-    </div>
-    <div class="f5 mv2 tl">
-      <b>Partido:</b> {{partido}}
-    </div>
-    <div class="f5 mv2 tl">
-      <b>Inicio en la política:</b> <span class="tj dib">{{inicio-en-politica}}</span>
-    </div>
-    <div class="f5 mv2 tl">
-      <b>Experiencia política:</b> <span class="tj dib">{{experiencia-politica}}</span>
-    </div>
-    <div class="f5 mv2 tl">
-      <b>Proyectos:</b> <span class="tj dib">{{proyectos}}</span>
-    </div>
   </div>
-{{/if}}
+</div>
