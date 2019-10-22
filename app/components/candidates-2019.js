@@ -29,6 +29,18 @@ export default Component.extend({
 
         filters[filterGroup] = $this.attr("data-filter");
 
+        if (filters["identidades"] || filters["partido-politico"]) {
+          $(".nota-candidates").hide();
+          if (
+            filters["identidades"] === "*" &&
+            filters["partido-politico"] === "*"
+          ) {
+            $(".nota-candidates").show();
+          } else {
+            $(".nota-candidates").hide();
+          }
+        }
+
         var filterValue = concatValues(filters);
         contenedor.isotope({
           filter: filterValue
