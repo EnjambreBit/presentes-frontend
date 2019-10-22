@@ -6,10 +6,10 @@
   </div>
 </div>
 <div class="dn" id="{{id}}">
-  <div class="z-999 absolute--fill fixed bg-modal-black flex justify-center items-center" {{action (route-action "cerrarModal" id)}}>
-    <div class="w-70 pa4 tl bg-white shadow-1 br3 ba bw2 {{color-de-identidad categoria}} relative">
+  <div class="z-999 absolute--fill relative fixed-ns bg-modal-black flex justify-center items-center" {{action (route-action "cerrarModal" id)}}>
+    <div class="w-70-ns pa3 pa4-ns tl bg-white shadow-1 br3 ba bw2 {{color-de-identidad categoria}} relative">
       <a class="absolute top-0 right-0 leaflet-popup-close-button link gray pointer" {{action (route-action "cerrarModal" id)}}>X</a>
-      <div class="fl w-40 ">
+      <div class="fl w-100 w-40-ns ">
         <img class="br3 w-50 dib" src="{{foto}}" alt="{{nombre}}">
         <div class="f5 mv2 tl">
           <b>Nombre: </b><span class="black">{{nombre}}</span>
@@ -30,7 +30,7 @@
           <b>Partido:</b><span class="black"> {{partido}}</span>
         </div>
       </div>
-      <div class="fl w-60 pl3">
+      <div class="fl w-100 w-60-ns pl3-ns">
         <div class="f5 mv2 tl">
           <b>Inicio en la política:</b> <span class="tj dib black">{{inicio-en-politica}}</span>
         </div>
