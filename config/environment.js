@@ -12,7 +12,7 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       "connect-src":
-        "'self' 'http://localhost:4200' 'presentes-backend.enjambrelab.space' 'presentes.enjambrelab.space' 'mapa.agenciapresentes.org'",
+        "'self' 'http://localhost:4200' 'presentes-backend.enjambrelab.space' 'presentes.enjambrelab.space' 'mapa.agenciapresentes.org' 'cadidates2019.agenciapresentes.org'",
       "style-src": "'self' 'unsafe-inline'"
     },
     EmberENV: {
