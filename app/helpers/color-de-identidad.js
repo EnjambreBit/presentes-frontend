@@ -5,7 +5,7 @@ export function colorDeIdentidad(params /*, hash*/) {
   let color;
 
   // categorias de candidates 2019
-  if (categoria === "lesbianas") {
+  if (categoria === "lesbiana") {
     color = "purple b--purple";
   }
   if (categoria === "trans") {
