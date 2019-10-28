@@ -1,25 +1,37 @@
 <section class="cf w-100 pv3 f6 ph3 ph0-ns">
   <div class="isotope-filter">
-    <div class="f5">Identidades</div>
-    <ul class="filter identidades pl0 button-group" data-filter-group="identidades">
-      <li><a class="active" href="#" data-filter="*">Todes</a></li>
-      <li><a href="#" data-filter=".trans">Trans</a></li>
-      <li><a href="#" data-filter=".gays">Gay</a></li>
-      <li><a href="#" data-filter=".bisexual">Bisexual</a></li>
-      <li><a href="#" data-filter=".lesbiana">Lesbiana</a></li>
-      <li><a href="#" data-filter=".no-binarie">No binarie</a></li>
-    </ul>
-    <div class="f5">Partido Político</div>
-    <ul class="filter partido-politico pl0 button-group" data-filter-group="partido-politico">
-      <li><a class="active" href="#" data-filter="*">Todos</a></li>
-      <li><a href="#" data-filter=".ucr">UCR</a></li>
-      <li><a href="#" data-filter=".cambiemos">Cambiemos</a></li>
-      <li><a href="#" data-filter=".frente-de-todos">Frente de Todes</a></li>
-      <li><a href="#" data-filter=".pj">PJ</a></li>
-      <li><a href="#" data-filter=".fit">FIT</a></li>
-      <li><a href="#" data-filter=".pts">PTS</a></li>
-      <li><a href="#" data-filter=".mic">MIC</a></li>
-    </ul>
+    <div class="fl w-50">
+      <div class="f5">Identidades</div>
+      <ul class="filter identidades pl0 button-group" data-filter-group="identidades">
+        <li><a class="active" href="#" data-filter="*">Todes</a></li>
+        <li><a href="#" data-filter=".trans">Trans</a></li>
+        <li><a href="#" data-filter=".gays">Gay</a></li>
+        <li><a href="#" data-filter=".bisexual">Bisexual</a></li>
+        <li><a href="#" data-filter=".lesbiana">Lesbiana</a></li>
+        <li><a href="#" data-filter=".no-binarie">No binarie</a></li>
+      </ul>
+    </div>
+    <div class="fl w-50">
+      <div class="f5">Partido Político</div>
+      <ul class="filter partido-politico pl0 button-group" data-filter-group="partido-politico">
+        <li><a class="active" href="#" data-filter="*">Todos</a></li>
+        <li><a href="#" data-filter=".ucr">UCR</a></li>
+        <li><a href="#" data-filter=".cambiemos">Cambiemos</a></li>
+        <li><a href="#" data-filter=".frente-de-todos">Frente de Todes</a></li>
+        <li><a href="#" data-filter=".pj">PJ</a></li>
+        <li><a href="#" data-filter=".fit">FIT</a></li>
+        <li><a href="#" data-filter=".pts">PTS</a></li>
+        <li><a href="#" data-filter=".mic">MIC</a></li>
+      </ul>
+    </div>
+    <div class="fl w-50">
+      <div class="f5">Resultados</div>
+      <ul class="filter resultados pl0 button-group" data-filter-group="resultados">
+        <li><a class="active" href="#" data-filter="*">Todes</a></li>
+        <li><a href="#" data-filter=".electe">Electes</a></li>
+        <li><a href="#" data-filter=".no-electe">No electes</a></li>
+      </ul>
+    </div>
   </div>
 </section>
   <div class="grilla">
@@ -28,8 +40,9 @@
     </div>
     {{candidates-ficha
       id="colussi"
+      resultado="no-electe"
       categoria="trans"
-      tags="ucr cambiemos intendenta"
+      tags="ucr cambiemos intendenta no-electe"
       foto="/imagenes/candidates2019/fotos/mia-colussi.jpg"
       nombre="Mía Colussi"
       identidad="Activista trans"
@@ -43,8 +56,9 @@
     }}
     {{candidates-ficha
       id="tobares"
+      resultado="no-electe"
       categoria="trans"
-      tags="frente-de-todos pj concejala"
+      tags="frente-de-todos pj concejala no-electe"
       foto="/imagenes/candidates2019/fotos/giulliana-ailen-tobares.jpg"
       nombre="Giulliana Ailén Tobares"
       identidad="Mujer trans"
@@ -58,8 +72,9 @@
     }}
     {{candidates-ficha
       id="rearte"
+      resultado="no-electe"
       categoria="trans"
-      tags="pj concejala"
+      tags="pj concejala no-electe"
       foto="/imagenes/candidates2019/fotos/patricia-gabriela-rearte.jpg"
       nombre="Patricia Gabriela Rearte"
       identidad="Mujer trans"
@@ -73,8 +88,9 @@
     }}
     {{candidates-ficha
       id="grosso"
+      resultado="electe"
       categoria="gays"
-      tags="frente-de-todos diputado-nacional"
+      tags="frente-de-todos diputado-nacional electe"
       foto="/imagenes/candidates2019/fotos/leonardo-grosso.jpg"
       nombre="Leonardo Grosso"
       identidad="Soy marica. Tiene que ver con una historia de sororidad marica con las compañeras trans y con resignificar un término que se usó mucho tiempo de forma despectiva para construirlo en una reivindicación orgullosa de la construcción de la identidad autopercibida."
@@ -88,8 +104,9 @@
     }}
     {{candidates-ficha
       id="arraigada"
+      resultado="no-electe"
       categoria="trans"
-      tags="frente-de-todos diputado-nacional"
+      tags="frente-de-todos diputado-nacional no-electe"
       foto="/imagenes/candidates2019/fotos/paula-arraigada.jpg"
       nombre="Paula Arraigada"
       identidad="Mujer trans"
@@ -103,8 +120,9 @@
     }}
     {{candidates-ficha
       id="mascolo"
+      resultado="no-electe"
       categoria="trans"
-      tags="fit pts diputado-caba"
+      tags="fit pts diputado-caba no-electe"
       foto="/imagenes/candidates2019/fotos/tomas-mascolo.jpg"
       nombre="Tomás Máscolo"
       identidad="Varón trans"
@@ -118,8 +136,9 @@
     }}
     {{candidates-ficha
       id="dambrosio"
+      resultado="no-electe"
       categoria="no-binarie"
-      tags="fit pts comunero"
+      tags="fit pts comunero no-electe"
       foto="/imagenes/candidates2019/fotos/santiago-lucas-dambrosio.jpg"
       nombre="Santiago Lucas D'Ambrosio"
       identidad="No binarie"
@@ -133,8 +152,9 @@
     }}
     {{candidates-ficha
       id="cantarino"
+      resultado="no-electe"
       categoria="gays"
-      tags="fit pts concejal"
+      tags="fit pts concejal no-electe"
       foto="/imagenes/candidates2019/fotos/facundo-martinez-cantarino.jpg"
       nombre="Facundo Martínez Cantariño"
       identidad="Gay"
@@ -148,8 +168,9 @@
     }}
     {{candidates-ficha
       id="millaqueo"
+      resultado="no-electe"
       categoria="trans"
-      tags="frente-de-todos concejala"
+      tags="frente-de-todos concejala no-electe"
       foto="/imagenes/candidates2019/fotos/saira-millaqueo.jpg"
       nombre="Saira Millaqueo"
       identidad="Mujer trans"
@@ -163,8 +184,9 @@
     }}
     {{candidates-ficha
       id="sforza"
+      resultado="no-electe"
       categoria="bisexual"
-      tags="mst fit diputado-nacional"
+      tags="mst fit diputado-nacional no-electe"
       foto="/imagenes/candidates2019/fotos/sofia-caceres-sforza.jpg"
       nombre="Sofía Cáceres Sforza"
       identidad="Bisexual"
@@ -188,8 +210,9 @@
     }}
     {{candidates-ficha
       id="andrade"
+      resultado="no-electe"
       categoria="trans"
-      tags="frente-de-todos concejala"
+      tags="frente-de-todos concejala no-electe"
       foto="/imagenes/candidates2019/fotos/daniela-andrade.jpg"
       nombre="Daniela Andrade"
       identidad="Mujer trans"
@@ -203,8 +226,9 @@
     }}
     {{candidates-ficha
       id="villagra"
+      resultado="no-electe"
       categoria="trans"
-      tags="mic concejala"
+      tags="mic concejala no-electe"
       foto="/imagenes/candidates2019/fotos/katiana-villagra.jpg"
       nombre="Katiana Villagra"
       identidad="Mujer trans"
@@ -218,8 +242,9 @@
     }}
     {{candidates-ficha
       id="tello"
+      resultado="no-electe"
       categoria="trans"
-      tags="mst fit concejala"
+      tags="mst fit concejala no-electe"
       foto="/imagenes/candidates2019/fotos/merlina-tello.jpg"
       nombre="Merlina Tello"
       identidad="Trava"
@@ -233,8 +258,9 @@
     }}
     {{candidates-ficha
       id="cardenas"
+      resultado="no-electe"
       categoria="trans"
-      tags="frente-de-todos pj concejala"
+      tags="frente-de-todos pj concejala no-electe"
       foto="/imagenes/candidates2019/fotos/paola-cardenas.jpg"
       nombre="Paola Cárdenas"
       identidad="Soy una persona trans, militante, activista y prostituta"
@@ -248,8 +274,9 @@
     }}
     {{candidates-ficha
       id="rabines"
+      resultado="no-electe"
       categoria="gays"
-      tags="frente-de-todos legislador-caba"
+      tags="frente-de-todos legislador-caba no-electe"
       foto="/imagenes/candidates2019/fotos/ezequiel-rabines.jpg"
       nombre="Ezequiel Rabines"
       identidad="Marika"
@@ -263,8 +290,9 @@
     }}
     {{candidates-ficha
       id="gutierrez"
+      resultado="no-electe"
       categoria="trans"
-      tags="frente-de-todos consejala"
+      tags="frente-de-todos consejala no-electe"
       foto="/imagenes/candidates2019/fotos/ivana-gutierrez.jpg"
       nombre="Ivana Gutiérrez"
       identidad="Travesti"
@@ -278,8 +306,9 @@
     }}
     {{candidates-ficha
       id="ferraro"
+      resultado="electe"
       categoria="gays"
-      tags="cambiemos diputado-nacional"
+      tags="cambiemos diputado-nacional electe"
       foto="/imagenes/candidates2019/fotos/maximiliano-ferraro.jpg"
       nombre="Maximiliano Ferraro"
       identidad="Gay"
@@ -296,8 +325,9 @@
     }}
     {{candidates-ficha
       id="sabarece"
+      resultado="no-electe"
       categoria="trans"
-      tags="frente-de-todos concejala"
+      tags="frente-de-todos concejala no-electe"
       foto="/imagenes/candidates2019/fotos/ursula-sabarece.jpg"
       nombre="Úrsula Sabarece"
       identidad="Mujer trans y travesti, porque abrazo y reinvindico lo travesti como político. Y porque así me enseñaron Lohana (Berkins) y Diana (Sacayán)."
@@ -313,8 +343,9 @@
     }}
     {{candidates-ficha
       id="pedelacq"
+      resultado="electe"
       categoria="lesbiana"
-      tags="frente-de-todos concejala"
+      tags="frente-de-todos concejala electe"
       foto="/imagenes/candidates2019/fotos/carolina-pedelacq.jpg"
       nombre="Carolina Pedelacq"
       identidad="Lesbiana"
@@ -325,5 +356,37 @@
       inicio-en-politica="Comencé mi militancia de base en los barrios de José León Suárez, desarrollando espacios educativos para la infancia y la adultez.Cuando me sumé al Movimiento Evita comencé a construir en el Frente de Mujeres. Con las compañeras desarrollamos el feminismo popular territorial. Esto incluía desde consejerías de interrupción del embarazo hasta espacios de infancia y de consumo para las pibas."
       experiencia-politica="Hoy soy responsable también del movimiento Mujeres Evita de la provincia de Buenos Aires. Es la primera vez que participó como candidata en una lista. También organizamos espacios de trabajo cooperativo para mujeres y pibas con una perspectiva de género. Entiendo mi lugar como una herramienta colectiva de representación, creo que el feminismo popular me puso en ese lugar, como podrían haberlo hecho con muchas de las compañeras que construyen conmigo."
       proyectos="Quiero fomentar el trabajo de la economía popular y cooperativo. Y desarrollar líneas para el fomento de la producción y comercialización. También quiero desarrollar el trabajo de prevención y abordaje de la violencia de género a través de las promotoras territoriales que logramos conformar como programa municipal. Me interesa crear espacios de participación de jóvenes y adolescentes como parlamentos juveniles donde este sector pueda incidir en la política local."
+    }}
+    {{candidates-ficha
+      id="vasco"
+      resultado="no-electe"
+      categoria="gays"
+      tags="mst fit comunero no-electe"
+      foto="/imagenes/candidates2019/fotos/pablo-vasco.jpg"
+      nombre="Pablo Vasco"
+      identidad="Gay"
+      lugar="Comuna 2, Ciudad Autónoma de Buenos Aires"
+      candidatura="Comunero"
+      puesto-en-lista="1ro"
+      partido="Movimiento Socialista de los Trabajadores (MST), dentro del FIT Unidad."
+      inicio-en-politica="Empecé a militar a los 14 años, antes del golpe de 1976, en la Juventud del PST. Fui delegado estudiantil y sindical. Milito desde hace 47 años en la misma corriente política trotskista, que hoy es el MST."
+      experiencia-politica="Dirigente del MST y de Libre Diversidad, directivo electo de la FALGBT e integrante de la organización Encuentro Memoria, Verdad y Justicia."
+      proyectos="Mi primer proyecto sería aplicar el cupo laboral trans en la Comuna, como ya lo permite la Ley 4.376 de la Ciudad, y efectivizar al personal comunal que hoy trabaja en forma precaria. Es decir, trabajo para todes y trabajo digno. El Estado debe dar el ejemplo."
+    }}
+    {{candidates-ficha
+      id="toro"
+      resultado="no-electe"
+      categoria="trans"
+      tags="mst fit concejal no-electe"
+      foto="/imagenes/candidates2019/fotos/monica-aguirre-toro.jpg"
+      nombre="Mónica Aguirre Toro"
+      identidad="Mujer trans"
+      lugar="Pilar, Buenos Aires"
+      candidatura="Concejal"
+      puesto-en-lista="Suplente"
+      partido="MST en el FIT-Unidad"
+      inicio-en-politica="Empecé a militar a los 16 años, en ATTTA. Luego me sumé a la política en el peronismo. Hace dos años que milito en el MST, porque creo hay que hacer cambios más de fondo."
+      experiencia-politica="Militante de Libre Diversidad y referente de la Asamblea LGBT de Pilar."
+      proyectos="Impulsé el cupo laboral trans en Pilar, que se aprobó en 2015 y ya estoy trabajando en una escuela. Además, con la Asamblea  LGBT de Pilar presentamos al Concejo Deliberante el proyecto de crear una Defensoría LGBT por los derechos de nuestra comunidad, empezando por la salud y la educación."
     }}
   </div>
