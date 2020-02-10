@@ -5,23 +5,26 @@
     {{else}}
       <img src="/imagenes/presentes-logo.png" width=auto height=32 alt="" class='mb2'>
     {{/if}}
-    {{#if mapaPublico}}
-      <div class="ml3 tl f5 asap">
-        Año:
-        {{#link-to 'publico.mapa' (query-params anio="2019") class="dark-gray link"}}2019{{/link-to}} |
-        {{#link-to 'publico.mapa' (query-params anio="2020") class="dark-gray link"}}2020{{/link-to}}
-      </div>
-    {{else}}
-      <div class="ml3 tl f5 asap">
-        Año:
-        {{#link-to 'app.mapa' (query-params anio="2019") class="dark-gray link"}}2019{{/link-to}} |
-        {{#link-to 'app.mapa' (query-params anio="2020") class="dark-gray link"}}2020{{/link-to}}
-      </div>
-    {{/if}}
-    <p class="ml3 mr3 asap f5"><img class="v-base" height=13 src="/markers/red-marker.png"> Ataques a personas</p>
-    <p class="ml3 mr3 asap f5"><img class="v-base" height=13 src="/markers/yellow-marker.png"> Muerte por travesticidio social</p>
-    <p class="ml3 mr3 asap f5"><img class="v-base" height=13 src="/markers/light-blue-marker.png"> Asesinatos</p>
-    <p class="ml3 mr3 asap f5"><img class="v-base" height=13 src="/markers/pink-marker.png"> Ataques a lugares</p>
+    <div class="ml3 mb2 tl f5 asap">
+      Año:
+      {{#link-to ruta (query-params anio="2019") class="dark-gray link"}}2019{{/link-to}} |
+      {{#link-to ruta (query-params anio="2020") class="dark-gray link"}}2020{{/link-to}}
+    </div>
+    {{#link-to ruta (query-params categoria="") class="db ml3 mr3 pv2 black asap f5 link"}}
+      <img class="v-base" height=13 src="/markers/gray-marker.png"> Todas las categorias
+    {{/link-to}}
+    {{#link-to ruta (query-params categoria="Ataques a personas") class="db ml3 mr3 pv2 black asap f5 link"}}
+      <img class="v-base" height=13 src="/markers/red-marker.png"> Ataques a personas
+    {{/link-to}}
+    {{#link-to ruta (query-params categoria="Muerte por travesticidio social") class="db ml3 mr3 pv2 black asap f5 link"}}
+      <img class="v-base" height=13 src="/markers/yellow-marker.png"> Muerte por travesticidio social
+    {{/link-to}}
+    {{#link-to ruta (query-params categoria="Asesinatos") class="db ml3 mr3 pv2 black asap f5 link"}}
+      <img class="v-base" height=13 src="/markers/light-blue-marker.png"> Asesinatos
+    {{/link-to}}
+    {{#link-to ruta (query-params categoria="Ataques a lugares") class="db ml3 mr3 pv2 black asap f5 link"}}
+      <img class="v-base" height=13 src="/markers/pink-marker.png"> Ataques a lugares
+    {{/link-to}}
   </div>
 {{/if}}
 {{#leaflet-map lat=latitud lng=longitud zoom=zoom}}
