@@ -5,6 +5,19 @@
     {{else}}
       <img src="/imagenes/presentes-logo.png" width=auto height=32 alt="" class='mb2'>
     {{/if}}
+    {{#if mapaPublico}}
+      <div class="ml3 tl f5 asap">
+        Año:
+        {{#link-to 'publico.mapa' (query-params anio="2019") class="dark-gray link"}}2019{{/link-to}} |
+        {{#link-to 'publico.mapa' (query-params anio="2020") class="dark-gray link"}}2020{{/link-to}}
+      </div>
+    {{else}}
+      <div class="ml3 tl f5 asap">
+        Año:
+        {{#link-to 'app.mapa' (query-params anio="2019") class="dark-gray link"}}2019{{/link-to}} |
+        {{#link-to 'app.mapa' (query-params anio="2020") class="dark-gray link"}}2020{{/link-to}}
+      </div>
+    {{/if}}
     <p class="ml3 mr3 asap f5"><img class="v-base" height=13 src="/markers/red-marker.png"> Ataques a personas</p>
     <p class="ml3 mr3 asap f5"><img class="v-base" height=13 src="/markers/yellow-marker.png"> Muerte por travesticidio social</p>
     <p class="ml3 mr3 asap f5"><img class="v-base" height=13 src="/markers/light-blue-marker.png"> Asesinatos</p>

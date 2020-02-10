@@ -66,8 +66,9 @@ export default Service.extend({
     return this.fetch(`perfiles/obtener-nombres`);
   },
 
-  obtenerCasos() {
-    return this.fetch(`casos/obtener-casos`, true);
+  obtenerCasos(filtros) {
+    let params = new URLSearchParams(filtros).toString();
+    return this.fetch(`casos/obtener-casos?${params}`, true);
   },
 
   obtenerCasosPublicos(filtros) {
@@ -79,7 +80,11 @@ export default Service.extend({
     return this.fetch(`casos/obtener-filtros`, false);
   },
 
-  obtenerCasosPublicosParaMapa() {
-    return this.fetch(`casos/obtener-casos-publicos-para-mapa`, false);
+  obtenerCasosPublicosParaMapa(filtros) {
+    let params = new URLSearchParams(filtros).toString();
+    return this.fetch(
+      `casos/obtener-casos-publicos-para-mapa?${params}`,
+      false
+    );
   }
 });

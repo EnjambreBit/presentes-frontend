@@ -4,11 +4,22 @@ import { task } from "ember-concurrency";
 
 export default Route.extend({
   api: service(),
-  obtenerCasos: task(function*() {
-    let respuesta = yield this.api.obtenerCasosPublicosParaMapa();
+  queryParams: {
+    anio: { refreshModel: true },
+    categoria: { refreshModel: true }
+  },
+  anio: null,
+  categoria: null,
+  obtenerCasos: task(function*(query) {
+    let respuesta = yield this.api.obtenerCasosPublicosParaMapa(query);
     return respuesta;
   }),
-  model() {
-    return this.get("obtenerCasos").perform();
+  model(params) {
+    params.anio = params.anio || "2020";
+    params.categoria = params.categoria || "";
+    return this.get("obtenerCasos").perform({
+      anio: params.anio,
+      categoria: params.categoria
+    });
   }
 });
