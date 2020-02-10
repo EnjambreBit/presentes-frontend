@@ -7,7 +7,7 @@ export default Component.extend({
     let categoria = modelo.get("categoria.nombre");
     let iconoUrl;
 
-    if (categoria === "Asesinatos a personas LGBT+") {
+    if (categoria === "Asesinatos") {
       iconoUrl = "/markers/light-blue-marker.png";
     }
     if (categoria === "Ataques a personas") {

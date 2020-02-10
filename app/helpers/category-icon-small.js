@@ -3,7 +3,7 @@ import { helper } from "@ember/component/helper";
 export function categoryIcon(params /*, hash*/) {
   let categoria = params[0];
   let iconoUrl;
-  if (categoria === "Asesinatos a personas LGBT+") {
+  if (categoria === "Asesinatos") {
     iconoUrl = "/markers/light-blue-marker.png";
   }
   if (categoria === "Ataques a personas") {

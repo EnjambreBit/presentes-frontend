@@ -145,7 +145,7 @@
     {{/if}}
     {{presentes-detalle/detalle-item ancho="30" etiqueta="Observaciones" valor=model.observaciones textarea=true}}
 
-    {{#if (or (eq model.categoria.nombre "Asesinatos a personas LGBT+") (eq model.categoria.nombre "Muerte por travesticidio social"))}}
+    {{#if (or (eq model.categoria.nombre "Asesinatos") (eq model.categoria.nombre "Muerte por travesticidio social"))}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="Causa de la muerte" valor=model.causaDeLaMuerte}}
       {{presentes-detalle/detalle-item ancho="30" etiqueta="¿Tiene o tuvo acceso a prestaciones de salud?" valor=model.tieneAccesoAPrestacionesDeSalud opciones=true}}
       {{#if (eq model.tieneAccesoAPrestacionesDeSalud 'SI')}}

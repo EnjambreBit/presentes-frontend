@@ -139,7 +139,7 @@
           cuandoCambia=fi.update}}
     {{/f.personalizado}}
 
-    {{#if (or (eq f.model.categoria.nombre 'Asesinatos a personas LGBT+') (eq f.model.categoria.nombre 'Ataques a personas'))}}
+    {{#if (or (eq f.model.categoria.nombre 'Asesinatos') (eq f.model.categoria.nombre 'Ataques a personas'))}}
       {{#f.personalizado etiqueta="¿Dónde ocurrió el hecho?" name="dondeOcurrioElHecho" as |i|}}
         {{presentes-selector/simple-select
           tarea=lugaresDelHecho
@@ -340,7 +340,7 @@
 
     {{f.textarea etiqueta="Observaciones" atributo="observaciones"}}
 
-    {{#if (or (eq f.model.categoria.nombre "Asesinatos a personas LGBT+") (eq f.model.categoria.nombre "Muerte por travesticidio social"))}}
+    {{#if (or (eq f.model.categoria.nombre "Asesinatos") (eq f.model.categoria.nombre "Muerte por travesticidio social"))}}
       {{f.input etiqueta="Causa de la muerte" atributo="causaDeLaMuerte"}}
       {{#f.personalizado etiqueta="¿Tenía obra social?" name="teniaObraSocial" as |i|}}
         {{presentes-selector/simple-select-enum

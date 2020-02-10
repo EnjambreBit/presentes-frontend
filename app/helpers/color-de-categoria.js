@@ -4,7 +4,7 @@ export function colorDeCategoria(params /*, hash*/) {
   let categoria = params[0];
   let color;
   // categorías de mapa
-  if (categoria === "Asesinatos a personas LGBT+") {
+  if (categoria === "Asesinatos") {
     color = "azul b--azul";
   }
   if (categoria === "Ataques a personas") {
