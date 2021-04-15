@@ -429,3 +429,12 @@ a.gris,
   -webkit-box-align: stretch;
   align-items: stretch;
 }
+
+@media (max-width: 720px) {
+  .filter li {
+    display: block;
+  }
+  .filter li:after {
+    display: none;
+  }
+}

@@ -8,13 +8,13 @@ export function colorDeIdentidad(params /*, hash*/) {
   if (categoria === "lesbiana") {
     color = "purple b--purple";
   }
-  if (categoria === "trans") {
+  if ((categoria === "trans") || (categoria === "mujer-trans")) {
     color = "green b--green";
   }
   if (categoria === "gays") {
     color = "rojo b--rojo";
   }
-  if (categoria === "bisexual") {
+  if ((categoria === "bisexual") || (categoria === "pansexual")) {
     color = "orange b--orange";
   }
   if (categoria === "no-binarie") {

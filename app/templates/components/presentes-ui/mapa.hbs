@@ -28,8 +28,8 @@
   </div>
 {{/if}}
 {{#leaflet-map lat=latitud lng=longitud zoom=zoom}}
-  {{!-- {{tile-layer url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"}} --}}
-  {{tile-layer url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png?lang=es" attribution="Wikimedia maps | Map data &copy; <a href='https://openstreetmap.org/copyright'>OpenStreetMap contributors</a>"}}
+  {{tile-layer url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"}}
+  {{!-- {{tile-layer url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png?lang=es" attribution="Wikimedia maps | Map data &copy; <a href='https://openstreetmap.org/copyright'>OpenStreetMap contributors</a>"}} --}}
     {{#each model.data as |m|}}
       {{#marker-layer lat=m.latitud lng=m.longitud onClick=(action "accionDePrueba" m) icon=(category-icon m.categoria) as |marker|}}
         {{presentes-ui/mapa-popup

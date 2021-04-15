@@ -1,0 +1,18 @@
+{{#if (media 'isMobile')}}
+  <div class="flex shadow-1 bg-white gray asap">
+    {{presentes-ui/menu-mobile}}
+      <div class="b4lue pa1 pointer disable-select pr4" {{action (transition-to "candidates-chile-2021.index")}}>
+        {{presentes-ui/logo extraClass='w-60 v-mid'}}
+      </div>
+  </div>
+{{else}}
+  <div class="flex shadow-1 bg-white gray asap">
+      <div class="b4lue pa0 pointer disable-select pr4" {{action (transition-to "candidates-chile-2021.index")}}>
+        {{presentes-ui/logo extraClass='v-top'}}
+      </div>
+    <div class="flex1">
+      {{presentes-ui/secciones-mexico}}
+    </div>
+
+  </div>
+{{/if}}

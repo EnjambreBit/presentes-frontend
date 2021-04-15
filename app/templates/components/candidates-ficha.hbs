@@ -1,5 +1,5 @@
 {{yield}}
-<div class="mini-ficha w-50 w-third-m w-20-ns pa3 tc {{categoria}} {{tags}}" {{action (route-action "mostrarModal" id)}}>
+<div class="mini-ficha w-50 w-third-m w-20-ns pa3 tc {{categoria}} {{tags}} {{zona}}" {{action (route-action "mostrarModal" id)}}>
   <div class="resultado dn">{{resultado}}</div>
   <img class="br3 h4 w4 dib pointer grow" src="{{foto}}" alt="{{nombre}}">
   <div class="f5 mt2 pointer">
@@ -8,7 +8,7 @@
 </div>
 <div class="dn" id="{{id}}">
   <div class="z-999 absolute--fill relative fixed-ns bg-modal-black flex justify-center items-center" {{action (route-action "cerrarModal" id)}}>
-    <div class="w-70-ns pa3 pa4-ns tl bg-white shadow-1 br3 ba bw2 {{color-de-identidad categoria}} relative">
+    <div class="w-70 vh-90 ns pa3 pa4-ns tl bg-white shadow-1 br3 ba bw2 {{color-de-identidad categoria}} relative overflow-y-scroll">
       <a class="absolute top-0 right-0 leaflet-popup-close-button link gray pointer" {{action (route-action "cerrarModal" id)}}>X</a>
       <div class="fl w-100 w-40-ns ">
         <img class="br3 w-50 dib" src="{{foto}}" alt="{{nombre}}">
@@ -18,18 +18,32 @@
         <div class="f5 mv2 tl">
           <b>Identidad: </b><span class="black">{{identidad}}</span>
         </div>
+        {{#if lugar}}
+          <div class="f5 mv2 tl">
+            <i class="fas fa-map-marker-alt"></i><span class="black"> {{lugar}}</span>
+          </div>
+        {{/if}}
         <div class="f5 mv2 tl">
-          <i class="fas fa-map-marker-alt"></i><span class="black"> {{lugar}}</span>
+          {{#if candidatura}}
+            <b>Candidate a:</b><span class="black"> {{candidatura}}</span>
+          {{/if}}
+          {{#if candidate-por}}
+            <b>Candidate por:</b><span class="black"> {{candidate-por}}</span>
+          {{/if}}
         </div>
-        <div class="f5 mv2 tl">
-          <b>Candidate a:</b><span class="black"> {{candidatura}}</span>
-        </div>
-        <div class="f5 mv2 tl">
-          <b>Puesto en la lista:</b><span class="black"> {{puesto-en-lista}}</span>
-        </div>
+        {{#if puesto-en-lista}}
+          <div class="f5 mv2 tl">
+            <b>Puesto en la lista:</b><span class="black"> {{puesto-en-lista}}</span>
+          </div>
+        {{/if}}
         <div class="f5 mv2 tl">
           <b>Partido:</b><span class="black"> {{partido}}</span>
         </div>
+        {{#if lista}}
+          <div class="f5 mv2 tl">
+            <b>Lista:</b><span class="black"> {{lista}}</span>
+          </div>
+        {{/if}}
       </div>
       <div class="fl w-100 w-60-ns pl3-ns">
         <div class="f5 mv2 tl">
