@@ -5,7 +5,7 @@ export default Route.extend({
     if (window.location.href.includes("candidates2019.agenciapresentes.org")) {
       return this.transitionTo("candidates2019");
     } else if (window.location.href.includes("candidates-chile2021.agenciapresentes.org")) {
-      return this.transitionTo("candidates-chile2021");
+      return this.transitionTo("candidates-chile-2021");
     } else {
       return this.transitionTo("publico.index");
     }
