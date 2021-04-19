@@ -21,7 +21,7 @@ export default Component.extend({
     });
 
     $(
-      ".filter.identidades li a, .filter.partido-politico li a, .filter.resultados li a, .filter.zona li a"
+    ".filter.identidades li a, .filter.partido-politico li a, .filter.resultados li a, .filter.zona li a"
     ).click(function() {
       var classGroup = this.parentElement.parentElement.classList[1];
       $(".filter." + classGroup + " li a").removeClass("active");
