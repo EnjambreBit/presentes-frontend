@@ -8,7 +8,9 @@
     <div class="ml3 mb2 tl f5 asap">
       Año:
       {{#link-to ruta (query-params anio="2019") class="dark-gray link"}}2019{{/link-to}} |
-      {{#link-to ruta (query-params anio="2020") class="dark-gray link"}}2020{{/link-to}}
+      {{#link-to ruta (query-params anio="2020") class="dark-gray link"}}2020{{/link-to}} |
+      {{#link-to ruta (query-params anio="2021") class="dark-gray link"}}2021{{/link-to}}
+      {{!-- {{#link-to ruta (query-params anio="2022") class="dark-gray link"}}2022{{/link-to}} --}}
     </div>
     {{#link-to ruta (query-params categoria="") class="db ml3 mr3 pv2 black asap f5 link"}}
       <img class="v-base" height=13 src="/markers/gray-marker.png"> Todas las categorias
@@ -28,6 +30,7 @@
   </div>
 {{/if}}
 {{#leaflet-map lat=latitud lng=longitud zoom=zoom}}
+  {{!-- {{tile-layer url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png" attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'}} --}}
   {{tile-layer url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"}}
   {{!-- {{tile-layer url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png?lang=es" attribution="Wikimedia maps | Map data &copy; <a href='https://openstreetmap.org/copyright'>OpenStreetMap contributors</a>"}} --}}
     {{#each model.data as |m|}}

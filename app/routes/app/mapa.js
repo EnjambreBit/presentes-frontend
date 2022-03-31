@@ -15,7 +15,7 @@ export default Route.extend({
     return respuesta;
   }),
   model(params) {
-    params.anio = params.anio || "2020";
+    params.anio = params.anio || "2021";
     params.categoria = params.categoria || "";
     return this.get("obtenerCasos").perform({
       anio: params.anio,

@@ -1,5 +1,7 @@
 {{#leaflet-map lat=modelo.latitud lng=modelo.longitud zoom=zoom}}
-  {{tile-layer url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png?lang=es" attribution="Wikimedia maps | Map data &copy; <a href='https://openstreetmap.org/copyright'>OpenStreetMap contributors</a>"}}
+  {{!-- {{tile-layer url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png?lang=es" attribution="Wikimedia maps | Map data &copy; <a href='https://openstreetmap.org/copyright'>OpenStreetMap contributors</a>"}} --}}
+  
+  {{tile-layer url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"}}
     {{#marker-layer lat=modelo.latitud lng=modelo.longitud icon=categoryIcon as |marker|}}
       {{#if popup}}
         {{presentes-ui/mapa-popup
