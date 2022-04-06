@@ -1,7 +1,7 @@
 {{#leaflet-map lat=modelo.latitud lng=modelo.longitud zoom=zoom}}
   {{!-- {{tile-layer url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png?lang=es" attribution="Wikimedia maps | Map data &copy; <a href='https://openstreetmap.org/copyright'>OpenStreetMap contributors</a>"}} --}}
   
-  {{tile-layer url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"}}
+  {{tile-layer url="https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png" attribution='<a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | <a href="http://www.ign.gob.ar/AreaServicios/Argenmap/IntroduccionV2" target="_blank">Instituto Geográfico Nacional</a> + <a href="http://www.osm.org/copyright" target="_blank">OpenStreetMap</a>'}}
     {{#marker-layer lat=modelo.latitud lng=modelo.longitud icon=categoryIcon as |marker|}}
       {{#if popup}}
         {{presentes-ui/mapa-popup

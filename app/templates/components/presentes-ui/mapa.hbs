@@ -31,7 +31,8 @@
 {{/if}}
 {{#leaflet-map lat=latitud lng=longitud zoom=zoom}}
   {{!-- {{tile-layer url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png" attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'}} --}}
-  {{tile-layer url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"}}
+  {{!-- {{tile-layer url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"}} --}}
+  {{tile-layer url="https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png" attribution='<a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | <a href="http://www.ign.gob.ar/AreaServicios/Argenmap/IntroduccionV2" target="_blank">Instituto Geográfico Nacional</a> + <a href="http://www.osm.org/copyright" target="_blank">OpenStreetMap</a>'}}
   {{!-- {{tile-layer url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png?lang=es" attribution="Wikimedia maps | Map data &copy; <a href='https://openstreetmap.org/copyright'>OpenStreetMap contributors</a>"}} --}}
     {{#each model.data as |m|}}
       {{#marker-layer lat=m.latitud lng=m.longitud onClick=(action "accionDePrueba" m) icon=(category-icon m.categoria) as |marker|}}
