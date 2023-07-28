@@ -1,0 +1,56 @@
+<section class="cf w-100 pv3 f6 ph3 ph0-ns">
+  <div class="isotope-filter">
+    <div class="fl w-50">
+      <div class="f5">Identidades</div>
+      <ul class="filter identidades pl0 button-group" data-filter-group="identidades">
+        <li><a class="active" href="#" data-filter="*">Todes</a></li>
+        <li><a href="#" data-filter=".trans">Trans</a></li>
+        <li><a href="#" data-filter=".mujer-trans">Mujer trans</a></li>
+        <li><a href="#" data-filter=".gay">Gay</a></li>
+        <li><a href="#" data-filter=".bisexual">Bisexual</a></li>
+        <li><a href="#" data-filter=".pansexual">Pansexual</a></li>
+        <li><a href="#" data-filter=".lesbiana">Lesbiana</a></li>
+        <li><a href="#" data-filter=".no-binarie">No binarie</a></li>
+      </ul>
+    </div>
+    <div class="fl w-50">
+      <div class="f5">Partido Político</div>
+      <ul class="filter partido-politico pl0 button-group" data-filter-group="partido-politico">
+        <li><a class="active" href="#" data-filter="*">Todos</a></li>
+        <li><a href="#" data-filter=".vamos-con-todos">Vamos con Todos</a></li>
+      </ul>
+    </div>
+    
+    {{!-- <div class="fl w-50">
+      <div class="f5">Resultados</div>
+      <ul class="filter resultados pl0 button-group" data-filter-group="resultados">
+        <li><a class="active" href="#" data-filter="*">Todes</a></li>
+        <li><a href="#" data-filter=".electe">Electes</a></li>
+        <li><a href="#" data-filter=".no-electe">No electes</a></li>
+      </ul>
+    </div> --}}
+  </div>
+</section>
+  <div class="grilla">
+    <div class="grilla-vacia light-red dn">
+      No se encontraron candidates bajo esos filtros.
+    </div>
+    {{candidates-ficha
+      modelo=model
+      id="castillo"
+      resultado="electe"
+      categoria="trans"
+      tags="vamos-con-todos"
+      foto="/imagenes/candidates2023/fotos/ornella-infante.jpg"
+      nombre="Reina Ornella Infante"
+      identidad="Trans"
+      lugar="Río Negro"
+      candidatura="Legisladora Provincial"
+      candidate-por="Río Negro"
+      lista="430"
+      puesto-en-lista="1er lugar titular, Circuito Alto Valle Oeste"
+      partido="Vamos con Todos"
+      link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-ornella-infante-la-activista-trans-que-quiere-ser-legisladora-de-rio-negro/"
+    }}
+
+  </div>

@@ -61,6 +61,7 @@ Router.map(function() {
   this.route('mexico', function() {});
   this.route('candidates2019', function() {});
   this.route('candidates-chile-2021', function() {});
+  this.route('candidates2023', function() {});
 });
 
 export default Router;

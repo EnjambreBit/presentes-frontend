@@ -430,6 +430,10 @@ a.gris,
   align-items: stretch;
 }
 
+.mini-ficha .nombre-candidate {
+  color: #000000;
+}
+
 @media (max-width: 720px) {
   .filter li {
     display: block;
