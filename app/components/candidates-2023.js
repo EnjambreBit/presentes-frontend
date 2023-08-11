@@ -21,7 +21,7 @@ export default Component.extend({
     });
 
     $(
-    ".filter.identidades li a, .filter.partido-politico li a, .filter.resultados li a, .filter.zona li a"
+    ".filter.identidades li a, .filter.partido-politico li a, .filter.resultados li a, .filter.lugares li a"
     ).click(function() {
       var classGroup = this.parentElement.parentElement.classList[1];
       $(".filter." + classGroup + " li a").removeClass("active");
@@ -37,14 +37,14 @@ export default Component.extend({
       if (
         filters["identidades"] ||
         filters["partido-politico"] ||
-        filters["zona"] ||
+        filters["lugares"] ||
         filters["resultados"]
       ) {
         $(".nota-candidates").hide();
         if (
           filters["identidades"] === "*" &&
           filters["partido-politico"] === "*" &&
-          filters["zona"] === "*" &&
+          filters["lugares"] === "*" &&
           filters["resultados"] === "*"
         ) {
           $(".nota-candidates").show();

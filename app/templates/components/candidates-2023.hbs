@@ -1,31 +1,57 @@
 <section class="cf w-100 pv3 f6 ph3 ph0-ns">
   <div class="isotope-filter">
-    <div class="fl w-50">
-      <div class="f5">Identidades</div>
+    <div class="filter-section fl w-50 pa3 br3">
+      <div class="b f5">Identidades</div>
       <ul class="filter identidades pl0 button-group" data-filter-group="identidades">
         <li><a class="active" href="#" data-filter="*">Todes</a></li>
+        <li><a href="#" data-filter=".bisexual">Bisexual</a></li>
         <li><a href="#" data-filter=".gay">Gay</a></li>
         <li><a href="#" data-filter=".lesbiana">Lesbiana</a></li>
         <li><a href="#" data-filter=".nb">No binarie</a></li>
-        <li><a href="#" data-filter=".trans">Trans</a></li>
+        <li><a href="#" data-filter=".mujer-trans">Mujer Trans</a></li>
+        <li><a href="#" data-filter=".varon-trans">Varón Trans</a></li>
         <li><a href="#" data-filter=".travesti">Travesti</a></li>
       </ul>
     </div>
-    <div class="fl w-50">
-      <div class="f5">Partido Político</div>
-      <ul class="filter partido-politico pl0 button-group" data-filter-group="partido-politico">
-        <li><a class="active" href="#" data-filter="*">Todos</a></li>
-        <li><a href="#" data-filter=".frente-amplio">Frente Amplio Por La Soberanía</a></li>
-        <li><a href="#" data-filter=".mst">MST</a></li>
-        <li><a href="#" data-filter=".po-fit-union">Partido del Obrero (FIT)</a></li>
-        <li><a href="#" data-filter=".partido-socialista-en-hacemos-por-nuestro-pais">Partido Socialista en Hacemos por nuestro país</a></li>
-        <li><a href="#" data-filter=".pts">PTS</a></li>
-        <li><a href="#" data-filter=".union-por-la-patria">Unión por la Patria</a></li>
-        <li><a href="#" data-filter=".vamos-con-todos">Vamos con Todos</a></li>
-      </ul>
+    <div class="isotope-filter">
+      <div class="filter-section fl w-50 pa3 br3">
+        <div class="b f5">Candidate por</div>
+        <ul class="filter lugares pl0 button-group" data-filter-group="lugares">
+          <li><a class="active" href="#" data-filter="*">Todos</a></li>
+          <li><a href="#" data-filter=".nacional">Nación</a></li>
+          <li><a href="#" data-filter=".mercosur">Mercosur</a></li>
+          <li><a href="#" data-filter=".bs-as">Buenos Aires</a></li>
+          <li><a href="#" data-filter=".caba">CABA</a></li>
+          <li><a href="#" data-filter=".entre-rios">Entre Ríos</a></li>
+          <li><a href="#" data-filter=".misiones">Misiones</a></li>
+          <li><a href="#" data-filter=".rio-negro">Río Negro</a></li>
+          <li><a href="#" data-filter=".santa-fe">Santa Fe</a></li>
+          <li><a href="#" data-filter=".salta">Salta</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="isotope-filter">
+      <div class="filter-section fl w-100 pa3 br3">
+        <div class="b f5">Partido Político</div>
+        <ul class="filter partido-politico pl0 button-group" data-filter-group="partido-politico">
+          <li><a class="active" href="#" data-filter="*">Todos</a></li>
+          <li><a href="#" data-filter=".ciudad-futura">Ciudad Futura</a></li>
+          <li><a href="#" data-filter=".frente-amplio">Frente Amplio Por La Soberanía</a></li>
+          <li><a href="#" data-filter=".jxc">Juntos por el Cambio</a></li>
+          <li><a href="#" data-filter=".mst">MST</a></li>
+          <li><a href="#" data-filter=".po-fit-union">Partido del Obrero (FIT)</a></li>
+          <li><a href="#" data-filter=".partido-socialista-en-hacemos-por-nuestro-pais">Partido Socialista en Hacemos por nuestro país</a></li>
+          <li><a href="#" data-filter=".primero-santa-fe">Primero Santa Fe</a></li>
+          <li><a href="#" data-filter=".proyecto-joven">Proyecto Joven</a></li>
+          <li><a href="#" data-filter=".pts">PTS</a></li>
+          <li><a href="#" data-filter=".unidad-ciudadana">Unidad Ciudadana</a></li>
+          <li><a href="#" data-filter=".union-por-la-patria">Unión por la Patria</a></li>
+          <li><a href="#" data-filter=".vamos-con-todos">Vamos con Todos</a></li>
+        </ul>
+      </div>
     </div>
     
-    {{!-- <div class="fl w-50">
+    {{!-- <div class="filter-section fl w-50 pa3 br3">
       <div class="f5">Resultados</div>
       <ul class="filter resultados pl0 button-group" data-filter-group="resultados">
         <li><a class="active" href="#" data-filter="*">Todes</a></li>
@@ -43,8 +69,9 @@
       modelo=model
       nombre="Reina Ornella Infante"
       id="infante"
-      categoria="trans"
+      categoria="mujer-trans"
       resultado="electe"
+      lugar="rio-negro"
       tags="vamos-con-todos"
       foto="/imagenes/candidates2023/fotos/ornella-infante.jpg"
       link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-ornella-infante-la-activista-trans-que-quiere-ser-legisladora-de-rio-negro/"
@@ -55,6 +82,7 @@
       id="serrano"
       categoria="gay"
       resultado="electe"
+      lugar="santa-fe"
       tags="frente-amplio"
       foto="/imagenes/candidates2023/fotos/maximiliano-serrano.jpg"
       link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-maximiliano-serrano-quiere-debatir-sobre-diversidad-en-el-congreso/"
@@ -63,8 +91,9 @@
       modelo=model
       nombre="Fernanda Janeth Ramos"
       id="ramos"
-      categoria="trans"
+      categoria="mujer-trans"
       resultado="electe"
+      lugar="salta"
       tags="union-por-la-patria"
       foto="/imagenes/candidates2023/fotos/fernanda-janeth-ramos.jpg"
       link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-fernanda-janeth-ramos-y-el-impulso-del-colectivo-trans-a-diputados/"
@@ -75,6 +104,7 @@
       id="paulon"
       categoria="gay"
       resultado="electe"
+      lugar="santa-fe"
       tags="partido-socialista-en-hacemos-por-nuestro-pais"
       foto="/imagenes/candidates2023/fotos/esteban-paulon.jpg"
       link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-esteban-paulon-un-paso-mas-en-la-militancia-por-la-diversidad/"
@@ -83,8 +113,9 @@
       modelo=model
       nombre="Keili Regina González"
       id="gonzalez"
-      categoria="trans"
+      categoria="mujer-trans"
       resultado="electe"
+      lugar="entre-rios"
       tags="mst"
       foto="/imagenes/candidates2023/fotos/keili-gonzalez.jpg"
       link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-keili-gonzalez-se-postula-para-concejal/"
@@ -95,6 +126,7 @@
       id="kinder"
       categoria="travesti nb"
       resultado="electe"
+      lugar="misiones"
       tags="po-fit-union"
       foto="/imagenes/candidates2023/fotos/jazmin-kinder.jpg"
       link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-jazmin-kinder-la-militancia-por-una-salud-diversa-en-misiones/"
@@ -105,6 +137,7 @@
       id="lopez"
       categoria="nb"
       resultado="electe"
+      lugar="bs-as"
       tags="union-por-la-patria"
       foto="/imagenes/candidates2023/fotos/ariel-lucho-lopez.jpg"
       link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-ariel-lucho-lopez-garantiza-diversidad-en-su-municipio/"
@@ -113,8 +146,9 @@
       modelo=model
       nombre="Tom Mascolo"
       id="mascolo"
-      categoria="trans"
+      categoria="varon-trans"
       resultado="electe"
+      lugar="caba"
       tags="pts"
       foto="/imagenes/candidates2023/fotos/tom-mascolo.jpg"
       link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-tom-mascolo-para-que-las-voces-trans-lleguen-a-la-legislatura-portena/"
@@ -125,9 +159,109 @@
       id="santiaga"
       categoria="nb"
       resultado="electe"
+      lugar="caba"
       tags="pts"
       foto="/imagenes/candidates2023/fotos/santiaga.jpg"
       link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-santiaga-busca-afianzar-la-representatividad-no-binaria-en-caba/"
+    }}
+    {{candidates-ficha
+      modelo=model
+      nombre="Zaira Aranda"
+      id="aranda"
+      categoria="mujer-trans"
+      resultado="electe"
+      lugar="santa-fe"
+      tags="unidad-ciudadana"
+      foto="/imagenes/candidates2023/fotos/zaira-aranda.jpg"
+      link="https://agenciapresentes.org/candidates/elecciones-2023-zaira-aranda-la-concejala-trans-que-va-por-la-reeleccion-en-romang/"
+    }}
+    {{candidates-ficha
+      modelo=model
+      nombre="Mariana Fernandez"
+      id="fernandez"
+      categoria="travesti"
+      resultado="electe"
+      lugar="santa-fe"
+      tags="ciudad-futura"
+      foto="/imagenes/candidates2023/fotos/mariana-fernandez.jpg"
+      link="https://agenciapresentes.org/candidates/elecciones-2023-mariana-fernandez-activista-travesti-y-candidata-a-concejala-en-rosario/"
+    }}
+    {{candidates-ficha
+      modelo=model
+      nombre="Reyna Ibáñez"
+      id="ibanez"
+      categoria="mujer-trans"
+      resultado="electe"
+      lugar="santa-fe"
+      tags="proyecto-joven"
+      foto="/imagenes/candidates2023/fotos/reyna-ibanez.jpg"
+      link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-reyna-ibanez-suena-con-ser-la-primera-presidenta-trans/"
+    }}
+    {{candidates-ficha
+      modelo=model
+      nombre="Graciela Aristiquis"
+      id="aristiquis"
+      categoria="bisexual"
+      resultado="electe"
+      lugar="santa-fe"
+      tags="proyecto-joven"
+      foto="/imagenes/candidates2023/fotos/graciela-aristiquis.jpg"
+      link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-graciela-aristiquis-con-la-diversidad-de-los-barrios-al-congreso/"
+    }}
+    {{candidates-ficha
+      modelo=model
+      nombre="Owen Luna"
+      id="luna"
+      categoria="varon-trans"
+      resultado="electe"
+      lugar="buenos-aires"
+      tags="pts"
+      foto="/imagenes/candidates2023/fotos/owen-luna.jpg"
+      link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-owen-luna-el-primer-joven-trans-que-quiere-ser-concejal-en-echeverria/"
+    }}
+    {{candidates-ficha
+      modelo=model
+      nombre="Damicella Debonis"
+      id="debonis"
+      categoria="mujer-trans"
+      resultado="electe"
+      lugar="santa-fe"
+      tags="primero-santa-fe"
+      foto="/imagenes/candidates2023/fotos/damicella-debonis.jpg"
+      link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-damicella-debonis-quiere-ser-la-primera-concejala-trans-de-san-lorenzo/"
+    }}
+    {{candidates-ficha
+      modelo=model
+      nombre="Pablo \"Vasco\" Sartore"
+      id="sartore"
+      categoria="gay"
+      resultado="electe"
+      lugar="nacional"
+      tags="mst"
+      foto="/imagenes/candidates2023/fotos/pablo-sartore.jpg"
+      link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-pablo-vasco-sartore-quiere-ser-diputado-nacional/"
+    }}
+    {{candidates-ficha
+      modelo=model
+      nombre="Lautaro Lucas Cruz"
+      id="cruz"
+      categoria="varon-trans"
+      resultado="electe"
+      lugar="caba"
+      tags="jxc"
+      foto="/imagenes/candidates2023/fotos/lautaro-cruz.jpg"
+      link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-lautaro-lucas-cruz-quiere-que-las-voces-trans-se-escuchen-en-la-legislatura-portena/"
+    }}
+    {{candidates-ficha
+      modelo=model
+      nombre="Florencia Aguirre"
+      id="aguirre"
+      categoria="bisexual"
+      resultado="electe"
+      lugar="mercosur"
+      tags="po-fit-union"
+      foto="/imagenes/candidates2023/fotos/florencia-aguirre.jpg"
+      link="https://agenciapresentes.org/candidates/elecciones-2023-candidatxs-lgbt-florencia-aguirre-busca-la-integracion-regional-en-el-parlamento-de-mercosur/"
     }}
 
   </div>
