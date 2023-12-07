@@ -5,12 +5,13 @@
     {{else}}
       <img src="/imagenes/presentes-logo.png" width=auto height=32 alt="" class='mb2'>
     {{/if}}
-    <div class="ml3 mb2 tl f5 asap">
+    <div class="ml3 mr3 mb2 tl f5 asap">
       Año:
       {{#link-to ruta (query-params anio="2019") class="dark-gray link"}}2019{{/link-to}} |
       {{#link-to ruta (query-params anio="2020") class="dark-gray link"}}2020{{/link-to}} |
       {{#link-to ruta (query-params anio="2021") class="dark-gray link"}}2021{{/link-to}} |
-      {{#link-to ruta (query-params anio="2022") class="dark-gray link"}}2022{{/link-to}}
+      {{#link-to ruta (query-params anio="2022") class="dark-gray link"}}2022{{/link-to}} |
+      {{#link-to ruta (query-params anio="2023") class="dark-gray link"}}2023{{/link-to}}
     </div>
     {{#link-to ruta (query-params categoria="") class="db ml3 mr3 pv2 black asap f5 link"}}
       <img class="v-base" height=13 src="/markers/gray-marker.png"> Todas las categorias
