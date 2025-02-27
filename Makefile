@@ -49,8 +49,10 @@ deploy:
 	@git clone dokku@157.230.229.207:presentes publish
 	@echo "Moviendo archivos..."
 	@cp -r dist/* publish/
+	@cp .buildpacks static.json publish/
+	@cp -r config publish/
 	@echo "Realizando deploy..."
-	@cd publish; git add .; git config user.email "ihoffmann@enjambrebit.com.ar"; git config user.name "EnjambreBit"; git commit -am 'rebuild' --allow-empty; git push -f
+	@cd publish; git add .; git config user.email "ihoffmann@enjambrebit.com.ar"; git config user.name "EnjambreBit"; git commit -am 'rebuild' --allow-empty; git push -f origin master:main
 
 version:
 	yarn release
