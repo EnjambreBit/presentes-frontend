@@ -41,16 +41,16 @@ ejecutar_con_mirage:
 
 deploy:
 	rm -rf dist
-	@API_URL="https://presentes-backend.enjambrelab.space" yarn build --prod
+	@API_URL="https://presentes-backend.enjambrelab.ar" yarn build --prod
 	@touch dist/.static
 	@echo "Compilando aplicación en modo producción"
 	@echo "Clonando repositorio para realizar el deploy."
 	@rm -rf publish
-	@git clone dokku@enjambrelab.space:presentes publish
+	@git clone dokku@157.230.229.207:presentes publish
 	@echo "Moviendo archivos..."
 	@cp -r dist/* publish/
 	@echo "Realizando deploy..."
-	@cd publish; git add .; git config user.email "info@enjambrebit.com.ar"; git config user.name "EnjambreBit"; git commit -am 'rebuild' --allow-empty; git push -f
+	@cd publish; git add .; git config user.email "ihoffmann@enjambrebit.com.ar"; git config user.name "EnjambreBit"; git commit -am 'rebuild' --allow-empty; git push -f
 
 version:
 	yarn release
