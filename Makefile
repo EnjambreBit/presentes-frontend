@@ -42,17 +42,15 @@ ejecutar_con_mirage:
 deploy:
 	rm -rf dist
 	@API_URL="https://presentes-backend.enjambrelab.ar" yarn build --prod
-	@touch dist/.static
 	@echo "Compilando aplicación en modo producción"
-	@echo "Clonando repositorio para realizar el deploy."
+	@echo "Preparando archivos para deploy..."
 	@rm -rf publish
-	@git clone dokku@157.230.229.207:presentes publish
-	@echo "Moviendo archivos..."
+	@mkdir -p publish
 	@cp -r dist/* publish/
-	@cp .buildpacks static.json publish/
-	@cp -r config publish/
-	@echo "Realizando deploy..."
-	@cd publish; git add .; git config user.email "ihoffmann@enjambrebit.com.ar"; git config user.name "EnjambreBit"; git commit -am 'rebuild' --allow-empty; git push -f origin master:main
+	@cp Dockerfile config/nginx.conf publish/
+	@cd publish && tar -czf ../deploy.tar.gz .
+	@scp deploy.tar.gz dokku@157.230.229.207:~/
+	@ssh dokku@157.230.229.207 "mkdir -p /tmp/deploy && tar -xzf ~/deploy.tar.gz -C /tmp/deploy && dokku apps:create presentes || true && dokku git:from-dir /tmp/deploy presentes"
 
 version:
 	yarn release
