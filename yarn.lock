@@ -3784,9 +3784,10 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
-"corejs-typeahead@git+https://github.com/Gridium/typeahead.js.git#arrow-object-data-dist":
+corejs-typeahead@1.2.1, "corejs-typeahead@git+https://github.com/Gridium/typeahead.js.git#arrow-object-data-dist":
   version "1.2.1"
-  resolved "git+https://github.com/Gridium/typeahead.js.git#249b7acfcab0044cef46b609e1b89d55e1f0b48d"
+  resolved "https://registry.yarnpkg.com/corejs-typeahead/-/corejs-typeahead-1.2.1.tgz#345a8afe664cc494075b59b64777807f0b3f132b"
+  integrity sha512-g22FqtnuB8CPq4K/dpPW2Th4fW50PCBBc4H1XWyrZQl22BM6JKDw2owfCLMHoCaQQapMkAPfNsUoR/TJeFEgrg==
   dependencies:
     jquery ">=1.11"
 
