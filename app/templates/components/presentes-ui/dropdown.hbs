@@ -1,1 +1,10 @@
-{{yield}}
+<div class="dropdown-container {{if class class}}">
+  <select onchange={{action "onChange"}} class="asap f5 pa1">
+    {{#each options as |option|}}
+      <option value={{option.value}} selected={{eq selectedValue option.value}}>
+        {{option.label}}
+      </option>
+    {{/each}}
+  </select>
+  {{yield}}
+</div>

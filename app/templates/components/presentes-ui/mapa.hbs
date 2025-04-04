@@ -1,54 +1,65 @@
 {{#if (or (media 'isDesktop') (media 'isNetbook'))}}
-  <div class="referencias pb2">
-    {{#if homeLink}}
-      {{#link-to 'app'}}<img src="/imagenes/presentes-logo.png" width=auto height=32 alt="" class='mb2'>{{/link-to}}
-    {{else}}
-      <img src="/imagenes/presentes-logo.png" width=auto height=32 alt="" class='mb2'>
-    {{/if}}
-    <div class="ml3 mr3 mb2 tl f5 asap">
-      Año:
-      {{#link-to ruta (query-params anio="2019") class="dark-gray link"}}2019{{/link-to}} |
-      {{#link-to ruta (query-params anio="2020") class="dark-gray link"}}2020{{/link-to}} |
-      {{#link-to ruta (query-params anio="2021") class="dark-gray link"}}2021{{/link-to}} |
-      {{#link-to ruta (query-params anio="2022") class="dark-gray link"}}2022{{/link-to}} |
-      {{#link-to ruta (query-params anio="2023") class="dark-gray link"}}2023{{/link-to}}
-    </div>
-    {{#link-to ruta (query-params categoria="") class="db ml3 mr3 pv2 black asap f5 link"}}
-      <img class="v-base" height=13 src="/markers/gray-marker.png"> Todas las categorias
-    {{/link-to}}
-    {{#link-to ruta (query-params categoria="Ataques a personas") class="db ml3 mr3 pv2 black asap f5 link"}}
-      <img class="v-base" height=13 src="/markers/red-marker.png"> Ataques a personas
-    {{/link-to}}
-    {{#link-to ruta (query-params categoria="Muerte por travesticidio social") class="db ml3 mr3 pv2 black asap f5 link"}}
-      <img class="v-base" height=13 src="/markers/yellow-marker.png"> Muerte por travesticidio social
-    {{/link-to}}
-    {{#link-to ruta (query-params categoria="Asesinatos") class="db ml3 mr3 pv2 black asap f5 link"}}
-      <img class="v-base" height=13 src="/markers/light-blue-marker.png"> Asesinatos
-    {{/link-to}}
-    {{#link-to ruta (query-params categoria="Ataques a lugares") class="db ml3 mr3 pv2 black asap f5 link"}}
-      <img class="v-base" height=13 src="/markers/pink-marker.png"> Ataques a lugares
-    {{/link-to}}
+<div class="referencias pb2">
+  {{#if homeLink}}
+  {{#link-to 'app'}}<img src="/imagenes/presentes-logo.png" width=auto height=32 alt="" class='mb2'>{{/link-to}}
+  {{else}}
+  <img src="/imagenes/presentes-logo.png" width=auto height=32 alt="" class='mb2'>
+  {{/if}}
+  <div class="ml3 mr3 mb2 tl f5 asap">
+    Año:
+    <select onchange={{action "cambiarAnio" value="target.value" }} class="asap f5 pa1 dark-gray">
+      <option value="--">----</option>
+      <option value="2019" selected={{eq anio "2019" }}>2019</option>
+      <option value="2020" selected={{eq anio "2020" }}>2020</option>
+      <option value="2021" selected={{eq anio "2021" }}>2021</option>
+      <option value="2022" selected={{eq anio "2022" }}>2022</option>
+      <option value="2023" selected={{eq anio "2023" }}>2023</option>
+      <option value="2024" selected={{eq anio "2024" }}>2024</option>
+      <option value="2025" selected={{eq anio "2025" }}>2025</option>
+    </select>
   </div>
+
+  {{#link-to ruta (query-params categoria="") class="db ml3 mr3 pv2 black asap f5 link"}}
+  <img class="v-base" height=13 src="/markers/gray-marker.png"> Todas las categorias
+  {{/link-to}}
+  {{#link-to ruta (query-params categoria="Ataques a personas") class="db ml3 mr3 pv2 black asap f5 link"}}
+  <img class="v-base" height=13 src="/markers/red-marker.png"> Ataques a personas
+  {{/link-to}}
+  {{#link-to ruta (query-params categoria="Muerte por travesticidio social") class="db ml3 mr3 pv2 black asap f5 link"}}
+  <img class="v-base" height=13 src="/markers/yellow-marker.png"> Muerte por travesticidio social
+  {{/link-to}}
+  {{#link-to ruta (query-params categoria="Asesinatos") class="db ml3 mr3 pv2 black asap f5 link"}}
+  <img class="v-base" height=13 src="/markers/light-blue-marker.png"> Asesinatos
+  {{/link-to}}
+  {{#link-to ruta (query-params categoria="Ataques a lugares") class="db ml3 mr3 pv2 black asap f5 link"}}
+  <img class="v-base" height=13 src="/markers/pink-marker.png"> Ataques a lugares
+  {{/link-to}}
+</div>
 {{/if}}
 {{#leaflet-map lat=latitud lng=longitud zoom=zoom}}
-  {{tile-layer url="https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png" attribution='<a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | <a href="http://www.ign.gob.ar/AreaServicios/Argenmap/IntroduccionV2" target="_blank">Instituto Geográfico Nacional</a> + <a href="http://www.osm.org/copyright" target="_blank">OpenStreetMap</a>'}}
-    {{#each model.data as |m|}}
-      {{#marker-layer lat=m.latitud lng=m.longitud onClick=(action "accionDePrueba" m) icon=(category-icon m.categoria) as |marker|}}
-        {{presentes-ui/mapa-popup
-          nombre=m.nombreCompleto
-          fecha=m.fechaDelHecho
-          calle=m.calle
-          localidad=m.localidad
-          provincia=m.provincia
-          id=m.id
-          ficha=true
-          nota=m.linkDeNota
-          categoria=m.categoria
-          copete=m.copete
-          modelo=m
-          imagen=m.imagen_url
-          edad=m.edad
-        }}
-      {{/marker-layer}}
-    {{/each}}
+{{tile-layer
+url="https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png"
+attribution='<a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | <a
+  href="http://www.ign.gob.ar/AreaServicios/Argenmap/IntroduccionV2" target="_blank">Instituto Geográfico Nacional</a> +
+<a href="http://www.osm.org/copyright" target="_blank">OpenStreetMap</a>'}}
+{{#each model.data as |m|}}
+{{#marker-layer lat=m.latitud lng=m.longitud onClick=(action "accionDePrueba" m) icon=(category-icon m.categoria) as
+|marker|}}
+{{presentes-ui/mapa-popup
+nombre=m.nombreCompleto
+fecha=m.fechaDelHecho
+calle=m.calle
+localidad=m.localidad
+provincia=m.provincia
+id=m.id
+ficha=true
+nota=m.linkDeNota
+categoria=m.categoria
+copete=m.copete
+modelo=m
+imagen=m.imagen_url
+edad=m.edad
+}}
+{{/marker-layer}}
+{{/each}}
 {{/leaflet-map}}

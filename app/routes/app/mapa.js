@@ -15,11 +15,15 @@ export default Route.extend({
     return respuesta;
   }),
   model(params) {
-    params.anio = params.anio || "2021";
+    params.anio = params.anio || "2023";
     params.categoria = params.categoria || "";
     return this.get("obtenerCasos").perform({
       anio: params.anio,
       categoria: params.categoria
     });
+  },
+  setupController(controller, model) {
+    this._super(controller, model);
+    controller.set('anio', this.paramsFor('app.mapa').anio || "2023");
   }
 });
