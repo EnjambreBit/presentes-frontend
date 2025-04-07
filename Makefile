@@ -44,14 +44,12 @@ deploy:
 	@API_URL="https://presentes-backend.enjambrelab.ar" yarn build --prod
 	@touch dist/.static
 	@echo "Compilando aplicación en modo producción"
-	@echo "Clonando repositorio para realizar el deploy."
-	@rm -rf publish
-	@git clone dokku@157.230.229.207:presentes publish
-	@echo "Moviendo archivos..."
-	@cp -r dist/* publish/
-	@cp Dockerfile config/nginx.conf publish/
-	@echo "Realizando deploy..."
-	@cd publish; git add .; git config user.email "ihoffmann@enjambrebit.com.ar"; git config user.name "EnjambreBit"; git commit -am 'rebuild' --allow-empty; git push -f
+	@cp Dockerfile dist/
+	@cp config/nginx.conf dist/
+	@rm -f dist/.buildpacks
+	@cd dist && git init && git add . && git commit -m "Deploy"
+	@cd dist && git remote add dokku dokku@157.230.229.207:presentes
+	@cd dist && git push -f dokku master:main
 
 version:
 	yarn release
