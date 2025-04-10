@@ -1,7 +1,7 @@
-
 {{#presentes-ui/formulario
-  tarea=submit
-  model=(changeset modelo validaciones) as |f|}}
+  tarea=submit model=(changeset modelo validaciones)
+  as |f|
+}}
 
   {{#f.personalizado etiqueta="Categoría" name="categoria" as |i|}}
     {{presentes-selector/simple-select
@@ -9,24 +9,30 @@
       optionLabel="nombre"
       valor=i.value
       disabled=false
-      cuandoSelecciona=i.update}}
+      cuandoSelecciona=i.update
+    }}
   {{/f.personalizado}}
 
   {{#f.personalizado etiqueta="Etiquetas" name="etiquetas" as |i|}}
     {{presentes-selector/etiquetas
-        valor=i.value
-        cuandoSelecciona=i.update
-        css="w-100 v-mid"}}
+      valor=i.value
+      cuandoSelecciona=i.update
+      css="w-100 v-mid"
+    }}
   {{/f.personalizado}}
 
   {{#tiene-permiso permiso="casos.puede_validar"}}
-    {{#f.personalizado etiqueta="Estado de publicación" name="estadoDePublicacion" as |i|}}
+    {{#f.personalizado
+      etiqueta="Estado de publicación" name="estadoDePublicacion"
+      as |i|
+    }}
       {{presentes-selector/simple-select
         tarea=estadosDePublicacion
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
   {{/tiene-permiso}}
 
@@ -36,7 +42,11 @@
     <h2>Datos generales</h2>
     {{f.input etiqueta="Nombre" atributo="nombre"}}
     {{#f.personalizado etiqueta="Foto" name="imagen" as |i|}}
-      {{presentes-ui/agregar-imagen-caso url=f.model.imagenUrl valor=i.value cuandoCambia=i.update}}
+      {{presentes-ui/agregar-imagen-caso
+        url=f.model.imagenUrl
+        valor=i.value
+        cuandoCambia=i.update
+      }}
     {{/f.personalizado}}
     {{f.input etiqueta="Calle" atributo="calle"}}
     {{f.input etiqueta="Localidad" atributo="localidad"}}
@@ -47,20 +57,41 @@
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
 
-    <div class="dn">
+    <div class="">
       <div class="flex w-100">
-          {{f.input etiqueta="Latitud" atributo="latitud" valor=lat}}
-          {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
+        {{f.input etiqueta="Latitud" atributo="latitud" valor=lat}}
+        {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
       </div>
-      <span class="gray dn">IMPORTANTE: Sólo completar Latitud y Longitud si al guardar el formulario no se puede encontrar la dirección automáticamente</span>
+      <span class="gray">IMPORTANTE: Sólo completar Latitud y Longitud si al
+        guardar el formulario no se puede encontrar la dirección automáticamente</span>
+    </div>
+    {{#if mensajeCoordenadasExito}}
+      <div class="alert alert-success">{{mensajeCoordenadasExito}}</div>
+    {{/if}}
+
+    {{#if mensajeCoordenadasError}}
+      <div class="alert alert-danger">{{mensajeCoordenadasError}}</div>
+    {{/if}}
+
+    <div class="flex justify-start mv2">
+      <button
+        type="button"
+        class="bg-blue white hover-bg-dark-blue outline-0 ba bg-animate hover-b--dark-blue b--blue br2 pa2 min-w4 pointer button  asap"
+        {{action (perform obtenerCoordenadas modelo)}}
+      >
+        {{#if obtenerCoordenadas.isRunning}}
+          <span>Obteniendo coordenadas...</span>
+        {{else}}
+          Intentar obtener coordenadas
+        {{/if}}
+      </button>
     </div>
     {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
-      {{presentes-ui/input-fecha
-          valor=fi.value
-          cuandoCambia=fi.update}}
+      {{presentes-ui/input-fecha valor=fi.value cuandoCambia=fi.update}}
     {{/f.personalizado}}
 
     {{f.textarea etiqueta="¿Cómo fue el ataque?" atributo="comoFueElAtaque"}}
@@ -71,16 +102,21 @@
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
 
-    {{#f.personalizado etiqueta="¿Existe registro fotográfico?" name="hayRegistroFotografico" as |i|}}
+    {{#f.personalizado
+      etiqueta="¿Existe registro fotográfico?" name="hayRegistroFotografico"
+      as |i|
+    }}
       {{presentes-selector/simple-select-enum
         tarea=opcionesSiNo
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
 
     {{#f.personalizado etiqueta="¿Hay denuncia?" name="hayDenuncia" as |i|}}
@@ -89,16 +125,21 @@
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
 
     {{#if (eq f.model.hayDenuncia "SI")}}
-      {{#f.personalizado etiqueta="Fecha de la denuncia" name="fechaDeDenuncia" as |fi|}}
-        {{presentes-ui/input-fecha
-            valor=fi.value
-            cuandoCambia=fi.update}}
+      {{#f.personalizado
+        etiqueta="Fecha de la denuncia" name="fechaDeDenuncia"
+        as |fi|
+      }}
+        {{presentes-ui/input-fecha valor=fi.value cuandoCambia=fi.update}}
       {{/f.personalizado}}
-      {{f.input etiqueta="¿Ante quién se hizo?" atributo="anteQuienSeHizoLaDenuncia"}}
+      {{f.input
+        etiqueta="¿Ante quién se hizo?"
+        atributo="anteQuienSeHizoLaDenuncia"
+      }}
     {{else if (eq f.model.hayDenuncia "NO")}}
       {{f.input etiqueta="¿Por qué no denunció?" atributo="porQueNoDenuncio"}}
     {{/if}}
@@ -110,7 +151,11 @@
     {{f.input etiqueta="Apellido" atributo="apellido"}}
 
     {{#f.personalizado etiqueta="Foto" name="imagen" as |i|}}
-      {{presentes-ui/agregar-imagen-caso url=f.model.imagenUrl valor=i.value cuandoCambia=i.update}}
+      {{presentes-ui/agregar-imagen-caso
+        url=f.model.imagenUrl
+        valor=i.value
+        cuandoCambia=i.update
+      }}
     {{/f.personalizado}}
 
     {{f.input etiqueta="Calle" atributo="calle"}}
@@ -122,69 +167,112 @@
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
 
-    <div class="dn">
+    <div class="">
       <div class="flex w-100">
-          {{f.input etiqueta="Latitud" atributo="latitud" valor=lat}}
-          {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
+        {{f.input etiqueta="Latitud" atributo="latitud" valor=lat}}
+        {{f.input etiqueta="Longitud" atributo="longitud" valor=lon}}
       </div>
-      <span class="gray">Sólo es necesario ingresar Latitud y Longitud si no se puede encontrar la dirección automáticamente</span>
+      <span class="gray">Sólo es necesario ingresar Latitud y Longitud si no se
+        puede encontrar la dirección automáticamente</span>
+    </div>
+
+    {{#if mensajeCoordenadasError}}
+      <div class="alert alert-danger">{{mensajeCoordenadasError}}</div>
+    {{/if}}
+
+    <div class="flex justify-start mv2">
+      <button
+        type="button"
+        class="bg-blue white hover-bg-dark-blue outline-0 ba bg-animate hover-b--dark-blue b--blue br2 pa2 min-w4 pointer button  asap"
+        {{action (perform obtenerCoordenadas modelo)}}
+      >
+        {{#if obtenerCoordenadas.isRunning}}
+          <span>Obteniendo coordenadas...</span>
+        {{else}}
+          Intentar obtener coordenadas
+        {{/if}}
+      </button>
     </div>
 
     {{#f.personalizado etiqueta="Fecha del hecho" name="fechaDelHecho" as |fi|}}
-      {{presentes-ui/input-fecha
-          valor=fi.value
-          cuandoCambia=fi.update}}
+      {{presentes-ui/input-fecha valor=fi.value cuandoCambia=fi.update}}
     {{/f.personalizado}}
 
-    {{#if (or (eq f.model.categoria.nombre 'Asesinatos') (eq f.model.categoria.nombre 'Ataques a personas'))}}
-      {{#f.personalizado etiqueta="¿Dónde ocurrió el hecho?" name="dondeOcurrioElHecho" as |i|}}
+    {{#if
+      (or
+        (eq f.model.categoria.nombre "Asesinatos")
+        (eq f.model.categoria.nombre "Ataques a personas")
+      )
+    }}
+      {{#f.personalizado
+        etiqueta="¿Dónde ocurrió el hecho?" name="dondeOcurrioElHecho"
+        as |i|
+      }}
         {{presentes-selector/simple-select
           tarea=lugaresDelHecho
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
-      {{#if (eq f.model.dondeOcurrioElHecho.nombre 'Espacio privado')}}
-        {{#f.personalizado etiqueta="Espacio privado" name="espacioPrivado" as |i|}}
+      {{#if (eq f.model.dondeOcurrioElHecho.nombre "Espacio privado")}}
+        {{#f.personalizado
+          etiqueta="Espacio privado" name="espacioPrivado"
+          as |i|
+        }}
           {{presentes-selector/simple-select
             tarea=espaciosPrivados
             optionLabel="nombre"
             valor=i.value
             disabled=false
-            cuandoSelecciona=i.update}}
+            cuandoSelecciona=i.update
+          }}
         {{/f.personalizado}}
-        {{#if (eq f.model.espacioPrivado.nombre 'Otro')}}
+        {{#if (eq f.model.espacioPrivado.nombre "Otro")}}
           {{f.input etiqueta="¿Cuál?" atributo="espacioPrivadoOtro"}}
         {{/if}}
       {{/if}}
 
-      {{#f.personalizado etiqueta="¿La víctima conocia al victimario?" name="laVictimaConociaAlVictimario" as |i|}}
+      {{#f.personalizado
+        etiqueta="¿La víctima conocia al victimario?"
+        name="laVictimaConociaAlVictimario"
+        as |i|
+      }}
         {{presentes-selector/simple-select-enum
           tarea=opcionesSiNo
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
     {{/if}}
 
-    {{#f.personalizado etiqueta="Mecánica del hecho" name="mecanicaDelHecho" as |i|}}
+    {{#f.personalizado
+      etiqueta="Mecánica del hecho" name="mecanicaDelHecho"
+      as |i|
+    }}
       {{presentes-selector/simple-select
         tarea=mecanicasDelHecho
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
-    {{#if (eq f.model.mecanicaDelHecho.nombre 'Otra')}}
+    {{#if (eq f.model.mecanicaDelHecho.nombre "Otra")}}
       {{f.input etiqueta="¿Cuál?" atributo="mecanicaDelHechoOtro"}}
     {{/if}}
 
-    {{f.textarea etiqueta="Descripción del hecho" atributo="descripcionDelHecho"}}
+    {{f.textarea
+      etiqueta="Descripción del hecho"
+      atributo="descripcionDelHecho"
+    }}
 
     {{f.input etiqueta="Edad" atributo="edad"}}
     {{f.input etiqueta="Lugar de nacimiento" atributo="lugarDeNacimiento"}}
@@ -195,7 +283,8 @@
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
     {{#if (eq f.model.esMigrante "SI")}}
       {{f.input etiqueta="País de origen" atributo="paisDeOrigen"}}
@@ -207,7 +296,8 @@
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
 
     <div class="w-100 bb b--light-gray pv2 mb2"></div>
@@ -219,213 +309,324 @@
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
 
     {{#if (eq f.model.hayDenuncia "SI")}}
-      {{#f.personalizado etiqueta="Fecha de la denuncia" name="fechaDeDenuncia" as |fi|}}
-        {{presentes-ui/input-fecha
-            valor=fi.value
-            cuandoCambia=fi.update}}
+      {{#f.personalizado
+        etiqueta="Fecha de la denuncia" name="fechaDeDenuncia"
+        as |fi|
+      }}
+        {{presentes-ui/input-fecha valor=fi.value cuandoCambia=fi.update}}
       {{/f.personalizado}}
-      {{f.input etiqueta="¿Ante quién se hizo?" atributo="anteQuienSeHizoLaDenuncia"}}
+      {{f.input
+        etiqueta="¿Ante quién se hizo?"
+        atributo="anteQuienSeHizoLaDenuncia"
+      }}
 
-      {{#f.personalizado etiqueta="La denuncia: ¿Reconoce su identidad de género?" name="laDenunciaReconoceGenero" as |i|}}
+      {{#f.personalizado
+        etiqueta="La denuncia: ¿Reconoce su identidad de género?"
+        name="laDenunciaReconoceGenero"
+        as |i|
+      }}
         {{presentes-selector/simple-select-enum
           tarea=opcionesSiNo
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
     {{else if (eq f.model.hayDenuncia "NO")}}
       {{f.input etiqueta="¿Por qué no denunció?" atributo="porQueNoDenuncio"}}
     {{/if}}
 
-    {{#f.personalizado etiqueta="Organizaciones que acompañan" name="denunciaOrganizaciones" as |i|}}
+    {{#f.personalizado
+      etiqueta="Organizaciones que acompañan" name="denunciaOrganizaciones"
+      as |i|
+    }}
       {{presentes-selector/organizaciones
-          valor=i.value
-          cuandoSelecciona=i.update
-          css="w-100 v-mid"}}
+        valor=i.value
+        cuandoSelecciona=i.update
+        css="w-100 v-mid"
+      }}
     {{/f.personalizado}}
 
     <div class="w-100 bb b--light-gray pv2 mb2"></div>
 
     <h2>Causa judicial</h2>
-    {{#f.personalizado etiqueta="¿Hay causa judicial?" name="hayCausaJudicial" as |i|}}
+    {{#f.personalizado
+      etiqueta="¿Hay causa judicial?" name="hayCausaJudicial"
+      as |i|
+    }}
       {{presentes-selector/simple-select-enum
         tarea=opcionesCausaJudicial
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
     {{#if (eq f.model.hayCausaJudicial "SI")}}
       {{f.input etiqueta="Título de la causa" atributo="cjTituloDeLaCausa"}}
       {{f.input etiqueta="Número de la causa" atributo="cjNumeroDeLaCausa"}}
       {{f.input etiqueta="Año de inicio" atributo="cjAnioDeInicio"}}
       {{f.input etiqueta="¿Dónde se tramita?" atributo="cjDondeSeTramita"}}
-      {{f.input etiqueta="Instancia judicial en que se encuentra" atributo="cjInstancia"}}
-      {{#f.personalizado etiqueta="¿Respetaron el nombre de la identidad de género?" name="cjRespetaronNombreDeIg" as |i|}}
+      {{f.input
+        etiqueta="Instancia judicial en que se encuentra"
+        atributo="cjInstancia"
+      }}
+      {{#f.personalizado
+        etiqueta="¿Respetaron el nombre de la identidad de género?"
+        name="cjRespetaronNombreDeIg"
+        as |i|
+      }}
         {{presentes-selector/simple-select-enum
           tarea=opcionesSiNo
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
-      {{f.input etiqueta="Organismos públicos que acompañan" atributo="cjOrganismosPublicos"}}
+      {{f.input
+        etiqueta="Organismos públicos que acompañan"
+        atributo="cjOrganismosPublicos"
+      }}
 
-      {{#f.personalizado etiqueta="Organizaciones que acompañan" name="cjOrganizaciones" as |i|}}
+      {{#f.personalizado
+        etiqueta="Organizaciones que acompañan" name="cjOrganizaciones"
+        as |i|
+      }}
         {{presentes-selector/organizaciones
-            valor=i.value
-            cuandoSelecciona=i.update
-            css="w-100 v-mid"}}
+          valor=i.value
+          cuandoSelecciona=i.update
+          css="w-100 v-mid"
+        }}
       {{/f.personalizado}}
 
-      {{f.textarea etiqueta="Otras organizaciones" atributo="cjOtrasOrganizaciones"}}
+      {{f.textarea
+        etiqueta="Otras organizaciones"
+        atributo="cjOtrasOrganizaciones"
+      }}
 
-      {{#f.personalizado etiqueta="¿El abogade es de la defensa pública o privada?" name="cjCuentaConDefensa" as |i|}}
+      {{#f.personalizado
+        etiqueta="¿El abogade es de la defensa pública o privada?"
+        name="cjCuentaConDefensa"
+        as |i|
+      }}
         {{presentes-selector/simple-select-enum
           tarea=opcionesPublicaPrivada
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
 
-      {{#f.personalizado etiqueta="¿Hay informe forense?" name="cjHayInformeForense" as |i|}}
+      {{#f.personalizado
+        etiqueta="¿Hay informe forense?" name="cjHayInformeForense"
+        as |i|
+      }}
         {{presentes-selector/simple-select-enum
           tarea=opcionesSiNo
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
     {{/if}}
 
     <div class="w-100 bb b--light-gray pv2 mb2"></div>
 
-    {{#f.personalizado etiqueta="¿Hubo violencia institucional?" name="huboViolenciaInstitucional" as |i|}}
+    {{#f.personalizado
+      etiqueta="¿Hubo violencia institucional?"
+      name="huboViolenciaInstitucional"
+      as |i|
+    }}
       {{presentes-selector/simple-select-enum
         tarea=opcionesSiNo
         optionLabel="nombre"
         valor=i.value
         disabled=false
-        cuandoSelecciona=i.update}}
+        cuandoSelecciona=i.update
+      }}
     {{/f.personalizado}}
     {{#if (eq f.model.huboViolenciaInstitucional "SI")}}
-      {{#f.personalizado etiqueta="¿De qué tipo?" name="institucionInvolucrada" as |i|}}
+      {{#f.personalizado
+        etiqueta="¿De qué tipo?" name="institucionInvolucrada"
+        as |i|
+      }}
         {{presentes-selector/simple-select
           tarea=instituciones
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
-      {{#if (eq f.model.institucionInvolucrada.nombre 'Otra')}}
+      {{#if (eq f.model.institucionInvolucrada.nombre "Otra")}}
         {{f.input etiqueta="¿Cuál?" atributo="institucionInvolucradaOtro"}}
       {{/if}}
-      {{f.input etiqueta="¿De qué institución?" atributo="violenciaInstitucionNombre"}}
+      {{f.input
+        etiqueta="¿De qué institución?"
+        atributo="violenciaInstitucionNombre"
+      }}
       {{f.input etiqueta="Localidad" atributo="violenciaInstitucionLocalidad"}}
-      {{#f.personalizado etiqueta="Provincia" name="violenciaInstitucionProvincia" as |i|}}
+      {{#f.personalizado
+        etiqueta="Provincia" name="violenciaInstitucionProvincia"
+        as |i|
+      }}
         {{presentes-selector/simple-select
           tarea=provincias
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
     {{/if}}
 
     {{f.textarea etiqueta="Observaciones" atributo="observaciones"}}
 
-    {{#if (or (eq f.model.categoria.nombre "Asesinatos") (eq f.model.categoria.nombre "Muerte por travesticidio social"))}}
+    {{#if
+      (or
+        (eq f.model.categoria.nombre "Asesinatos")
+        (eq f.model.categoria.nombre "Muerte por travesticidio social")
+      )
+    }}
       {{f.input etiqueta="Causa de la muerte" atributo="causaDeLaMuerte"}}
-      {{#f.personalizado etiqueta="¿Tenía obra social?" name="teniaObraSocial" as |i|}}
+      {{#f.personalizado
+        etiqueta="¿Tenía obra social?" name="teniaObraSocial"
+        as |i|
+      }}
         {{presentes-selector/simple-select-enum
           tarea=opcionesSiNo
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
 
       {{#if (eq f.model.tieneAccesoAPrestacionesDeSalud "SI")}}
         {{f.input etiqueta="¿Cuáles?" atributo="prestacionesDeSalud"}}
       {{/if}}
 
-      {{f.input etiqueta="¿Cuál era su ocupación o trabajo?" atributo="ocupacion"}}
+      {{f.input
+        etiqueta="¿Cuál era su ocupación o trabajo?"
+        atributo="ocupacion"
+      }}
 
-      {{#f.personalizado etiqueta="¿Qué estudios tiene?" name="queEstudiosTiene" as |i|}}
+      {{#f.personalizado
+        etiqueta="¿Qué estudios tiene?" name="queEstudiosTiene"
+        as |i|
+      }}
         {{presentes-selector/simple-select
           tarea=estudios
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
 
-      {{#f.personalizado etiqueta="¿Estaba en situación de calle?" name="estabaEnSituacionDeCalle" as |i|}}
+      {{#f.personalizado
+        etiqueta="¿Estaba en situación de calle?"
+        name="estabaEnSituacionDeCalle"
+        as |i|
+      }}
         {{presentes-selector/simple-select-enum
           tarea=opcionesSiNo
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
 
-      {{f.input etiqueta="¿Dónde vivía? (Barrio o localidad)" atributo="dondeVivia"}}
+      {{f.input
+        etiqueta="¿Dónde vivía? (Barrio o localidad)"
+        atributo="dondeVivia"
+      }}
     {{/if}}
 
     <div class="w-100 bb b--light-gray pv2 mb2"></div>
     {{#if (eq f.model.categoria.nombre "Muerte por travesticidio social")}}
       <h2>Situación de encierro</h2>
-      {{#f.personalizado etiqueta="¿Estaba detenida o internada?" name="estabaDetenida" as |i|}}
+      {{#f.personalizado
+        etiqueta="¿Estaba detenida o internada?" name="estabaDetenida"
+        as |i|
+      }}
         {{presentes-selector/simple-select-enum
           tarea=opcionesSiNo
           optionLabel="nombre"
           valor=i.value
           disabled=false
-          cuandoSelecciona=i.update}}
+          cuandoSelecciona=i.update
+        }}
       {{/f.personalizado}}
       {{#if (eq f.model.estabaDetenida "SI")}}
         {{f.input etiqueta="¿Dónde?" atributo="nombreDelPenal"}}
         {{f.input etiqueta="Localidad" atributo="localidadDelPenal"}}
-        {{#f.personalizado etiqueta="Provincia" name="provinciaDelPenal" as |i|}}
+        {{#f.personalizado
+          etiqueta="Provincia" name="provinciaDelPenal"
+          as |i|
+        }}
           {{presentes-selector/simple-select
             tarea=provincias
             optionLabel="nombre"
             valor=i.value
             disabled=false
-            cuandoSelecciona=i.update}}
+            cuandoSelecciona=i.update
+          }}
         {{/f.personalizado}}
-        {{f.input etiqueta="¿Desde cuándo?" atributo="desdeCuandoEstabaEncerrada"}}
+        {{f.input
+          etiqueta="¿Desde cuándo?"
+          atributo="desdeCuandoEstabaEncerrada"
+        }}
 
-        {{#f.personalizado etiqueta="¿Tenía condena o prisión preventiva?" name="teniaPrisionPreventiva" as |i|}}
+        {{#f.personalizado
+          etiqueta="¿Tenía condena o prisión preventiva?"
+          name="teniaPrisionPreventiva"
+          as |i|
+        }}
           {{presentes-selector/simple-select-enum
             tarea=opcionesSiNo
             optionLabel="nombre"
             valor=i.value
             disabled=false
-            cuandoSelecciona=i.update}}
+            cuandoSelecciona=i.update
+          }}
         {{/f.personalizado}}
-        {{f.input etiqueta="Título de la causa en la Justicia" atributo="tituloDeLaCausaEnLaJusticia"}}
+        {{f.input
+          etiqueta="Título de la causa en la Justicia"
+          atributo="tituloDeLaCausaEnLaJusticia"
+        }}
       {{/if}}
     {{/if}}
-{{/if}}
+  {{/if}}
 
-    <div class="w-100 bb b--light-gray pv2 mb2"></div>
+  <div class="w-100 bb b--light-gray pv2 mb2"></div>
 
-    <h3>La información de este formulario fue brindada por:</h3>
-    {{f.input etiqueta="Nombre y apellido" atributo="nombreDeQuienBrindoInformacion"}}
-    {{f.input etiqueta="Teléfono" atributo="telefonoDeQuienBrindoInformacion"}}
+  <h3>La información de este formulario fue brindada por:</h3>
+  {{f.input
+    etiqueta="Nombre y apellido"
+    atributo="nombreDeQuienBrindoInformacion"
+  }}
+  {{f.input etiqueta="Teléfono" atributo="telefonoDeQuienBrindoInformacion"}}
 
-    <div class="w-100 bb b--light-gray pv2 mb2"></div>
-    {{f.input etiqueta="Link a nota" atributo="linkDeNota"}}
-    {{f.textarea etiqueta="Copete" atributo="copete"}}
+  <div class="w-100 bb b--light-gray pv2 mb2"></div>
+  {{f.input etiqueta="Link a nota" atributo="linkDeNota"}}
+  {{f.textarea etiqueta="Copete" atributo="copete"}}
   {{#f.botones as |botones|}}
-    {{botones.secundario etiqueta="Cancelar" class="fr" accion=(transition-to "app.casos.detalle" modelo)}}
+    {{botones.secundario
+      etiqueta="Cancelar"
+      class="fr"
+      accion=(transition-to "app.casos.detalle" modelo)
+    }}
     {{botones.separador}}
     {{botones.primario etiqueta=etiqueta accion=f.submit}}
   {{/f.botones}}

@@ -60,34 +60,35 @@ export default Component.extend({
     let calle = modelo.get("calle");
     let localidad = modelo.get("localidad");
     let provincia = modelo.get("provincia.nombre");
-    //let categoria = modelo.get("categoria.nombre");
-    let url =
-      "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=";
+    let url = "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=";
     let query;
-
+  
     if (calle) {
       query = calle + "+" + localidad + "+" + provincia;
     } else {
       query = localidad + "+" + provincia;
     }
-
+  
     url = url + encodeURI(query);
-    $.getJSON(url, function(data) {
-      let lat;
-      let lon;
-      if (data.get("length") === 0) {
-        lat = "";
-        lon = "";
-      } else {
-        lat = data[0].lat;
-        lon = data[0].lon;
-      }
-      modelo.set("latitud", lat);
-      modelo.set("longitud", lon);
-      let lat_lon = { lat, lon };
-      return lat_lon;
+    
+    return new Promise((resolve, reject) => {
+      $.getJSON(url, function(data) {
+        let lat;
+        let lon;
+        if (!data || data.length === 0) {
+          lat = "";
+          lon = "";
+        } else {
+          lat = data[0].lat;
+          lon = data[0].lon;
+        }
+        modelo.set("latitud", lat);
+        modelo.set("longitud", lon);
+        resolve({ lat, lon });
+      }).fail(reject);
     });
   },
+  
   provincias: task(function*() {
     let provincias = yield this.store.findAll("provincia");
     return provincias;
@@ -179,14 +180,39 @@ export default Component.extend({
   submit: task(function*(modelo) {
     let lat = modelo.get("latitud");
     let lon = modelo.get("longitud");
-    if (!lat || !lon) {
-      this.get_lat_lon(modelo);
-      yield timeout(1000); // TO-DO: hacer que se guarde el modelo una vez que se obtuvieron las coordenadas.
+    
+    // Only attempt geocoding if coordinates are missing AND
+    // we have address components to geocode with
+    if ((!lat || !lon) && (modelo.get("localidad") && modelo.get("provincia"))) {
+      try {
+        yield this.get_lat_lon(modelo);
+      } catch(error) {
+        // Don't block form submission on geocoding failure
+      }
     }
-
+  
     yield modelo.save();
     this.router.transitionTo("app.casos.detalle", modelo.get("id"));
   }),
+  obtenerCoordenadas: task(function*(modelo) {
+    try {
+      let result = yield this.get_lat_lon(modelo);
+      if (result.lat && result.lon) {
+        this.set('mensajeCoordenadasExito', 'Coordenadas obtenidas con éxito');
+        yield timeout(3000);
+        this.set('mensajeCoordenadasExito', null);
+      } else {
+        this.set('mensajeCoordenadasError', 'No se encontraron coordenadas para esta dirección. Por favor ingrese manualmente.');
+        yield timeout(3000);
+        this.set('mensajeCoordenadasError', null);
+      }
+    } catch(error) {
+      this.set('mensajeCoordenadasError', 'Error al obtener coordenadas. Por favor ingrese manualmente.');
+      yield timeout(3000);
+      this.set('mensajeCoordenadasError', null);
+    }
+  })   ,
 
-  actions: {}
+  actions: { 
+  }
 });
