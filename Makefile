@@ -34,7 +34,7 @@ test_browser:
 	yarn test --server
 
 ejecutar:
-	yarn start
+	yarn start --port 4200
 
 ejecutar_con_mirage:
 	yarn start_mirage
@@ -49,7 +49,7 @@ deploy:
 	@rm -f dist/.buildpacks
 	@cd dist && git init && git add . && git commit -m "Deploy"
 	@cd dist && git remote add dokku dokku@157.230.229.207:presentes
-	@cd dist && git push -f dokku master:main
+	@cd dist && git push -f dokku main:main
 
 version:
 	yarn release

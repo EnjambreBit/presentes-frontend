@@ -11,11 +11,11 @@ export default Route.extend({
   anio: null,
   categoria: null,
   obtenerCasos: task(function*(query) {
-    let respuesta = yield this.api.obtenerCasos(query);
+    let respuesta = yield this.api.obtenerCasosPublicosParaMapa(query);
     return respuesta;
   }),
   model(params) {
-    params.anio = params.anio || "2023";
+    params.anio = params.anio || "";
     params.categoria = params.categoria || "";
     return this.get("obtenerCasos").perform({
       anio: params.anio,
@@ -24,6 +24,6 @@ export default Route.extend({
   },
   setupController(controller, model) {
     this._super(controller, model);
-    controller.set('anio', this.paramsFor('app.mapa').anio || "2023");
+    controller.set('anio', this.paramsFor('app.mapa').anio || "");
   }
 });

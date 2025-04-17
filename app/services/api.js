@@ -81,6 +81,8 @@ export default Service.extend({
   },
 
   obtenerCasosPublicosParaMapa(filtros) {
+    filtros = filtros || {};
+    filtros.page_size = 1000;
     let params = new URLSearchParams(filtros).toString();
     return this.fetch(
       `casos/obtener-casos-publicos-para-mapa?${params}`,
